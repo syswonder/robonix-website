@@ -38,12 +38,12 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-[10px]">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Logo className="-ml-[150px]" />
+        <Logo />
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-1.5 md:flex translate-x-[270px]">
+        <div className="hidden items-center gap-1.5 md:flex">
           {NAV_LINKS.map((link, i) => (
             <motion.a
               key={link.href}

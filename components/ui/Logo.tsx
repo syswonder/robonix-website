@@ -16,7 +16,7 @@ export default function Logo({ src, className = '' }: LogoProps) {
 
   return (
     <a href="#" className={`font-mono text-xl font-bold tracking-tight ${className}`}>
-      <span className="text-gradient text-[23px]">ROBONIX</span>
+      <span className="text-gradient">ROBONIX</span>
     </a>
   );
 }
