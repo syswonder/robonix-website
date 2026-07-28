@@ -32,7 +32,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-[36px] z-50 transition-all duration-500 ${
         scrolled
           ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50'
           : 'bg-transparent'
