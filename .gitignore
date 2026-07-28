@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+.pnp
+
+# next.js build output
+.next/
+site/
+
+# environment
+.env
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# debug
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
