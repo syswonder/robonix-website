@@ -5,9 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --color-cyber-cyan: #00d4ff;
-  --color-cyber-purple: #7c3aed;
-  --color-space-darkest: #030712;
+  --color-primary: #2563eb;
+  --color-accent: #0ea5e9;
 }
 
 * {
@@ -19,8 +18,8 @@ html {
 }
 
 body {
-  background-color: #030712;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
@@ -30,40 +29,40 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d4ff, #7c3aed);
+  background: linear-gradient(180deg, #2563eb, #0ea5e9);
   border-radius: 3px;
 }
 
 /* Selection highlight */
 ::selection {
-  background: rgba(0, 212, 255, 0.3);
-  color: #fff;
+  background: rgba(37, 99, 235, 0.2);
+  color: #0f172a;
 }
 
 /* Glow utility */
 .glow-text {
-  text-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(0, 212, 255, 0.2);
+  text-shadow: 0 0 40px rgba(37, 99, 235, 0.3), 0 0 80px rgba(37, 99, 235, 0.1);
 }
 
 .glow-border {
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.15), inset 0 0 15px rgba(37, 99, 235, 0.03);
 }
 
 /* Grid background pattern */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 /* Gradient text utility */
 .text-gradient {
-  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,7 +70,8 @@ body {
 
 /* Glass morphism */
 .glass {
-  background: rgba(17, 17, 24, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }

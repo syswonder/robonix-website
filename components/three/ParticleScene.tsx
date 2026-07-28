@@ -15,8 +15,8 @@ function ParticleField() {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
-    const cyan = new THREE.Color('#00d4ff');
-    const purple = new THREE.Color('#7c3aed');
+    const cyan = new THREE.Color('#2563eb');
+    const purple = new THREE.Color('#0ea5e9');
 
     for (let i = 0; i < count; i++) {
       // Sphere distribution with variable radius
@@ -132,7 +132,7 @@ function ConnectionLines() {
   return (
     <lineSegments ref={linesRef} geometry={geometry}>
       <lineBasicMaterial
-        color="#00d4ff"
+        color="#2563eb"
         transparent
         opacity={0.03}
         blending={THREE.AdditiveBlending}

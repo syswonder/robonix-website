@@ -34,16 +34,16 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50'
           : 'bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-[10px]">
         {/* Logo */}
-        <Logo />
+        <Logo className="-ml-[150px]" />
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1.5 md:flex translate-x-[270px]">
           {NAV_LINKS.map((link, i) => (
             <motion.a
               key={link.href}
@@ -54,7 +54,7 @@ export default function Navbar() {
               href={link.href}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
+              className="rounded-lg px-5 py-3 text-lg font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600"
             >
               {t(link.label, locale)}
             </motion.a>
@@ -66,7 +66,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             onClick={toggleLocale}
-            className="ml-2 rounded-lg border border-white/10 px-3 py-1.5 font-mono text-xs text-gray-400 transition-all hover:border-cyber-cyan/50 hover:text-cyber-cyan"
+            className="ml-2 rounded-lg border border-slate-200 px-4 py-2.5 font-mono text-base text-slate-600 transition-all hover:border-blue-500/50 hover:text-blue-600"
           >
             {locale === 'en' ? '中文' : 'EN'}
           </motion.button>
@@ -80,15 +80,15 @@ export default function Navbar() {
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-white"
+            className="block h-0.5 w-6 bg-slate-900"
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6 bg-white"
+            className="block h-0.5 w-6 bg-slate-900"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-white"
+            className="block h-0.5 w-6 bg-slate-900"
           />
         </button>
       </nav>
@@ -101,7 +101,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden border-t border-white/5 bg-space-dark/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-slate-200/60 bg-white/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((link) => (
@@ -111,7 +111,7 @@ export default function Navbar() {
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
+                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600"
                 >
                   {t(link.label, locale)}
                 </a>
@@ -121,7 +121,7 @@ export default function Navbar() {
                   toggleLocale();
                   setMobileOpen(false);
                 }}
-                className="mt-2 rounded-lg border border-white/10 px-3 py-2 font-mono text-sm text-gray-400 hover:text-cyber-cyan"
+                className="mt-2 rounded-lg border border-slate-200 px-4 py-2.5 font-mono text-base text-slate-600 hover:text-blue-600"
               >
                 {locale === 'en' ? '切换到中文' : 'Switch to English'}
               </button>

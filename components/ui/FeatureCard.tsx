@@ -21,7 +21,7 @@ export default function FeatureCard({ icon, title, description, index }: Feature
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="group relative rounded-2xl border border-space-border bg-space-card p-8 transition-colors hover:border-white/10"
+      className="group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-colors hover:border-blue-300 hover:shadow-md"
     >
       {/* Hover glow effect */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
@@ -32,8 +32,8 @@ export default function FeatureCard({ icon, title, description, index }: Feature
       <div className="mb-5 text-4xl">{icon}</div>
 
       {/* Content */}
-      <h3 className="mb-3 text-xl font-semibold text-white">{t(title, locale)}</h3>
-      <p className="text-sm leading-relaxed text-gray-400">{t(description, locale)}</p>
+      <h3 className="mb-3 text-xl font-semibold text-slate-900">{t(title, locale)}</h3>
+      <p className="text-sm leading-relaxed text-slate-600">{t(description, locale)}</p>
 
       {/* Border glow on hover */}
       <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 glow-border pointer-events-none" />

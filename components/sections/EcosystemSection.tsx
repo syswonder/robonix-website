@@ -33,16 +33,16 @@ export default function EcosystemSection() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -6 }}
-              className="group relative flex flex-col items-center rounded-2xl border border-white/5 bg-space-card/50 p-10 text-center backdrop-blur-sm transition-all hover:border-cyber-cyan/20 hover:bg-space-card"
+              className="group relative flex flex-col items-center rounded-2xl border border-slate-200 bg-white/80 p-10 text-center shadow-sm backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white hover:shadow-md"
             >
               <div className="mb-5 text-5xl">{item.icon}</div>
-              <h3 className="mb-3 text-xl font-semibold text-white">
+              <h3 className="mb-3 text-xl font-semibold text-slate-900">
                 {t(item.title, locale)}
               </h3>
-              <p className="text-sm leading-relaxed text-gray-400">
+              <p className="text-sm leading-relaxed text-slate-600">
                 {t(item.description, locale)}
               </p>
-              <span className="mt-5 inline-flex items-center gap-1 text-xs font-medium text-cyber-cyan opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="mt-5 inline-flex items-center gap-1 text-xs font-medium text-blue-600 opacity-0 transition-opacity group-hover:opacity-100">
                 {locale === 'en' ? 'Visit' : '访问'} →
               </span>
             </motion.a>

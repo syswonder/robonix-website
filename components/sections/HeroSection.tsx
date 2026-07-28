@@ -13,7 +13,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 const ParticleScene = dynamic(() => import('@/components/three/ParticleScene'), {
   ssr: false,
   loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-b from-space-darkest via-space-darker to-space-darkest" />
+    <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
   ),
 });
 
@@ -95,11 +95,11 @@ export default function HeroSection() {
           <span className="text-gradient glow-text">{HERO.title}</span>
         </h1>
 
-        <p ref={subtitleRef} className="mb-6 text-xl text-gray-300 sm:text-2xl">
+        <p ref={subtitleRef} className="mb-6 text-xl text-slate-700 sm:text-2xl">
           {t(HERO.subtitle, locale)}
         </p>
 
-        <p ref={descRef} className="mx-auto mb-10 max-w-3xl text-base text-gray-500 sm:text-lg">
+        <p ref={descRef} className="mx-auto mb-10 max-w-3xl text-base text-slate-500 sm:text-lg">
           {t(HERO.description, locale)}
         </p>
 
@@ -110,7 +110,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full bg-gradient-to-r from-cyber-cyan to-cyber-purple px-8 py-3.5 font-semibold text-white shadow-lg shadow-cyber-purple/25 transition-shadow hover:shadow-xl hover:shadow-cyber-purple/40"
+            className="rounded-full bg-gradient-to-r from-cyber-cyan to-cyber-purple px-8 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-shadow hover:shadow-xl hover:shadow-blue-500/40"
           >
             {t(HERO.cta, locale)}
           </motion.a>
@@ -121,7 +121,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-white/10 px-8 py-3.5 font-semibold text-gray-300 transition-colors hover:border-white/20 hover:text-white"
+            className="rounded-full border border-slate-200 px-8 py-3.5 font-semibold text-slate-600 transition-colors hover:border-blue-400 hover:text-blue-600"
           >
             {t(HERO.cta2, locale)} →
           </motion.a>
@@ -138,7 +138,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-gray-600"
+          className="flex flex-col items-center gap-2 text-slate-400"
         >
           <span className="text-xs font-medium">
             {locale === 'en' ? 'Scroll' : '向下滚动'}

@@ -24,7 +24,7 @@ export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
         <span className="text-gradient">{t(title, locale)}</span>
       </h2>
       {subtitle && (
-        <p className="mx-auto max-w-3xl text-lg text-gray-400">{t(subtitle, locale)}</p>
+        <p className="mx-auto max-w-3xl text-lg text-slate-600">{t(subtitle, locale)}</p>
       )}
     </motion.div>
   );

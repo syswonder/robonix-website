@@ -72,7 +72,7 @@ export default function AboutSection() {
 
         <div className="mx-auto max-w-5xl" ref={contentRef}>
           {ABOUT.paragraphs.map((p, i) => (
-            <p key={i} className="mb-6 text-lg leading-relaxed text-gray-400">
+            <p key={i} className="mb-6 text-lg leading-relaxed text-slate-600">
               {t(p, locale)}
             </p>
           ))}
@@ -86,7 +86,7 @@ export default function AboutSection() {
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-medium text-gray-300 backdrop-blur-sm"
+              className="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 backdrop-blur-sm"
             >
               {tag}
             </span>
