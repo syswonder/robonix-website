@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
+import { useTheme } from '@/context/ThemeContext';
 import { t } from '@/lib/i18n';
-import { NAV_LINKS } from '@/lib/constants';
+import { NAV_LINKS, NAV_EXTERNAL_LINKS } from '@/lib/constants';
 import Logo from '@/components/ui/Logo';
 
 export default function Navbar() {
   const { locale, toggleLocale } = useLocale();
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -18,15 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const variants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.08, duration: 0.4 },
-    }),
-  };
-
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -34,61 +27,123 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed inset-x-0 top-[36px] z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50'
+          ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50 dark:border-slate-700/60 dark:shadow-slate-900/50'
           : 'bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         {/* Logo */}
-        <Logo />
+        <Logo size="sm" />
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-1.5 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link, i) => (
             <motion.a
               key={link.href}
-              custom={i}
-              initial="hidden"
-              animate="visible"
-              variants={variants}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
               href={link.href}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
-              className="rounded-lg px-5 py-3 text-lg font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
             >
               {t(link.label, locale)}
             </motion.a>
           ))}
+          {NAV_EXTERNAL_LINKS.map((link, i) => (
+            <motion.a
+              key={link.href}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (NAV_LINKS.length + i) * 0.05 }}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+            >
+              {t(link.label, locale)} ↗
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Right actions */}
+        <div className="hidden items-center gap-2 lg:flex">
+          {/* Theme toggle */}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            onClick={toggleTheme}
+            className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'light' ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            )}
+          </motion.button>
 
           {/* Language toggle */}
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.65 }}
             onClick={toggleLocale}
-            className="ml-2 rounded-lg border border-slate-200 px-4 py-2.5 font-mono text-base text-slate-600 transition-all hover:border-blue-500/50 hover:text-blue-600"
+            className="rounded-lg px-3 py-2 font-mono text-sm text-slate-500 transition-all hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
           >
             {locale === 'en' ? '中文' : 'EN'}
           </motion.button>
+
+          {/* GitHub link */}
+          <motion.a
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            href="https://github.com/syswonder/robonix"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+          >
+            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+          </motion.a>
+
+          {/* Get Started CTA */}
+          <motion.a
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.75 }}
+            href="https://robonix.syswonder.org/getting-started/quickstart.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/40"
+          >
+            {locale === 'en' ? 'Get Started' : '开始使用'}
+          </motion.a>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="flex flex-col gap-1.5 md:hidden"
+          className="flex flex-col gap-1.5 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-slate-900"
+            className="block h-0.5 w-6 bg-slate-700 dark:bg-slate-300"
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6 bg-slate-900"
+            className="block h-0.5 w-6 bg-slate-700 dark:bg-slate-300"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-slate-900"
+            className="block h-0.5 w-6 bg-slate-700 dark:bg-slate-300"
           />
         </button>
       </nav>
@@ -101,30 +156,55 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden border-t border-slate-200/60 bg-white/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-slate-200/60 bg-white/95 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/95 lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600"
+                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
                 >
                   {t(link.label, locale)}
                 </a>
               ))}
-              <button
-                onClick={() => {
-                  toggleLocale();
-                  setMobileOpen(false);
-                }}
-                className="mt-2 rounded-lg border border-slate-200 px-4 py-2.5 font-mono text-base text-slate-600 hover:text-blue-600"
+              {NAV_EXTERNAL_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-lg px-4 py-3 text-base text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                >
+                  {t(link.label, locale)} ↗
+                </a>
+              ))}
+              <hr className="my-2 border-slate-200 dark:border-slate-700" />
+              <div className="flex items-center gap-2 px-4 py-2">
+                <button
+                  onClick={toggleTheme}
+                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+                >
+                  {theme === 'light' ? '🌙' : '☀️'} {locale === 'en' ? 'Theme' : '主题'}
+                </button>
+                <button
+                  onClick={() => { toggleLocale(); setMobileOpen(false); }}
+                  className="rounded-lg px-3 py-2 font-mono text-sm text-slate-500 hover:text-blue-600 dark:text-slate-400"
+                >
+                  {locale === 'en' ? '切换到中文' : 'Switch to English'}
+                </button>
+              </div>
+              <a
+                href="https://github.com/syswonder/robonix"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-3 text-center font-semibold text-white shadow-md"
               >
-                {locale === 'en' ? '切换到中文' : 'Switch to English'}
-              </button>
+                {locale === 'en' ? 'Get Started' : '开始使用'}
+              </a>
             </div>
           </motion.div>
         )}

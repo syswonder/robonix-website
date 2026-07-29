@@ -1,22 +1,24 @@
 'use client';
 
-import { useLocale } from '@/context/LocaleContext';
-
 interface LogoProps {
-  src?: string;
   className?: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export default function Logo({ src, className = '' }: LogoProps) {
-  const { locale } = useLocale();
+const sizeMap = {
+  sm: 'h-6',
+  md: 'h-8',
+  lg: 'h-10',
+};
 
-  if (src) {
-    return <img src={src} alt="Robonix" className={`h-8 w-auto ${className}`} />;
-  }
-
+export default function Logo({ className = '', size = 'md' }: LogoProps) {
   return (
-    <a href="#" className={`font-mono text-xl font-bold tracking-tight ${className}`}>
-      <span className="text-gradient">ROBONIX</span>
+    <a href="#" className={`inline-flex items-center gap-3 font-mono text-xl font-bold tracking-tight ${className}`}>
+      <img
+        src="/images/robonix-logo.svg"
+        alt="Robonix"
+        className={`${sizeMap[size]} w-auto`}
+      />
     </a>
   );
 }

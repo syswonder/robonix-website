@@ -15,9 +15,9 @@ const sizeMap = {
 };
 
 const colorMap = {
-  cyan: 'bg-cyber-cyan/20',
-  purple: 'bg-cyber-purple/20',
-  mixed: 'bg-gradient-to-r from-cyber-cyan/20 to-cyber-purple/20',
+  cyan: 'bg-blue-600/20 dark:bg-blue-500/15',
+  purple: 'bg-sky-500/20 dark:bg-sky-400/15',
+  mixed: 'bg-gradient-to-r from-blue-600/20 to-sky-500/20 dark:from-blue-500/15 dark:to-sky-400/15',
 };
 
 export default function GlowEffect({

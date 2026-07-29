@@ -1,38 +1,29 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useLocale } from '@/context/LocaleContext';
-import { t } from '@/lib/i18n';
 import { FEATURES } from '@/lib/constants';
 import SectionTitle from '@/components/ui/SectionTitle';
 import FeatureCard from '@/components/ui/FeatureCard';
 import GlowEffect from '@/components/ui/GlowEffect';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function FeaturesSection() {
   const { locale } = useLocale();
-  const sectionRef = useRef<HTMLElement>(null);
 
   const sectionTitle = {
-    en: 'Features',
-    zh: '核心特性',
+    en: 'Core Capabilities',
+    zh: '核心能力',
   };
 
   const sectionSubtitle = {
-    en: 'Everything you need to build modern robot applications.',
-    zh: '构建现代机器人应用所需的一切。',
+    en: 'Everything you need to build modern embodied AI applications.',
+    zh: '构建现代具身智能应用所需的一切。',
   };
 
   return (
     <section
       id="features"
-      ref={sectionRef}
       className="relative overflow-hidden py-24 sm:py-32"
     >
-      {/* Background accents */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <GlowEffect color="cyan" size="lg" className="-left-40 top-1/2" />
 
