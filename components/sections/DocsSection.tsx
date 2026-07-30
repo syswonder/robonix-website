@@ -11,8 +11,6 @@ export default function DocsSection() {
 
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/50 dark:to-slate-950" />
-
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={DOCS.title} subtitle={DOCS.subtitle} />
 
@@ -28,7 +26,7 @@ export default function DocsSection() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -6 }}
-              className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600"
+              className="group relative flex flex-col rounded-2xl border border-slate-200 bg-[#fafbfc] p-8 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600"
             >
               <div className="mb-5 text-5xl transition-transform group-hover:scale-110">
                 {card.icon}

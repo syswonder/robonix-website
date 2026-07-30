@@ -28,7 +28,6 @@ export default function TeamSection() {
   return (
     <section id="team" className="relative overflow-hidden py-24 sm:py-32">
       <GlowEffect color="mixed" size="lg" className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={TEAM.title} subtitle={TEAM.subtitle} />
@@ -42,7 +41,7 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+              className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-[#fafbfc] px-6 py-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
             >
               <span className="text-2xl">{inst.logo}</span>
               <span className="font-semibold text-slate-900 dark:text-white">{inst.name}</span>
@@ -59,7 +58,7 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+              className="flex flex-col items-center rounded-2xl border border-slate-200 bg-[#fafbfc] p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
             >
               <span className="mb-2 font-mono text-3xl font-bold text-gradient">
                 {metric.value}
@@ -72,7 +71,7 @@ export default function TeamSection() {
         </div>
 
         {/* Testimonials carousel */}
-        <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
+        <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl border border-slate-200 bg-[#fafbfc] p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800/50">
           <AnimatePresence mode="wait">
             <motion.div
               key={testimonialIndex}

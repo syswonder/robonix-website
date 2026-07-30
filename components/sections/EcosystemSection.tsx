@@ -16,7 +16,6 @@ export default function EcosystemSection() {
       className="relative overflow-hidden py-24 sm:py-32"
     >
       <GlowEffect color="mixed" size="lg" className="-right-40 bottom-1/3" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={ECOSYSTEM.title} />
@@ -33,7 +32,7 @@ export default function EcosystemSection() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -6 }}
-              className="group relative flex flex-col items-center rounded-2xl border border-slate-200 bg-white/80 p-10 text-center shadow-sm backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white hover:shadow-md"
+              className="group relative flex flex-col items-center rounded-2xl border border-slate-200 bg-[#fafbfc]/80 p-10 text-center shadow-sm backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-[#fafbfc] hover:shadow-md"
             >
               <div className="mb-5 text-5xl">{item.icon}</div>
               <h3 className="mb-3 text-xl font-semibold text-slate-900">

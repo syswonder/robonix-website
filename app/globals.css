@@ -2,18 +2,257 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter/Inter-var-2.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/Inter/Inter/Inter-var-2.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+  unicode-range:
+    U+0000-00FF,
+    U+0100-024F,
+    U+1E00-1EFF,
+    U+2000-206F,
+    U+20A0-20CF,
+    U+2100-214F,
+    U+2190-21FF,
+    U+2200-22FF;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Thin.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-ExtraLight.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Light.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Medium.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Demibold.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Bold.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans/ttf/MiSans-Heavy.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800 900;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Thin.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-ExtraLight.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Light.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Medium.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Demibold.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Bold.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Robonix Sans';
+  src: url('/fonts/MiSans/ttf/MiSans-Heavy.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800 900;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto-Sans-SC-Bold/Noto-Sans-SC-Bold.zip/NotoSansSCThin-5.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto-Sans-SC-Bold/Noto-Sans-SC-Bold.zip/NotoSansSCLight-3.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto-Sans-SC-Bold/Noto-Sans-SC-Bold.zip/NotoSansSC-6.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto-Sans-SC-Bold/Noto-Sans-SC-Bold.zip/NotoSansSCMedium-4.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500 600;
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto-Sans-SC-Bold/Noto-Sans-SC-Bold.zip/Noto-Sans-SC-Bold-2.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700 900;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-SemiBold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800 900;
+}
 
 :root {
   --color-primary: #2563eb;
   --color-accent: #0ea5e9;
-  --bg-base: #ffffff;
-  --bg-raised: #f8fafc;
-  --bg-card: #ffffff;
+  --bg-base: #f6f8fa;
+  --bg-raised: #edf0f5;
+  --bg-card: #fafbfc;
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
-  --border-default: #e2e8f0;
+  --border-default: #dde2e9;
   --border-hover: #93c5fd;
 }
 
@@ -42,8 +281,94 @@ body {
   background-color: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
+  font-family: 'Robonix Sans', Inter, MiSans, 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.font-sans {
+  font-family: 'Robonix Sans', Inter, MiSans, 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', MiSans, 'Noto Sans SC', monospace;
+}
+
+.site-cyber-bg {
+  isolation: isolate;
+}
+
+.site-cyber-bg > :not(header) {
+  position: relative;
+  z-index: 1;
+}
+
+.site-cyber-bg > header {
+  z-index: 50;
+}
+
+.site-cyber-bg::before,
+.site-cyber-bg::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.site-cyber-bg::before {
+  background:
+    radial-gradient(ellipse at 18% 14%, rgba(14, 165, 233, 0.12), transparent 32%),
+    radial-gradient(ellipse at 86% 24%, rgba(37, 99, 235, 0.08), transparent 30%),
+    radial-gradient(ellipse at 20% 76%, rgba(14, 165, 233, 0.06), transparent 31%),
+    radial-gradient(ellipse at 82% 86%, rgba(37, 99, 235, 0.05), transparent 33%),
+    linear-gradient(180deg, #f2f6fa 0%, #edf0f5 42%, #f2f6fa 70%, #f6f8fa 100%);
+  background-size: 1200px 1200px, 980px 980px, 1050px 1050px, 1100px 1100px, 100% 100%;
+  animation: ambient-drift 26s ease-in-out infinite alternate;
+  opacity: 0;
+}
+
+.site-cyber-bg::after {
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(14, 165, 233, 0.15) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 29% 66%, rgba(37, 99, 235, 0.10) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 47% 34%, rgba(14, 165, 233, 0.08) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 63% 72%, rgba(37, 99, 235, 0.10) 0 1.6px, transparent 2.7px),
+    radial-gradient(circle at 82% 18%, rgba(14, 165, 233, 0.09) 0 1.5px, transparent 2.6px),
+    radial-gradient(circle at 91% 58%, rgba(37, 99, 235, 0.09) 0 1.4px, transparent 2.5px),
+    linear-gradient(122deg, transparent 0 44%, rgba(14, 165, 233, 0.06) 44.08%, transparent 44.36%),
+    linear-gradient(32deg, transparent 0 62%, rgba(37, 99, 235, 0.05) 62.08%, transparent 62.35%);
+  background-size: 100% 100%;
+  opacity: 0;
+}
+
+.dark .site-cyber-bg::before {
+  background:
+    radial-gradient(ellipse at 15% 18%, rgba(34, 211, 238, 0.12), transparent 32%),
+    radial-gradient(ellipse at 78% 20%, rgba(59, 130, 246, 0.10), transparent 30%),
+    radial-gradient(ellipse at 68% 78%, rgba(34, 211, 238, 0.06), transparent 33%),
+    radial-gradient(ellipse at 22% 72%, rgba(59, 130, 246, 0.08), transparent 31%),
+    linear-gradient(180deg, #020617 0%, #07111f 45%, #030b18 72%, #020617 100%);
+  opacity: 1;
+}
+
+.dark .site-cyber-bg::after {
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(125, 211, 252, 0.18) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 29% 66%, rgba(96, 165, 250, 0.14) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 47% 34%, rgba(125, 211, 252, 0.12) 0 1.4px, transparent 2.4px),
+    radial-gradient(circle at 63% 72%, rgba(96, 165, 250, 0.15) 0 1.6px, transparent 2.7px),
+    radial-gradient(circle at 82% 18%, rgba(125, 211, 252, 0.13) 0 1.5px, transparent 2.6px),
+    radial-gradient(circle at 91% 58%, rgba(96, 165, 250, 0.13) 0 1.4px, transparent 2.5px),
+    linear-gradient(122deg, transparent 0 44%, rgba(34, 211, 238, 0.08) 44.08%, transparent 44.36%),
+    linear-gradient(32deg, transparent 0 62%, rgba(59, 130, 246, 0.06) 62.08%, transparent 62.35%);
+  opacity: 0.42;
+}
+
+.site-cyber-bg section {
+  position: relative;
+}
+
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -67,11 +392,11 @@ body {
 
 /* Glow utility */
 .glow-text {
-  text-shadow: 0 0 40px rgba(37, 99, 235, 0.3), 0 0 80px rgba(37, 99, 235, 0.1);
+  text-shadow: 0 0 24px rgba(37, 99, 235, 0.18), 0 0 48px rgba(37, 99, 235, 0.06);
 }
 
 .dark .glow-text {
-  text-shadow: 0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(56, 189, 248, 0.2);
+  text-shadow: 0 0 24px rgba(59, 130, 246, 0.22), 0 0 48px rgba(56, 189, 248, 0.10);
 }
 
 .glow-border {
@@ -82,38 +407,123 @@ body {
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.2), inset 0 0 15px rgba(59, 130, 246, 0.05);
 }
 
-/* Grid background pattern */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+.punk-effects {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
-.dark .bg-grid {
-  background-image:
-    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+.dark .punk-effects {
+  display: none;
 }
 
-/* Gradient text utility */
+.punk-scan {
+  position: absolute;
+  height: 2px;
+  width: 38vw;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), rgba(236, 72, 153, 0.88), transparent);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.55), 0 0 36px rgba(236, 72, 153, 0.35);
+  transform: skewX(-18deg);
+}
+
+.punk-scan-a {
+  left: -12vw;
+  top: 31%;
+  animation: punk-sweep 5.6s linear infinite;
+}
+
+.punk-scan-b {
+  right: -18vw;
+  top: 64%;
+  animation: punk-sweep-reverse 7.2s linear infinite;
+}
+
+.punk-word {
+  position: absolute;
+  font-family: 'JetBrains Mono', 'MiSans', 'Noto Sans SC', monospace;
+  font-size: clamp(2.5rem, 8vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(125, 211, 252, 0.24);
+  text-shadow: 7px 0 0 rgba(236, 72, 153, 0.14), -6px 0 0 rgba(34, 211, 238, 0.14);
+  opacity: 0.36;
+  mix-blend-mode: screen;
+  animation: punk-flicker 3.8s steps(2, end) infinite;
+}
+
+.punk-word-a {
+  right: 6%;
+  top: 18%;
+}
+
+.punk-word-b {
+  left: 7%;
+  bottom: 18%;
+  font-size: clamp(2rem, 6vw, 5.5rem);
+}
+
+.punk-word-c {
+  right: 22%;
+  bottom: 6%;
+  font-size: clamp(1.6rem, 4vw, 4rem);
+}
+
+@keyframes punk-sweep {
+  0% { transform: translateX(-18vw) skewX(-18deg); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translateX(128vw) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes punk-sweep-reverse {
+  0% { transform: translateX(18vw) skewX(-18deg); opacity: 0; }
+  12% { opacity: 0.85; }
+  100% { transform: translateX(-128vw) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes punk-flicker {
+  0%, 100% { opacity: 0.24; transform: translateX(0); }
+  8% { opacity: 0.5; transform: translateX(2px); }
+  10% { opacity: 0.2; transform: translateX(-3px); }
+  46% { opacity: 0.36; }
+  48% { opacity: 0.58; }
+  52% { opacity: 0.28; }
+}
+
+@media (max-width: 767px) {
+  .punk-word {
+    opacity: 0.2;
+  }
+}
+
+/* Gradient text utility — restrained blue for research/academic tone */
 .text-gradient {
-  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.10));
 }
 
 .dark .text-gradient {
-  background: linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.18));
+}
+
+.site-cyber-bg h2 {
+  text-shadow:
+    1px 0 rgba(14, 165, 233, 0.12),
+    -1px 0 rgba(37, 99, 235, 0.08);
 }
 
 /* Glass morphism */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 251, 252, 0.88);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -140,4 +550,20 @@ body {
 .arch-node:hover {
   transform: scale(1.05);
   z-index: 10;
+}
+
+@keyframes ambient-drift {
+  0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  100% { transform: translate3d(1.5%, 1%, 0) scale(1.04); }
+}
+
+@keyframes chroma-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-cyber-bg::before {
+    animation: none;
+  }
 }

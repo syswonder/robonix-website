@@ -60,7 +60,7 @@ export default function Timeline({ phases }: TimelineProps) {
 
             {/* Content card */}
             <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600">
+              <div className="rounded-2xl border border-slate-200 bg-[#fafbfc] p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="font-mono text-sm font-bold text-blue-600 dark:text-blue-400">
                     {phase.version}

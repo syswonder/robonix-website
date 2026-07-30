@@ -7,14 +7,12 @@
 // ───────────────────────────────────────────
 
 export const NAV_LINKS = [
-  { label: { en: 'Features', zh: '特性' }, href: '#features' },
+  { label: { en: 'Problems', zh: '问题' }, href: '#why' },
   { label: { en: 'Architecture', zh: '架构' }, href: '#architecture' },
   { label: { en: 'Scenarios', zh: '场景' }, href: '#scenarios' },
   { label: { en: 'Live Demo', zh: '演示' }, href: '#demo' },
   { label: { en: 'Hardware', zh: '硬件' }, href: '#hardware' },
-  { label: { en: 'Roadmap', zh: '路线图' }, href: '#roadmap' },
-  { label: { en: 'Team', zh: '团队' }, href: '#team' },
-  { label: { en: 'Vendors', zh: '支持厂家' }, href: '#vendors' },
+  { label: { en: 'Partners', zh: '伙伴' }, href: '#vendors' },
 ];
 
 export const NAV_EXTERNAL_LINKS = [
@@ -28,8 +26,8 @@ export const NAV_EXTERNAL_LINKS = [
 
 export const HERO = {
   tagline: {
-    en: 'Cognitive-Physical Decoupling · Session-Centered Runtime',
-    zh: '认知-物理解耦 · 会话中心运行时',
+    en: 'Model-Physical Decoupling · Task-Centered Runtime',
+    zh: '模型-物理解耦 · 任务中心运行时',
   },
   title: 'Robonix',
   subtitle: {
@@ -37,8 +35,8 @@ export const HERO = {
     zh: '具身智能操作系统',
   },
   description: {
-    en: 'A system substrate for building embodied intelligence across heterogeneous robots. Models perceive, plan, and act through diverse robot bodies — without being rewritten for every vendor SDK.',
-    zh: '为异构机器人构建具身智能的系统基座。模型通过多样化的机器人身体感知、规划和行动——无需为每个厂商 SDK 重新编写。',
+    en: 'A system substrate for embodied intelligence, built to adapt diverse embodied AI hardware. Models, skills, and services work through shared capability contracts instead of being rewritten for every vendor SDK.',
+    zh: '构建具身智能系统的底座，适配多样化的具身智能硬件。模型、技能与服务通过统一能力合约协作，无需为每个厂商 SDK 重新编写。',
   },
   cta: {
     en: 'Get Started',
@@ -57,10 +55,10 @@ export const HERO = {
     zh: '开发者社区',
   },
   badges: [
-    { label: { en: 'Supported Robots', zh: '支持机器人' }, value: 'XX+' },
-    { label: { en: 'Open Source', zh: '开源' }, value: 'Open Source License' },
-    { label: { en: 'ROS 2 Compatible', zh: '兼容 ROS 2' }, value: 'ROS 2' },
-    { label: { en: 'Cross-Platform', zh: '跨平台' }, value: 'x86_64 / arm64' },
+    { label: { en: 'Published Robot Integrations', zh: '已发布机器人集成' }, value: '2' },
+    { label: { en: 'System Components', zh: '系统组件' }, value: '12' },
+    { label: { en: 'Transports', zh: '通信传输' }, value: 'gRPC / MCP / ROS 2' },
+    { label: { en: 'Platforms', zh: '运行平台' }, value: 'x86_64 / Jetson arm64' },
   ],
 };
 
@@ -70,68 +68,68 @@ export const HERO = {
 
 export const WHY_ROBONIX = {
   title: {
-    en: 'Solving the hardest problems in embodied AI',
-    zh: '解决具身智能中最困难的问题',
+    en: 'Problems Robonix Solves',
+    zh: 'Robonix 解决什么问题',
   },
   subtitle: {
-    en: 'Robonix decouples AI models from hardware, making robot applications portable, composable, and scalable.',
-    zh: 'Robonix 将 AI 模型与硬件解耦，使机器人应用可移植、可组合、可扩展。',
+    en: 'Developed by the Syswonder open-source community and released by the CCF Ubiquitous Operating System Open Community, Robonix is an embodied AI operating system that decouples robot bodies, intelligent models, and reusable skills at the system layer.',
+    zh: 'Robonix 由矽望开源社区组织研发、CCF 泛在操作系统开放社区发布，是一个在系统层解耦机器人本体、智能模型与可复用技能的具身智能操作系统。',
   },
   cards: [
     {
       pain: {
-        en: 'LLM-direct-to-hardware coupling',
-        zh: '大模型与硬件的直接耦合',
+        en: 'Tightly coupled robot hardware and AI models',
+        zh: '机器人硬件与智能模型紧耦合',
       },
       solution: {
-        en: 'Cognitive-Physical Decoupling',
-        zh: '认知-物理解耦',
+        en: 'System-layer hardware-model-skill decoupling',
+        zh: '系统层解耦硬件、模型与技能',
       },
       description: {
-        en: 'Models and skills use shared capability contracts instead of vendor-specific SDKs. Integrate a robot body once — ~XXX lines of YAML — and every model and skill that speaks the contract can drive it.',
-        zh: '模型和技能使用共享的能力合约而非厂商专用 SDK。一次集成机器人本体（约 XXX 行 YAML），所有遵循合约的模型和技能即可驱动它。',
+        en: 'Robonix abstracts robot bodies and heterogeneous hardware capabilities downward, while connecting upward to LLMs, VLMs, VLAs, and world models through stable system contracts.',
+        zh: 'Robonix 向下统一抽象不同机器人本体及异构硬件能力，向上接入 LLM、VLM、VLA 和世界模型等智能模型，让模型、技能和硬件不再彼此硬绑定。',
       },
     },
     {
       pain: {
-        en: 'Fragile, single-shot task execution',
-        zh: '脆弱的单次任务执行',
+        en: 'Fragmented interfaces across vendors and devices',
+        zh: '厂商与设备接口不统一',
       },
       solution: {
-        en: 'Session-Centered Runtime',
-        zh: '会话中心运行时',
+        en: 'Unified primitives, services, skills, and tasks',
+        zh: '统一原语、服务、技能与任务抽象',
       },
       description: {
-        en: 'Long-running plans have explicit identity and state. Observe, steer, pause, and cancel tasks without embedding lifecycle management into every skill — the system handles it.',
-        zh: '长时间运行的计划具有显式的身份标识和状态。观察、引导、暂停和取消任务，无需在每个技能中嵌入生命周期管理——系统统一处理。',
+        en: 'Robot vendors wrap joints, sensors, mobile bases, arms, and other capabilities as hardware primitives. Applications and skills call perception, mapping, navigation, speech, and motion through consistent interfaces.',
+        zh: '机器人厂商可将关节、传感器、移动底盘、机械臂等能力封装为硬件原语；应用和技能开发者则通过统一接口调用感知、建图、导航、语音和运动控制等能力。',
       },
     },
     {
       pain: {
-        en: 'Every robot requires a full-stack rewrite',
-        zh: '每个机器人需要全栈重写',
+        en: 'High cost to reuse and migrate robot software',
+        zh: '机器人软件复用与迁移成本高',
       },
       solution: {
-        en: 'Train Once, Deploy on Any Robot',
-        zh: '一次训练，任意部署',
+        en: 'Install, compose, reuse, and migrate skills',
+        zh: '技能可安装、可组合、可复用、可迁移',
       },
       description: {
-        en: 'Hardware capabilities are discoverable through Atlas. A VLA policy trained on one manipulator transfers to another that exposes the same arm/gripper contracts — no model retraining required.',
-        zh: '硬件能力通过 Atlas 可发现。在一种机械臂上训练的 VLA 策略可迁移到暴露相同手臂/夹爪合约的其他机械臂——无需重新训练模型。',
+        en: 'Robonix aims to make acquiring new robot capabilities as easy as installing applications: skills can be developed once, combined with services, and moved across compatible robot bodies.',
+        zh: 'Robonix 的目标是让机器人获得新能力像安装应用一样容易：技能可以开发、组合、复用并迁移到兼容的机器人本体上。',
       },
     },
     {
       pain: {
-        en: 'No safety net between AI plans and physical action',
-        zh: 'AI 计划与物理行动之间缺乏安全防护',
+        en: 'Robots need a brain system, not isolated scripts',
+        zh: '机器人需要“大脑系统”，而不是零散脚本',
       },
       solution: {
-        en: 'Built-in Safety & Audit Trail',
-        zh: '内置安全与审计追踪',
+        en: 'Task planning, validation, execution, management, and safety',
+        zh: '任务规划验证、技能编排执行、任务管理与安全守护',
       },
       description: {
-        en: 'Sentinel enforces safety rules before every capability dispatch. Scribe records a structured, replayable journal of every decision and action for compliance and debugging.',
-        zh: 'Sentinel 在每次能力调度前强制执行安全规则。Scribe 为合规和调试记录结构化、可回放的决策与行动日志。',
+        en: 'Positioned as the robot brain system, Robonix connects user interaction, task planning, skill orchestration, service calls, hardware primitives, task lifecycle management, and safety guards into one runtime.',
+        zh: 'Robonix 定位于机器人的“大脑系统”，将用户交互、任务规划、技能编排、服务调用、硬件原语、任务生命周期管理与安全守护连接为统一运行时。',
       },
     },
   ],
@@ -143,54 +141,54 @@ export const WHY_ROBONIX = {
 
 export const ARCHITECTURE = {
   title: {
-    en: 'System Architecture',
-    zh: '系统架构',
+    en: 'Twelve Modules, One Robot Brain',
+    zh: '十二模块组成机器人大脑系统',
   },
   subtitle: {
-    en: 'Twelve system components keep planning, execution, state, communication, health, and safety separate from hardware drivers and skills.',
-    zh: '十二个系统组件将规划、执行、状态、通信、健康和安全与硬件驱动和技能分离。',
+    en: 'From user intent to physical action, Robonix separates interaction, planning, execution, scene state, body state, transport, and capability discovery into clear runtime roles.',
+    zh: '从用户意图到物理行动，Robonix 将交互、规划、执行、场景、本体、通信和能力发现拆成清晰的运行时角色。',
   },
   principles: [
     {
-      title: { en: 'Session-Centered Runtime', zh: '会话中心运行时' },
+      title: { en: 'Task-Centered Runtime', zh: '任务中心运行时' },
       description: {
-        en: 'Every task is a session with explicit identity, state, and lifecycle. Observe, steer, and cancel without per-skill instrumentation.',
-        zh: '每个任务都是有明确标识、状态和生命周期的会话。观察、引导和取消无需按技能单独实现。',
+        en: 'Every user request becomes an explicit RTDL plan that can be observed, streamed, cancelled, and broken into concurrent capability calls.',
+        zh: '每个用户请求都会变成显式 RTDL 计划，可以被观察、流式返回、取消，并拆分为并发能力调用。',
       },
     },
     {
-      title: { en: 'Adapter + Bridge Pattern', zh: '适配器 + 桥接模式' },
+      title: { en: 'Capability Contracts', zh: '能力合约' },
       description: {
-        en: 'Hardware vendors expose capabilities through primitives. Models consume capabilities through contracts. The system bridges them at runtime.',
-        zh: '硬件厂商通过原语暴露能力。模型通过合约消费能力。系统在运行时将它们桥接起来。',
+        en: 'Users build hardware-specific primitives. Services and skills consume stable interfaces, independent of hardware. Contracts remain unchanged; implementations are replaceable.',
+        zh: '用户根据不同的硬件编写原语。服务和技能消费稳定接口，不感知底层硬件差异。合约保持不变，具体实现可以替换。',
       },
     },
     {
-      title: { en: 'Dual Skill Runtimes', zh: '双技能运行时' },
+      title: { en: 'Runtime Discovery', zh: '运行时发现' },
       description: {
-        en: 'Skills run as either Python services or Rust-native binaries. Both use the same gRPC/MCP transport and capability contracts.',
-        zh: '技能以 Python 服务或 Rust 原生二进制运行。两者使用相同的 gRPC/MCP 传输和能力合约。',
+        en: 'Atlas keeps the current capability catalog. Pilot and Executor resolve the providers that are alive for this deployment at plan time and dispatch time.',
+        zh: 'Atlas 维护当前能力目录。Pilot 和 Executor 在规划与调度时解析当前部署中真实在线的提供者。',
       },
     },
     {
-      title: { en: 'Capability Discovery', zh: '能力发现' },
+      title: { en: 'Body and Scene State', zh: '本体与场景状态' },
       description: {
-        en: 'Atlas maintains the live catalog of every running provider. Pilot queries it at plan time — models always see the current robot\'s real capabilities.',
-        zh: 'Atlas 维护每个运行中提供者的实时目录。Pilot 在规划时查询——模型始终看到当前机器人的真实能力。',
+        en: 'Soma describes the robot body and Scene maintains the live environment estimate, giving models a grounded view before action.',
+        zh: 'Soma 描述机器人本体，Scene 维护实时环境估计，让模型在行动前拥有具身上下文。',
       },
     },
     {
-      title: { en: 'Structured Execution Plans', zh: '结构化执行计划' },
+      title: { en: 'Multi-Transport Runtime', zh: '多传输运行时' },
       description: {
-        en: 'RTDL (Robot Task Description Language) encodes plans as sequence/parallel/do trees. Executor dispatches them while preserving concurrency and cancellation.',
-        zh: 'RTDL（机器人任务描述语言）将计划编码为 sequence/parallel/do 树。Executor 在保留并发和取消语义的同时调度它们。',
+        en: 'Nexus projects contracts over gRPC, MCP, and ROS 2, so high-rate robot data and model-facing tools can use the transport that fits.',
+        zh: 'Nexus 将合约投射到 gRPC、MCP 和 ROS 2，让高频机器人数据与面向模型的工具分别使用合适传输。',
       },
     },
     {
-      title: { en: 'Multi-Transport Communication', zh: '多传输通信' },
+      title: { en: 'Extensible Roadmap', zh: '可扩展演进' },
       description: {
-        en: 'Nexus provides gRPC, MCP, and ROS 2 transports. Choose the right transport per capability without changing the contract.',
-        zh: 'Nexus 提供 gRPC、MCP 和 ROS 2 传输。在不变更合约的前提下为每个能力选择合适的传输方式。',
+        en: 'Vitals is active for health monitoring. Sentinel, Keystone, and Chronos are represented as system roles and are staged for deeper policy and timing support.',
+        zh: 'Vitals 已承担健康监控。Sentinel、Keystone、Chronos 作为系统角色保留，并将继续补齐策略与时间同步能力。',
       },
     },
   ],
@@ -301,6 +299,7 @@ export const ARCH_NODES = {
       en: 'VLM-driven planning engine. Queries Atlas for capabilities, builds prompts, emits RTDL plans for Executor.',
       zh: 'VLM 驱动的规划引擎。查询 Atlas 获取能力，构建提示词，为 Executor 生成 RTDL 计划。',
     },
+    capability: { en: 'Understand task, inspect scene/body state, generate and validate task plans.', zh: '理解任务，查询场景与本体状态，生成并验证任务方案。' },
   },
   atlas: {
     id: 'atlas',
@@ -310,6 +309,7 @@ export const ARCH_NODES = {
       en: 'Live capability registry. Every primitive, service, and skill registers here. Pilot and Executor discover providers at runtime.',
       zh: '实时能力注册中心。每个原语、服务和技能在此注册。Pilot 和 Executor 在运行时发现提供者。',
     },
+    capability: { en: 'Capability directory, lifecycle state, contract metadata, provider channels.', zh: '能力目录、生命周期状态、合约元数据、提供者通道。' },
   },
   executor: {
     id: 'executor',
@@ -319,6 +319,7 @@ export const ARCH_NODES = {
       en: 'RTDL execution engine. Dispatches do/sequence/parallel nodes to capability providers with cancellation and async polling.',
       zh: 'RTDL 执行引擎。将 do/sequence/parallel 节点调度到能力提供者，支持取消和异步轮询。',
     },
+    capability: { en: 'Execute structured plans, stream node states, cancel plans, poll async capabilities.', zh: '执行结构化计划，流式返回节点状态，取消计划，轮询异步能力。' },
   },
   soma: {
     id: 'soma',
@@ -328,15 +329,17 @@ export const ARCH_NODES = {
       en: 'Robot self-description service. Serves the soma.yaml body model and URDF to Pilot and other components.',
       zh: '机器人自描述服务。向 Pilot 和其他组件提供 soma.yaml 机体模型和 URDF。',
     },
+    capability: { en: 'Body model, URDF, primitive bring-up, component capability exports.', zh: '本体模型、URDF、原语启动、部件能力导出。' },
   },
   sentinel: {
     id: 'sentinel',
     label: 'Sentinel',
     layer: 'execution',
     description: {
-      en: 'Rule-based safety gate. Checks every capability dispatch against safety policies before execution.',
-      zh: '基于规则的安全门禁。在执行前对每个能力调度进行安全策略检查。',
+      en: 'Safety-supervision role for policy checks before side-effecting capability calls.',
+      zh: '安全监管角色，用于在有副作用能力调用前进行策略检查。',
     },
+    capability: { en: 'Policy gate using operator identity, scene, vitals, and allow/deny rules.', zh: '结合操作者身份、场景、健康状态与规则进行策略门控。' },
   },
   liaison: {
     id: 'liaison',
@@ -346,15 +349,17 @@ export const ARCH_NODES = {
       en: 'Human-machine interaction gateway. Supports chat, voice, and TUI interfaces.',
       zh: '人机交互网关。支持聊天、语音和 TUI 界面。',
     },
+    capability: { en: 'Text/API submission, push-to-talk voice path, user metadata, optional voice gate.', zh: '文本/API 提交、按键语音链路、用户元数据、可选声纹门控。' },
   },
   scribe: {
     id: 'scribe',
     label: 'Scribe',
     layer: 'shared',
     description: {
-      en: 'Structured, persistent, replayable journal. Records every decision and action for audit and debugging.',
-      zh: '结构化、持久化、可回放的日志。记录每个决策和行动以供审计和调试。',
+      en: 'Structured logging facade used by system components, writing per-component JSON-lines logs.',
+      zh: '系统组件使用的结构化日志门面，输出按组件分组的 JSON-lines 日志。',
     },
+    capability: { en: 'Component log files, durable system journal, and replay support.', zh: '组件日志文件、持久系统日志与回放支持。' },
   },
   scene: {
     id: 'scene',
@@ -364,15 +369,17 @@ export const ARCH_NODES = {
       en: 'Live environment estimate. Maintains object registry, semantic relations, and occupancy grid.',
       zh: '实时环境估计。维护对象注册表、语义关系和占据网格。',
     },
+    capability: { en: 'Object registry, semantic relations, occupancy map, approach goals, 2D/3D viewer.', zh: '对象注册、语义关系、占据地图、接近目标、2D/3D 查看器。' },
   },
   keystone: {
     id: 'keystone',
     label: 'Keystone',
     layer: 'shared',
     description: {
-      en: 'User identity, persistent configuration, and access policy management.',
-      zh: '用户身份、持久化配置和访问策略管理。',
+      en: 'Identity, persistent configuration, and access-policy source of truth.',
+      zh: '身份、持久化配置与访问策略事实源。',
     },
+    capability: { en: 'Operators, deployment config, fleet identity, and capability allow-lists.', zh: '操作者、部署配置、集群身份与能力允许列表。' },
   },
   vitals: {
     id: 'vitals',
@@ -382,15 +389,17 @@ export const ARCH_NODES = {
       en: 'Robot power and component health monitoring.',
       zh: '机器人电量与组件健康监控。',
     },
+    capability: { en: 'Health snapshots, thresholds, body/joint telemetry, fault-oriented demos.', zh: '健康快照、阈值规则、本体/关节遥测、故障演示。' },
   },
   chronos: {
     id: 'chronos',
     label: 'Chronos',
     layer: 'shared',
     description: {
-      en: 'Unified clock and cross-sensor timestamp alignment (PTP/IEEE-1588).',
-      zh: '统一时钟与跨传感器时间戳对齐（PTP/IEEE-1588）。',
+      en: 'Unified monotonic clock and cross-sensor timestamp alignment.',
+      zh: '统一单调时钟与跨传感器时间戳对齐。',
     },
+    capability: { en: 'PTP/IEEE-1588 alignment and drift metrics for multimodal sensing.', zh: 'PTP/IEEE-1588 对齐与多模态传感漂移指标。' },
   },
   nexus: {
     id: 'nexus',
@@ -400,6 +409,7 @@ export const ARCH_NODES = {
       en: 'Communication libraries for gRPC, MCP, and ROS 2 transports.',
       zh: 'gRPC、MCP 和 ROS 2 传输的通信库。',
     },
+    capability: { en: 'Transport-agnostic contracts projected to gRPC, MCP, and ROS 2 clients/servers.', zh: '将传输无关合约投射为 gRPC、MCP、ROS 2 客户端/服务端。' },
   },
 };
 
@@ -409,48 +419,60 @@ export const ARCH_NODES = {
 
 export const SCENARIOS = {
   title: {
-    en: 'One Runtime, Multiple Environments',
-    zh: '一个运行时，多种环境',
+    en: 'Application Scenarios',
+    zh: '应用场景演示',
   },
   subtitle: {
-    en: 'Robonix runs the same code across simulation, game environments, and real hardware.',
-    zh: 'Robonix 在仿真、游戏环境和真实硬件上运行相同的代码。',
+    en: 'The same task runtime spans simulation, real robots, natural-language interaction, scene understanding, and VLA skill deployment.',
+    zh: '同一套任务运行时覆盖仿真、真实机器人、自然语言交互、场景理解与 VLA 技能部署。',
   },
   items: [
     {
-      icon: '🎮',
-      title: { en: 'Simulation', zh: '仿真' },
+      icon: 'SIM',
+      title: { en: 'Webots Simulation', zh: 'Webots 仿真验证' },
       description: {
-        en: 'Physics-based simulator with multiple built-in environments: office, apartment, kitchen, warehouse. Full sensor simulation including RGB-D cameras, lidar, and IMU.',
-        zh: '基于物理的仿真器，内置多种环境：办公室、公寓、厨房、仓库。完整的传感器仿真，包括 RGB-D 相机、激光雷达和 IMU。',
+        en: 'Run office, apartment, complete apartment, break-room, and kitchen worlds with RGB-D camera, lidar, IMU, mapping, navigation, and task execution in one reproducible stack.',
+        zh: '在办公室、公寓、完整公寓、休息室、厨房等世界中运行 RGB-D、雷达、IMU、建图、导航和任务执行，形成可复现实验栈。',
       },
       highlights: {
-        en: ['Indoor & outdoor worlds', 'RGB-D + LiDAR + IMU', 'Container-based deployment', 'Multi-container ROS graph'],
-        zh: ['室内外场景', 'RGB-D + LiDAR + IMU', '基于容器部署', '多容器 ROS 图'],
+        en: ['5 built-in worlds', 'Multi-container ROS graph', 'rmw_zenoh by default', 'CI-friendly bring-up'],
+        zh: ['5 个内置世界', '多容器 ROS 图', '默认 rmw_zenoh', '适合 CI 验证'],
       },
     },
     {
-      icon: '🔬',
-      title: { en: 'Research Benchmarks', zh: '研究基准' },
+      icon: 'MAP',
+      title: { en: 'Scene-Aware Tasks', zh: '场景感知任务' },
       description: {
-        en: 'Standardized task suites for evaluating embodied AI models. Consistent interfaces across different benchmarks — swap the environment, keep your model.',
-        zh: '用于评估具身 AI 模型的标准化任务套件。不同基准之间接口一致——更换环境，保留模型。',
+        en: 'Scene maintains live objects, semantic relations, occupancy grids, and approach goals. Pilot can ask what exists now and plan against the current environment.',
+        zh: 'Scene 维护实时对象、语义关系、占据栅格与接近目标。Pilot 可以查询当下场景，并据此生成任务方案。',
       },
       highlights: {
-        en: ['Navigation benchmarks', 'Manipulation tasks', 'Multi-step reasoning', 'Open-vocabulary object search'],
-        zh: ['导航基准', '操作任务', '多步推理', '开放词汇物体搜索'],
+        en: ['Object registry', 'Semantic relations', '2D/3D web viewer', 'Goal-near planning'],
+        zh: ['对象注册表', '语义关系', '2D/3D 查看器', '接近目标规划'],
       },
     },
     {
-      icon: '🏭',
-      title: { en: 'Real Robots', zh: '真实机器人' },
+      icon: 'BOT',
+      title: { en: 'Real Robot Deployment', zh: '真实机器人部署' },
       description: {
-        en: 'Deploy the same stack on physical hardware. Currently supports wheeled mobile robots, quadrupeds, robotic arms, and humanoids. More platforms in development.',
-        zh: '在物理硬件上部署相同的技术栈。目前支持轮式移动机器人、四足机器人、机械臂和人形机器人。更多平台正在开发中。',
+        en: 'Published deployments cover AgileX Ranger Mini v3 and DEEP Robotics Lite3, with manifests that assemble primitives, services, skills, and body descriptions.',
+        zh: '已发布部署覆盖 AgileX Ranger Mini v3 与 DEEP Robotics Lite3，通过清单组合原语、服务、技能和本体描述。',
       },
       highlights: {
-        en: ['Wheeled mobile robots', 'Quadruped robots', 'Robotic arms', 'Real-time safety gating'],
-        zh: ['轮式移动机器人', '四足机器人', '机械臂', '实时安全门控'],
+        en: ['Mobile robot', 'Quadruped', 'RGB-D + lidar', 'Robot catalog'],
+        zh: ['轮式移动机器人', '四足机器人', 'RGB-D + 雷达', '机器人目录'],
+      },
+    },
+    {
+      icon: 'VLA',
+      title: { en: 'Skill Installation', zh: '技能安装与迁移' },
+      description: {
+        en: 'Skills wrap reusable task flows or learned VLA policies. The Robonix Skill Toolkit supports data collection, OpenVLA-OFT fine-tuning, and robot-arm deployment.',
+        zh: '技能封装可复用任务流或学习到的 VLA 策略。Robonix Skill Toolkit 支持数据采集、OpenVLA-OFT 微调和机械臂部署。',
+      },
+      highlights: {
+        en: ['Task-facing packages', 'VLA policy workflow', 'Independent install', 'Composable services'],
+        zh: ['面向任务的包', 'VLA 策略流程', '独立安装', '服务可组合'],
       },
     },
   ],
@@ -471,14 +493,15 @@ export const DEMO = {
   },
   videos: [
     {
-      id: 'sim-office',
-      title: { en: 'Simulated Office Navigation', zh: '仿真办公室导航' },
+      id: 'hardware-decoupling',
+      title: { en: 'Hardware Decoupling Test', zh: '硬件解耦测试' },
       description: {
-        en: 'Natural language task execution in a simulated office environment. The robot navigates, explores rooms, and responds to voice commands.',
-        zh: '在仿真办公室环境中执行自然语言任务。机器人导航、探索房间并响应语音命令。',
+        en: 'The same Robonix task flow runs across a AgileX Ranger mobile base and a DEEP Robotics Lite3 quadruped, demonstrating hardware-decoupled execution.',
+        zh: '同一套 Robonix 任务流程分别在松灵 Ranger 小车和云深处 Lite3 机器狗上演示，验证硬件解耦执行能力。',
       },
-      thumbnail: '/images/demo-thumbnails/office.jpg',
-      duration: 'X:XX',
+      thumbnail: '/videos/ranger_and_lite3.mp4',
+      src: '/videos/ranger_and_lite3.mp4',
+      duration: '6:51',
     },
     {
       id: 'deployment',
@@ -523,94 +546,112 @@ export const HARDWARE = {
     zh: '支持的硬件',
   },
   subtitle: {
-    en: 'Robonix supports a growing range of robot platforms and sensor configurations.',
-    zh: 'Robonix 支持越来越多的机器人平台和传感器配置。',
+    en: 'Published robot integrations and validated compute targets from the current Robonix repository.',
+    zh: '来自当前 Robonix 仓库的已发布机器人集成与验证计算平台。',
   },
   filters: [
     { label: { en: 'All', zh: '全部' }, value: 'all' },
-    { label: { en: 'Arm', zh: '机械臂' }, value: 'arm' },
     { label: { en: 'Quadruped', zh: '四足' }, value: 'quadruped' },
     { label: { en: 'Wheeled', zh: '轮式' }, value: 'wheeled' },
-    { label: { en: 'Humanoid', zh: '人形' }, value: 'humanoid' },
     { label: { en: 'Simulation', zh: '仿真' }, value: 'simulation' },
   ],
   robots: [
     {
-      name: 'Wheeled Mobile Robot',
+      name: 'AgileX Ranger Mini v3',
       type: 'wheeled',
-      manufacturer: 'Manufacturer A',
-      sensors: ['3D LiDAR', 'RGB-D Camera', 'IMU'],
+      manufacturer: 'AgileX Robotics',
+      image: '/images/Agile.png',
+      sensors: ['Ranger Mini v3 chassis', 'Livox MID-360 LiDAR/IMU', 'Intel RealSense D435i', 'Optional AgileX Piper arm', 'Audio'],
       realRobot: true,
       simulation: true,
       tested: true,
       description: {
-        en: 'Wheeled mobile robot with optional manipulator arm. Full sensor suite including 3D LiDAR, RGB-D camera, and audio.',
-        zh: '轮式移动机器人，可选配操作臂。完整的传感器套件，包括 3D 激光雷达、RGB-D 相机和音频。',
+        en: 'Published mobile-robot integration with chassis, lidar/IMU, RGB-D camera, optional manipulator, audio, and catalog metadata.',
+        zh: '已发布的移动机器人集成，包含底盘、雷达/IMU、RGB-D 相机、可选机械臂、音频和目录元数据。',
       },
     },
     {
-      name: 'Quadruped Robot',
+      name: 'DEEP Robotics Lite3',
       type: 'quadruped',
-      manufacturer: 'Manufacturer B',
-      sensors: ['3D LiDAR', 'RGB-D Camera', 'IMU'],
+      manufacturer: 'DEEP Robotics',
+      image: '/images/DeepRobotics.png',
+      sensors: ['Lite3 quadruped chassis', 'Livox MID-360 LiDAR/IMU', 'Orbbec Gemini 330 RGB-D'],
       realRobot: true,
       simulation: false,
       tested: true,
       description: {
-        en: 'Quadruped robot with LiDAR and RGB-D perception. Suitable for outdoor terrain and inspection tasks.',
-        zh: '四足机器人，配备激光雷达和 RGB-D 感知。适用于户外地形和巡检任务。',
+        en: 'Published quadruped integration with lidar/IMU and RGB-D perception for legged deployment experiments.',
+        zh: '已发布的四足机器人集成，配备雷达/IMU 与 RGB-D 感知，用于足式机器人部署实验。',
       },
     },
     {
-      name: '6-DOF Robotic Arm',
-      type: 'arm',
-      manufacturer: 'Manufacturer C',
-      sensors: ['Joint encoders', 'Force/torque (optional)'],
-      realRobot: true,
+      name: 'Webots Mobile Manipulator',
+      type: 'simulation',
+      manufacturer: 'Cyberbotics Webots',
+      image: '/images/12modules.png',
+      sensors: ['RGB-D camera', 'LiDAR', 'IMU', 'Mapping', 'Navigation'],
+      realRobot: false,
       simulation: true,
       tested: true,
       description: {
-        en: '6-DOF robotic arm for mobile manipulation. Supports VLA skill deployment via the Robonix Skill Toolkit.',
-        zh: '6 自由度机械臂，用于移动操作。通过 Robonix Skill Toolkit 支持 VLA 技能部署。',
+        en: 'Default reproducible simulator target for office, apartment, complete apartment, break-room, and kitchen worlds.',
+        zh: '默认可复现实验目标，支持办公室、公寓、完整公寓、休息室和厨房等仿真世界。',
       },
     },
     {
-      name: 'Humanoid Robot',
-      type: 'humanoid',
-      manufacturer: 'Manufacturer D',
-      sensors: ['RGB-D Camera', 'IMU', 'Joint encoders'],
-      realRobot: true,
-      simulation: true,
+      name: 'Unitree Go2 Placeholder',
+      type: 'quadruped',
+      manufacturer: 'Placeholder Robot',
+      image: '/images/DeepRobotics.png',
+      sensors: ['Quadruped chassis placeholder', 'RGB-D camera placeholder', 'LiDAR placeholder'],
+      realRobot: false,
+      simulation: false,
       tested: false,
       description: {
-        en: 'Full-body humanoid robot with dual-arm manipulation and bipedal locomotion capabilities.',
-        zh: '全尺寸人形机器人，具备双臂操作和双足运动能力。',
+        en: 'Placeholder card for a future quadruped integration. Replace the image and metadata when the integration is published.',
+        zh: '未来四足机器人集成的占位卡牌。集成发布后可替换图片与元数据。',
       },
     },
     {
-      name: 'Simulated Mobile Manipulator',
+      name: 'Humanoid Platform Placeholder',
       type: 'simulation',
-      manufacturer: 'Simulator Platform',
-      sensors: ['RGB-D camera', '2D LiDAR', 'IMU', 'Sonar'],
+      manufacturer: 'Placeholder Robot',
+      image: '/images/BeingBeyond.png',
+      sensors: ['Humanoid body placeholder', 'Stereo vision placeholder', 'Whole-body control placeholder'],
       realRobot: false,
-      simulation: true,
-      tested: true,
+      simulation: false,
+      tested: false,
       description: {
-        en: 'Simulated mobile manipulator with full sensor suite and arm control. Used for development and CI testing.',
-        zh: '仿真移动操作机器人，具有完整的传感器套件和手臂控制。用于开发和 CI 测试。',
+        en: 'Placeholder card for a humanoid robot target in the Robonix hardware catalog.',
+        zh: 'Robonix 硬件目录中人形机器人目标的占位卡牌。',
       },
     },
     {
-      name: 'Simulated Rover',
-      type: 'simulation',
-      manufacturer: 'Simulator Platform',
-      sensors: ['RGB camera', 'Distance sensors', 'IMU'],
+      name: 'Aubo Arm Placeholder',
+      type: 'wheeled',
+      manufacturer: 'Placeholder Manipulator',
+      image: '/images/Aubo.png',
+      sensors: ['Robotic arm placeholder', 'End-effector placeholder', 'Force control placeholder'],
       realRobot: false,
-      simulation: true,
-      tested: true,
+      simulation: false,
+      tested: false,
       description: {
-        en: '4-wheel rover with arm simulation. Good for navigation and manipulation algorithm development.',
-        zh: '带机械臂的 4 轮漫游车仿真。适合导航和操作算法开发。',
+        en: 'Placeholder card for a robotic-arm integration that can later be attached to mobile platforms.',
+        zh: '机械臂集成的占位卡牌，后续可挂载到移动平台上。',
+      },
+    },
+    {
+      name: 'Drone Platform Placeholder',
+      type: 'simulation',
+      manufacturer: 'Placeholder Aerial Robot',
+      image: '/images/Yobotics.png',
+      sensors: ['Aerial robot placeholder', 'Visual odometry placeholder', 'Flight controller placeholder'],
+      realRobot: false,
+      simulation: false,
+      tested: false,
+      description: {
+        en: 'Placeholder card for a future aerial robot integration and simulation target.',
+        zh: '未来无人机集成与仿真目标的占位卡牌。',
       },
     },
   ],
@@ -736,7 +777,7 @@ export const ROADMAP = {
       version: 'v1.0.0',
       date: '20XX QX',
       title: { en: 'Autonomy & Ecosystem', zh: '自主性与生态系统' },
-      status: { en: 'Planned', zh: '规划中' },
+      status: { en: 'Future', zh: '后续' },
       items: {
         en: [
           'Autonomous task decomposition and replanning',
@@ -822,23 +863,123 @@ export const TEAM = {
 
 export const VENDORS = {
   title: {
-    en: 'Supported Manufacturers',
-    zh: '支持厂家',
+    en: 'Partners',
+    zh: '合作伙伴',
   },
   subtitle: {
-    en: 'Coming soon.',
-    zh: '敬请期待。',
+    en: 'Robot vendors, models, and chips connected by the Robonix ecosystem.',
+    zh: 'Robonix 生态连接的机器人厂商、模型与芯片合作伙伴。',
   },
   vendors: [
     {
-      name: 'Coming Soon',
-      logo: '🤖',
-      category: 'placeholder',
+      name: 'DEEP Robotics',
+      logo: '/images/DeepRobotics.png',
+      category: 'quadruped',
       description: {
-        en: 'More manufacturers to be announced.',
-        zh: '更多厂家即将公布。',
+        en: 'Leading quadruped robot company. Lite3 integrated with Robonix for legged robot experiments.',
+        zh: '领先四足机器人公司。Lite3 已集成至 Robonix，用于机器狗实验。',
       },
-      products: [],
+      products: ['Lite3', 'X30'],
+      url: 'https://deeprobotics.cn',
+    },
+    {
+      name: 'AGILE·X',
+      logo: '/images/Agile.png',
+      category: 'mobile',
+      description: {
+        en: 'Leading mobile robot platform provider. Ranger Mini v3 deployed with Robonix.',
+        zh: '领先移动机器人平台提供商。Ranger Mini v3 已部署 Robonix',
+      },
+      products: ['Ranger Mini v3', 'AgileX Piper'],
+      url: 'https://agilex.ai',
+    },
+    {
+      name: 'HANTEWIN',
+      logo: '/images/Hantewin.png',
+      category: 'mobile',
+      description: {
+        en: 'Intelligent service robot provider. Service robot platforms integrated with Robonix.',
+        zh: '智能服务机器人提供商。服务机器人平台已集成至 Robonix。',
+      },
+      products: ['Service Robots'],
+      url: 'https://hantewin.com',
+    },
+    {
+      name: 'LINKERBOT',
+      logo: '/images/Linkerbot.jpg',
+      category: 'arm',
+      description: {
+        en: 'Dexterous hand specialist. Robotic hands integrated with Robonix for fine manipulation.',
+        zh: '灵巧手专家。机器人灵巧手已集成至 Robonix，用于精细操作。',
+      },
+      products: ['Dexterous Hand'],
+      url: 'https://linkerbot.com',
+    },
+    {
+      name: 'YOBOTICS',
+      logo: '/images/Yobotics.png',
+      category: 'quadruped',
+      description: {
+        en: 'Quadruped robot innovator. Legged platforms supported by Robonix.',
+        zh: '四足机器人创新者。zheng。',
+      },
+      products: ['Quadruped Robots'],
+      url: 'https://yobotics.cn',
+    },
+    {
+      name: 'INSPIRE-ROBOTS',
+      logo: '/images/Inpire.png',
+      category: 'arm',
+      description: {
+        en: 'Precision actuator and gripper manufacturer. End-effectors integrated with Robonix.',
+        zh: '精密执行器与夹爪制造商。末端执行器已集成至 Robonix。',
+      },
+      products: ['Actuators', 'Grippers'],
+      url: 'https://inspirobots.com',
+    },
+    {
+      name: 'AUBO',
+      logo: '/images/Aubo.png',
+      category: 'arm',
+      description: {
+        en: 'Collaborative robot arm pioneer. Cobot arms supported by Robonix for research and industry.',
+        zh: '协作机械臂先驱。协作机械臂由 Robonix 支持，服务于科研与工业。',
+      },
+      products: ['Collaborative Robots'],
+      url: 'https://aubo.cn',
+    },
+    {
+      name: 'BeingBeyond',
+      logo: '/images/BeingBeyond.png',
+      category: 'humanoid',
+      description: {
+        en: 'Humanoid robot platform developer. Humanoid robots integrated with Robonix.',
+        zh: '人形机器人平台开发者。人形机器人已集成至 Robonix。',
+      },
+      products: ['Humanoid Robots'],
+      url: 'https://beingbeyond.com',
+    },
+    {
+      name: 'JAKA',
+      logo: '/images/Jaka.png',
+      category: 'arm',
+      description: {
+        en: 'Collaborative robot arm manufacturer. JAKA cobots supported by Robonix.',
+        zh: '协作机械臂制造商。节卡协作机器人由 Robonix 支持。',
+      },
+      products: ['Collaborative Robots'],
+      url: 'https://jaka.cn',
+    },
+    {
+      name: 'ModelBest',
+      logo: '/images/ModelBest.jpg',
+      category: 'model',
+      description: {
+        en: 'End-side model platform. VLA and multimodal models powering Robonix cognitive layer.',
+        zh: '端侧模型平台。VLA 与多模态模型为 Robonix 认知层提供动力。',
+      },
+      products: ['VLA Models', 'Multimodal Models'],
+      url: 'https://modelbest.cn',
     },
   ],
 };
@@ -937,8 +1078,8 @@ export const CTA = {
     zh: '准备好构建具身智能未来了吗？',
   },
   description: {
-    en: 'Join the Robonix community. Star on GitHub, contribute a package, or deploy your first robot application today.',
-    zh: '加入 Robonix 社区。在 GitHub 上点亮星标，贡献一个包，或者今天部署你的第一个机器人应用。',
+    en: 'Read the docs or star the repository. The next robot capability should install like software.',
+    zh: '阅读文档或点亮仓库。下一项机器人能力，应该像软件一样安装。',
   },
   buttons: [
     {
@@ -947,8 +1088,8 @@ export const CTA = {
       primary: true,
     },
     {
-      label: { en: '💬 Join Discussion', zh: '💬 加入讨论' },
-      href: 'https://github.com/syswonder/robonix/discussions',
+      label: { en: 'Read Documentation', zh: '阅读文档' },
+      href: 'https://robonix-book.syswonder.org/',
       primary: false,
     },
   ],
@@ -964,10 +1105,10 @@ export const FOOTER = {
     zh: '具身智能操作系统。一次构建，部署到任何机器人。',
   },
   product: [
-    { label: { en: 'Features', zh: '特性' }, href: '#features' },
+    { label: { en: 'Why', zh: '问题' }, href: '#why' },
     { label: { en: 'Architecture', zh: '架构' }, href: '#architecture' },
     { label: { en: 'Hardware', zh: '硬件' }, href: '#hardware' },
-    { label: { en: 'Roadmap', zh: '路线图' }, href: '#roadmap' },
+    { label: { en: 'Partners', zh: '伙伴' }, href: '#vendors' },
   ],
   resources: [
     { label: { en: 'Documentation', zh: '文档' }, href: 'https://robonix-book.syswonder.org/' },

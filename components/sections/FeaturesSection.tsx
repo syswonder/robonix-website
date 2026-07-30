@@ -24,7 +24,6 @@ export default function FeaturesSection() {
       id="features"
       className="relative overflow-hidden py-24 sm:py-32"
     >
-      <div className="absolute inset-0 bg-grid opacity-30" />
       <GlowEffect color="cyan" size="lg" className="-left-40 top-1/2" />
 
       <div className="relative mx-auto max-w-7xl px-6">

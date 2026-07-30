@@ -13,7 +13,6 @@ export default function BenchmarkSection() {
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
       <GlowEffect color="cyan" size="lg" className="-right-40 top-1/2" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={BENCHMARK.title} subtitle={BENCHMARK.subtitle} />
@@ -27,7 +26,7 @@ export default function BenchmarkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: ci * 0.2 }}
-              className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+              className="rounded-2xl border border-slate-200 bg-[#fafbfc] p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
             >
               <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
                 {t(chart.title, locale)}
@@ -49,7 +48,7 @@ export default function BenchmarkSection() {
                         {chart.before.value}%
                       </span>
                     </div>
-                    <div className="h-8 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
+                    <div className="h-8 overflow-hidden rounded-full bg-[#e8ecf3] dark:bg-slate-700">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${chart.before.value}%` }}
@@ -70,7 +69,7 @@ export default function BenchmarkSection() {
                         {chart.after.value}%
                       </span>
                     </div>
-                    <div className="h-8 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
+                    <div className="h-8 overflow-hidden rounded-full bg-[#e8ecf3] dark:bg-slate-700">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${chart.after.value}%` }}
@@ -108,7 +107,7 @@ export default function BenchmarkSection() {
                           {platform.value}%
                         </span>
                       </div>
-                      <div className="h-5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
+                      <div className="h-5 overflow-hidden rounded-full bg-[#e8ecf3] dark:bg-slate-700">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${platform.value}%` }}

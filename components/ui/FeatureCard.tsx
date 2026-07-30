@@ -21,7 +21,7 @@ export default function FeatureCard({ icon, title, description, index }: Feature
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600"
+      className="group relative rounded-2xl border border-slate-200 bg-[#fafbfc] p-8 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600"
     >
       {/* Hover glow effect */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">

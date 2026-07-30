@@ -15,16 +15,16 @@ const config: Config = {
           blue: '#3b82f6',
         },
         space: {
-          darkest: '#ffffff',
-          darker: '#f1f5f9',
-          dark: '#f8fafc',
-          card: '#ffffff',
-          border: '#e2e8f0',
+          darkest: '#f6f8fa',
+          darker: '#e8ecf3',
+          dark: '#edf0f5',
+          card: '#fafbfc',
+          border: '#dde2e9',
         },
       },
       fontFamily: {
-        sans: ['"Source Sans 3"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
+        sans: ['"Robonix Sans"', 'Inter', 'MiSans', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'MiSans', '"Noto Sans SC"', 'monospace'],
       },
       animation: {
         float: 'float 6s ease-in-out infinite',

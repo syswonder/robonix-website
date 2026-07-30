@@ -20,8 +20,7 @@ export default function ArchitectureSection() {
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={ARCHITECTURE.title} subtitle={ARCHITECTURE.subtitle} />
 
-        {/* Principle tabs */}
-        <div className="mb-16 flex flex-wrap justify-center gap-2">
+        <div className="mb-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {ARCHITECTURE.principles.map((p, i) => (
             <motion.button
               key={i}
@@ -30,10 +29,10 @@ export default function ArchitectureSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
               onClick={() => setActivePrinciple(i)}
-              className={`rounded-xl px-5 py-2.5 text-sm font-medium transition-all ${
+              className={`rounded-xl border px-5 py-4 text-left text-sm font-medium transition-all ${
                 activePrinciple === i
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 dark:bg-blue-500'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-blue-600'
+                  ? 'border-blue-400 bg-blue-600 text-white shadow-md shadow-blue-500/25 dark:bg-blue-500'
+                  : 'border-slate-200 bg-[#fafbfc] text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-400 dark:hover:border-blue-600'
               }`}
             >
               {t(p.title, locale)}
@@ -49,7 +48,7 @@ export default function ArchitectureSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="mx-auto mb-16 max-w-3xl rounded-2xl border border-blue-200 bg-blue-50/50 p-6 text-center dark:border-blue-800 dark:bg-blue-900/20"
+            className="mx-auto mb-12 max-w-4xl rounded-xl border border-blue-200 bg-blue-50/70 p-5 text-center dark:border-blue-800 dark:bg-blue-900/20"
           >
             <h3 className="mb-2 font-mono text-lg font-bold text-blue-700 dark:text-blue-400">
               {t(ARCHITECTURE.principles[activePrinciple].title, locale)}

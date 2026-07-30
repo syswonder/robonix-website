@@ -11,9 +11,7 @@ export default function CTASection() {
 
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950" />
       <GlowEffect color="mixed" size="lg" className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
 
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <motion.h2
@@ -54,7 +52,7 @@ export default function CTASection() {
               className={`inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold transition-shadow ${
                 btn.primary
                   ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400'
+                  : 'border border-slate-200 bg-[#fafbfc] text-slate-600 hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400'
               }`}
             >
               {t(btn.label, locale)}

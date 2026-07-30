@@ -15,6 +15,7 @@ const CATEGORY_LABELS: Record<string, { en: string; zh: string }> = {
   humanoid: { en: 'Humanoids', zh: '人形机器人' },
   sensor: { en: 'Sensors', zh: '传感器' },
   compute: { en: 'Edge Compute', zh: '边缘计算' },
+  model: { en: 'Models', zh: '模型' },
   drone: { en: 'Drones', zh: '无人机' },
 };
 
@@ -34,7 +35,6 @@ export default function VendorsSection() {
   return (
     <section id="vendors" className="relative overflow-hidden py-24 sm:py-32">
       <GlowEffect color="cyan" size="lg" className="-left-40 top-1/3" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={VENDORS.title} subtitle={VENDORS.subtitle} />
@@ -49,7 +49,7 @@ export default function VendorsSection() {
             className={`rounded-xl px-5 py-2.5 text-sm font-medium transition-all ${
               activeCategory === 'all'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 dark:bg-blue-500'
-                : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-blue-600'
+                : 'border border-slate-200 bg-[#fafbfc] text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-blue-600'
             }`}
           >
             {locale === 'en' ? 'All' : '全部'}
@@ -64,7 +64,7 @@ export default function VendorsSection() {
               className={`rounded-xl px-5 py-2.5 text-sm font-medium transition-all ${
                 activeCategory === cat
                   ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 dark:bg-blue-500'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-blue-600'
+                  : 'border border-slate-200 bg-[#fafbfc] text-slate-600 hover:border-blue-300 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-blue-600'
               }`}
             >
               {CATEGORY_LABELS[cat] ? t(CATEGORY_LABELS[cat], locale) : cat}
@@ -83,22 +83,31 @@ export default function VendorsSection() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ y: -4 }}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-600"
+              className="group rounded-xl border border-slate-200 bg-[#fafbfc] p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 dark:border-white/10 dark:bg-slate-900/60 dark:hover:border-blue-400/60"
             >
-              <div className="mb-4 flex items-start gap-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-slate-100 text-2xl dark:bg-slate-700/70">
-                  {vendor.logo}
+              <div className="mb-4">
+                {/* Logo — no background, larger */}
+                <div className="mb-3 flex h-14 items-center">
+                  <img
+                    src={vendor.logo}
+                    alt={vendor.name}
+                    className="h-full w-auto max-w-[140px] object-contain object-left"
+                  />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="truncate text-lg font-bold text-slate-900 dark:text-white">
-                    {vendor.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {CATEGORY_LABELS[vendor.category]
-                      ? t(CATEGORY_LABELS[vendor.category], locale)
-                      : vendor.category}
-                  </p>
-                </div>
+                {/* Name + category */}
+                <a
+                  href={vendor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block truncate text-lg font-bold text-slate-900 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-sky-300"
+                >
+                  {vendor.name} ↗
+                </a>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {CATEGORY_LABELS[vendor.category]
+                    ? t(CATEGORY_LABELS[vendor.category], locale)
+                    : vendor.category}
+                </p>
               </div>
 
               <p className="mb-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">

@@ -25,7 +25,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed inset-x-0 top-[36px] z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50 dark:border-slate-700/60 dark:shadow-slate-900/50'
           : 'bg-transparent'
@@ -44,7 +44,11 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                scrolled
+                  ? 'text-slate-600 hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400'
+                  : 'text-slate-700 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/80 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+              }`}
             >
               {t(link.label, locale)}
             </motion.a>
@@ -58,7 +62,11 @@ export default function Navbar() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                scrolled
+                  ? 'text-slate-500 hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400'
+                  : 'text-slate-600 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/70 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+              }`}
             >
               {t(link.label, locale)} ↗
             </motion.a>
@@ -73,7 +81,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             onClick={toggleTheme}
-            className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            className={`rounded-lg p-2.5 transition-colors ${
+              scrolled
+                ? 'text-slate-500 hover:bg-[#e8ecf3] hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+                : 'text-slate-600 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/75 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+            }`}
             aria-label="Toggle dark mode"
           >
             {theme === 'light' ? (
@@ -93,7 +105,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.65 }}
             onClick={toggleLocale}
-            className="rounded-lg px-3 py-2 font-mono text-sm text-slate-500 transition-all hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
+            className={`rounded-lg px-3 py-2 font-mono text-sm transition-all ${
+              scrolled
+                ? 'text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400'
+                : 'text-slate-600 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/75 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+            }`}
           >
             {locale === 'en' ? '中文' : 'EN'}
           </motion.button>
@@ -106,7 +122,11 @@ export default function Navbar() {
             href="https://github.com/syswonder/robonix"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg p-2.5 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+            className={`rounded-lg p-2.5 transition-colors ${
+              scrolled
+                ? 'text-slate-500 hover:bg-[#e8ecf3] hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+                : 'text-slate-600 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/75 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+            }`}
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
@@ -156,7 +176,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden border-t border-slate-200/60 bg-white/95 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/95 lg:hidden"
+            className="overflow-hidden border-t border-slate-200/60 bg-[#fafbfc]/95 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/95 lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_LINKS.map((link) => (
@@ -164,7 +184,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
                 >
                   {t(link.label, locale)}
                 </a>
@@ -176,7 +196,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-4 py-3 text-base text-slate-500 transition-colors hover:bg-slate-100 hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                  className="rounded-lg px-4 py-3 text-base text-slate-500 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
                 >
                   {t(link.label, locale)} ↗
                 </a>
@@ -185,7 +205,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2 px-4 py-2">
                 <button
                   onClick={toggleTheme}
-                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+                  className="rounded-lg p-2 text-slate-500 hover:bg-[#e8ecf3] dark:text-slate-400 dark:hover:bg-slate-800"
                 >
                   {theme === 'light' ? '🌙' : '☀️'} {locale === 'en' ? 'Theme' : '主题'}
                 </button>

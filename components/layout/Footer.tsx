@@ -10,7 +10,7 @@ export default function Footer() {
   const { locale } = useLocale();
 
   return (
-    <footer className="relative border-t border-slate-200/60 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+    <footer className="relative border-t border-slate-200/60 bg-[#edf0f5] dark:border-slate-800 dark:bg-slate-900">
       {/* Star banner */}
       <div className="border-b border-slate-200/60 bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-4 text-center dark:border-slate-800">
         <p className="text-sm font-medium text-white">

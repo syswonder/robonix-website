@@ -1,10 +1,9 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
 import { useLocale } from '@/context/LocaleContext';
+import { useTheme } from '@/context/ThemeContext';
 import { t } from '@/lib/i18n';
 import { HERO } from '@/lib/constants';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -13,190 +12,153 @@ import WebGLErrorBoundary from '@/components/three/WebGLErrorBoundary';
 
 const ParticleScene = dynamic(() => import('@/components/three/ParticleScene'), {
   ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
-  ),
+  loading: () => null,
 });
 
-// Shared gradient fallback for when WebGL is unavailable
-function GradientFallback() {
+const TopologyStarfield = dynamic(() => import('@/components/three/TopologyStarfield'), {
+  ssr: false,
+  loading: () => null,
+});
+
+function HeroBackdrop() {
   return (
-    <div className="absolute inset-0 bg-white dark:bg-slate-950">
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl"
+    <div className="absolute inset-x-0 bottom-[-220px] top-0 z-0 overflow-hidden bg-slate-950 [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.8)_82%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.8)_82%,transparent_100%)] dark:bg-[#020617]">
+      <img
+        src="/images/creation_of_robot.png"
+        alt=""
+        className="h-full w-full object-contain object-center opacity-30 mix-blend-multiply dark:opacity-85 dark:mix-blend-normal"
       />
-      <motion.div
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl"
-      />
-      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-cyan-50/74 to-transparent dark:from-slate-950 dark:via-slate-950/55 dark:to-slate-950/15" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(14,165,233,0.16),transparent_28%),radial-gradient(circle_at_74%_62%,rgba(34,197,94,0.12),transparent_24%)] dark:hidden" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_74%_20%,rgba(236,72,153,0.2),transparent_26%),radial-gradient(circle_at_58%_62%,rgba(6,182,212,0.22),transparent_32%)] dark:block" />
+      <div className="punk-effects" aria-hidden="true">
+        <div className="punk-scan punk-scan-a" />
+        <div className="punk-scan punk-scan-b" />
+        <div className="punk-word punk-word-a">RTDL</div>
+        <div className="punk-word punk-word-b">VLA</div>
+        <div className="punk-word punk-word-c">SOMA</div>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 h-[340px] bg-gradient-to-b from-transparent via-[#eff9ff]/70 to-[#f4fbff] dark:via-[#07111f]/72 dark:to-[#020617]" />
     </div>
   );
 }
 
 export default function HeroSection() {
   const { locale } = useLocale();
+  const { theme } = useTheme();
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const taglineRef = useRef<HTMLParagraphElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
-  const btnsRef = useRef<HTMLDivElement>(null);
-  const badgesRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-      tl.fromTo(
-        taglineRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 }
-      )
-        .fromTo(
-          titleRef.current,
-          { opacity: 0, y: 60 },
-          { opacity: 1, y: 0, duration: 1 },
-          '-=0.3'
-        )
-        .fromTo(
-          subtitleRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          '-=0.5'
-        )
-        .fromTo(
-          descRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          '-=0.4'
-        )
-        .fromTo(
-          btnsRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          '-=0.4'
-        )
-        .fromTo(
-          badgesRef.current,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          '-=0.2'
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
+  const isLight = theme === 'light';
 
   return (
     <section
-      ref={heroRef}
-      className="relative flex min-h-[750px] items-center justify-center overflow-hidden"
+      className="relative isolate flex min-h-[760px] items-center overflow-visible bg-transparent sm:min-h-[820px]"
     >
-      {/* 3D Scene or fallback gradient */}
-      {isMobile ? (
-        <GradientFallback />
-      ) : (
-        <div className="absolute inset-0 bg-white dark:bg-slate-950">
-          <WebGLErrorBoundary fallback={<GradientFallback />}>
-            <ParticleScene />
-          </WebGLErrorBoundary>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-slate-950" />
-        </div>
+      <HeroBackdrop />
+
+      {/* 3D particles — only in dark mode */}
+      {!isMobile && !isLight && (
+        <WebGLErrorBoundary fallback={null}>
+          <ParticleScene />
+        </WebGLErrorBoundary>
       )}
 
-      {/* Content overlay */}
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pt-20 text-center">
-        {/* Tagline */}
-        <p
-          ref={taglineRef}
-          className="mb-4 font-mono text-xs font-medium tracking-widest text-blue-600 uppercase dark:text-blue-400"
-        >
-          {t(HERO.tagline, locale)}
-        </p>
-
-        {/* Main title */}
-        <h1
-          ref={titleRef}
-          className="mb-6 font-mono text-5xl font-black tracking-tight sm:text-7xl lg:text-8xl"
-        >
-          <span className="text-gradient glow-text">{HERO.title}</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p ref={subtitleRef} className="mb-6 text-xl text-slate-700 sm:text-2xl dark:text-slate-300">
-          {t(HERO.subtitle, locale)}
-        </p>
-
-        {/* Description */}
-        <p ref={descRef} className="mx-auto mb-8 max-w-3xl text-base text-slate-500 sm:text-lg dark:text-slate-400">
-          {t(HERO.description, locale)}
-        </p>
-
-        {/* CTAs */}
-        <div ref={btnsRef} className="mb-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <motion.a
-            href="https://robonix.syswonder.org/getting-started/quickstart.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-8 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-shadow hover:shadow-xl hover:shadow-blue-500/40"
+      {/* Light mode: centered single column. Dark mode: two-column with star cluster */}
+      <div className={`relative z-10 mx-auto w-full max-w-7xl items-center gap-12 px-6 py-16 pt-20 ${
+        isLight
+          ? 'flex justify-center text-center'
+          : 'grid lg:grid-cols-[0.9fr_1.1fr]'
+      }`}>
+        <div className={isLight ? 'max-w-3xl' : 'min-w-0'}>
+          <p
+            className="mb-4 max-w-full break-words font-mono text-[10px] font-medium uppercase leading-relaxed tracking-widest text-sky-700 dark:text-sky-300 sm:text-xs"
           >
-            {t(HERO.cta, locale)}
-          </motion.a>
+            {t(HERO.tagline, locale)}
+          </p>
 
-          <motion.a
-            href="https://robonix-book.syswonder.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-slate-200 bg-white px-8 py-3.5 font-semibold text-slate-600 transition-colors hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400"
+          <h1
+            className="mb-5 font-mono text-5xl font-black tracking-tight sm:text-7xl lg:text-8xl"
           >
-            {t(HERO.cta2, locale)} →
-          </motion.a>
+            <span className="text-slate-950 drop-shadow-[0_0_34px_rgba(14,165,233,0.18)] dark:text-white dark:drop-shadow-[0_0_34px_rgba(56,189,248,0.42)]">{HERO.title}</span>
+          </h1>
 
-          <motion.a
-            href="https://github.com/syswonder/robonix"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-slate-200 bg-white px-8 py-3.5 font-semibold text-slate-600 transition-colors hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-blue-500 dark:hover:text-blue-400"
-          >
-            {t(HERO.cta4, locale)} →
-          </motion.a>
+          <p className={`mb-6 max-w-xl text-xl text-slate-900 dark:text-white sm:text-2xl ${isLight ? 'mx-auto' : ''}`}>
+            {t(HERO.subtitle, locale)}
+          </p>
+
+          <p className="mb-8 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg">
+            {t(HERO.description, locale)}
+          </p>
+
+          <div className={`mb-8 flex max-w-full flex-col gap-4 sm:flex-row ${isLight ? 'justify-center' : ''}`}>
+            <motion.a
+              href="https://robonix.syswonder.org/getting-started/quickstart.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full bg-gradient-to-r from-blue-600 to-sky-400 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-500/30 transition-shadow hover:shadow-xl hover:shadow-blue-500/50"
+            >
+              {t(HERO.cta, locale)}
+            </motion.a>
+
+            <motion.a
+              href="https://robonix-book.syswonder.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full border border-sky-200 bg-white/70 px-8 py-3.5 text-center font-semibold text-slate-800 shadow-sm backdrop-blur transition-colors hover:border-sky-400 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-sky-300 dark:hover:bg-white/15"
+            >
+              {t(HERO.cta2, locale)} ↗
+            </motion.a>
+
+            <motion.a
+              href="https://github.com/syswonder/robonix"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full border border-sky-200 bg-white/70 px-8 py-3.5 text-center font-semibold text-slate-800 shadow-sm backdrop-blur transition-colors hover:border-sky-400 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-sky-300 dark:hover:bg-white/15"
+            >
+              GitHub ↗
+            </motion.a>
+          </div>
+
+          <div className={`flex flex-wrap gap-2 ${isLight ? 'justify-center' : ''}`}>
+            {HERO.badges.map((badge, i) => (
+              <Badge key={i} label={t(badge.label, locale)} value={badge.value} variant="outline" />
+            ))}
+          </div>
         </div>
 
-        {/* Badges */}
-        <div ref={badgesRef} className="flex flex-wrap items-center justify-center gap-2">
-          {HERO.badges.map((badge, i) => (
-            <Badge
-              key={i}
-              label={t(badge.label, locale)}
-              value={badge.value}
-              variant="outline"
-            />
-          ))}
-        </div>
+        {/* Right-side star cluster — dark mode only */}
+        {!isLight && (
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.7 }}
+            className="hidden md:block"
+          >
+            <div className="relative ml-auto aspect-square min-h-[360px] w-full max-w-xl cursor-grab select-none active:cursor-grabbing">
+              <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(14,165,233,0.16),transparent_34%),radial-gradient(circle_at_66%_35%,rgba(236,72,153,0.12),transparent_26%),radial-gradient(circle_at_34%_68%,rgba(34,197,94,0.1),transparent_28%)] blur-2xl dark:bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.24),transparent_34%),radial-gradient(circle_at_68%_32%,rgba(236,72,153,0.18),transparent_28%),radial-gradient(circle_at_30%_72%,rgba(34,197,94,0.12),transparent_30%)]" />
+              <WebGLErrorBoundary fallback={null}>
+                <TopologyStarfield />
+              </WebGLErrorBoundary>
+            </div>
+          </motion.div>
+        )}
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-slate-400 dark:text-slate-500"
+          className="flex flex-col items-center gap-2 text-slate-400"
         >
           <span className="text-xs font-medium">
             {locale === 'en' ? 'Scroll' : '向下滚动'}

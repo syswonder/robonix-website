@@ -28,11 +28,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider>
           <LocaleProvider>
-            {/* Development notice — KEEP THIS BANNER */}
-            <div className="fixed inset-x-0 top-0 z-[60] bg-amber-500 px-4 py-1.5 text-center text-sm font-medium text-black">
-              🚧 This site is under active development — not the final version.
-            </div>
-            <div className="pt-[36px]">{children}</div>
+            {children}
           </LocaleProvider>
         </ThemeProvider>
       </body>

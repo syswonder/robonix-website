@@ -15,76 +15,116 @@ export default function DemoSection() {
 
   return (
     <section id="demo" className="relative overflow-hidden py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/50 dark:to-slate-950" />
-
       <div className="relative mx-auto max-w-7xl px-6">
         <SectionTitle title={DEMO.title} subtitle={DEMO.subtitle} />
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          {/* Main video player */}
-          <motion.div
-            key={activeVideo}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            className="lg:col-span-2"
-          >
-            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-lg dark:border-slate-700 dark:bg-slate-800">
-              {/* Placeholder for video */}
-              <div className="flex aspect-video items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800">
-                <div className="text-center">
-                  <div className="mb-4 text-6xl">🎬</div>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    {t(video.title, locale)}
-                  </p>
-                  <span className="mt-2 inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-medium text-white">
+        <div className="space-y-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={video.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
+              className="overflow-hidden rounded-xl border border-slate-200 bg-slate-950 shadow-2xl shadow-sky-900/10 dark:border-white/10"
+            >
+              <div className="relative aspect-video">
+                {'src' in video && video.src ? (
+                  <video
+                    key={video.src}
+                    className="h-full w-full bg-black object-contain"
+                    src={video.src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(14,165,233,0.24),transparent_28%),linear-gradient(135deg,#0f172a_0%,#020617_58%,#111827_100%)]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_43%,rgba(56,189,248,0.18)_43.2%,transparent_43.8%_62%,rgba(59,130,246,0.13)_62.2%,transparent_62.8%)]" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.06 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-[#fafbfc]/12 text-white shadow-[0_0_44px_rgba(14,165,233,0.34)] backdrop-blur-md"
+                      >
+                        <span className="ml-1 text-3xl">▶</span>
+                      </motion.div>
+                    </div>
+                  </>
+                )}
+                <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+                  <div>
+                    <h3 className="font-mono text-2xl font-black text-white">
+                      {t(video.title, locale)}
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-300">
+                      {t(video.description, locale)}
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-white/15 bg-[#fafbfc]/10 px-3 py-1 font-mono text-xs font-bold text-white backdrop-blur">
                     {video.duration}
                   </span>
                 </div>
               </div>
+            </motion.div>
+          </AnimatePresence>
 
-              {/* Video info */}
-              <div className="p-6">
-                <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
-                  {t(video.title, locale)}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                  {t(video.description, locale)}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {DEMO.videos.map((v, i) => {
+              const active = activeVideo === i;
 
-          {/* Playlist */}
-          <div className="space-y-3">
-            <h4 className="mb-4 font-mono text-sm font-semibold text-slate-500 uppercase tracking-wider dark:text-slate-400">
-              {locale === 'en' ? 'Playlist' : '播放列表'}
-            </h4>
-            {DEMO.videos.map((v, i) => (
-              <motion.button
-                key={v.id}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                onClick={() => setActiveVideo(i)}
-                className={`flex w-full items-center gap-4 rounded-xl border p-4 text-left transition-all ${
-                  activeVideo === i
-                    ? 'border-blue-400 bg-blue-50 shadow-md dark:border-blue-600 dark:bg-blue-900/30'
-                    : 'border-slate-200 bg-white hover:border-blue-200 dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-700'
-                }`}
-              >
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-slate-100 text-2xl dark:bg-slate-700">
-                  {activeVideo === i ? '▶️' : '🎞️'}
-                </div>
-                <div className="flex-1 text-left">
-                  <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                    {t(v.title, locale)}
+              return (
+                <motion.button
+                  key={v.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ delay: i * 0.08 }}
+                  onClick={() => setActiveVideo(i)}
+                  className={`group overflow-hidden rounded-xl border text-left transition-all ${
+                    active
+                      ? 'border-sky-300 bg-[#fafbfc] shadow-xl shadow-sky-500/15 dark:border-cyan-300/40 dark:bg-slate-950/80'
+                      : 'border-slate-200 bg-[#fafbfc]/72 shadow-sm backdrop-blur hover:border-sky-300 hover:bg-[#fafbfc] dark:border-white/10 dark:bg-slate-900/58 dark:hover:border-cyan-300/40'
+                  }`}
+                >
+                  <div className="relative aspect-video bg-slate-950">
+                    {'src' in v && v.src ? (
+                      <video
+                        className="h-full w-full object-cover opacity-80"
+                        src={`${v.src}#t=0.1`}
+                        muted
+                        preload="auto"
+                        playsInline
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(14,165,233,0.18),transparent_34%),linear-gradient(135deg,#1e293b,#020617)]" />
+                    )}
+                    <div className="absolute inset-0 bg-black/10" />
+                    <div className="absolute left-3 top-3 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
+                      {v.duration}
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className={`flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-all ${
+                        active
+                          ? 'border-sky-200 bg-sky-400/25 text-white shadow-[0_0_28px_rgba(14,165,233,0.45)]'
+                          : 'border-white/20 bg-[#fafbfc]/10 text-white group-hover:bg-[#fafbfc]/18'
+                      }`}>
+                        ▶
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-xs text-slate-400">{v.duration}</div>
-                </div>
-              </motion.button>
-            ))}
+                  <div className="p-4">
+                    <h4 className="font-mono text-sm font-black text-slate-950 dark:text-white">
+                      {t(v.title, locale)}
+                    </h4>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-600 [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden dark:text-slate-400">
+                      {t(v.description, locale)}
+                    </p>
+                  </div>
+                </motion.button>
+              );
+            })}
           </div>
         </div>
       </div>
