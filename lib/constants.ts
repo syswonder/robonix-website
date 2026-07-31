@@ -864,15 +864,15 @@ export const TEAM = {
     zh: '由矽望开源社区组织研发，CCF 泛在操作系统开放社区发布，汇聚来自顶尖机构的研究者与工程师。',
   },
   members: [
-    { name: 'Syswonder', logo: '/images/Syswonder.png', url: 'https://syswonder.org' },
-    { name: 'CCF', logo: '/images/OpenUbiOS-2.png', url: 'https://www.gitlink.org.cn/zone/uos' },
+    { name: 'Syswonder', logo: '/images/Syswonder.svg', url: 'https://syswonder.org' },
     { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
+    { name: 'CCF', logo: '/images/OpenUbiOS-2.png', url: 'https://www.gitlink.org.cn/zone/uos' },
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
     { name: 'Shanghai Jiao Tong University', logo: '/images/SJTU.png', url: 'https://www.sjtu.edu.cn' },
     { name: 'Zhejiang University', logo: '/images/ZJU.webp', url: 'https://www.zju.edu.cn' },
     { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
     { name: 'Northwestern Polytechnical University', logo: '/images/NWPU.png', url: 'https://www.nwpu.edu.cn' },
-    { name: 'Hangzhou Dianzi University', logo: '/images/HZDU.png', url: 'https://www.hdu.edu.cn' },
+    { name: 'Hangzhou Dianzi University', logo: '/images/HZDU.svg', url: 'https://www.hdu.edu.cn' },
     { name: 'ICT, CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
   ],
 };
@@ -892,7 +892,7 @@ export const VENDORS = {
   },
   partners: [
     { name: 'DEEP Robotics', logo: '/images/DeepRobotics.png', url: 'https://www.deeprobotics.cn' },
-    { name: 'AGILE·X', logo: '/images/Agile.png', url: 'https://www.agilex.ai/' },
+    { name: 'AGILE·X', logo: '/images/agilex.png', url: 'https://www.agilex.ai/' },
     { name: 'HANTEWIN', logo: '/images/Hantewin.png', url: 'https://www.hantewin.com/' },
     { name: 'LINKERBOT', logo: '/images/LinkerBot.png', url: 'https://www.linkerbot.cn/' },
     { name: 'YOBOTICS', logo: '/images/Yobotics.png', url: 'https://yobotics.cn' },
@@ -900,7 +900,7 @@ export const VENDORS = {
     { name: 'AUBO', logo: '/images/Aubo.png', url: 'https://www.aubo-robotics.cn/' },
     { name: 'BeingBeyond', logo: '/images/BeingBeyond.svg', url: 'https://beingbeyond.com' },
     { name: 'JAKA', logo: '/images/Jaka.png', url: 'https://www.jaka.com/zh' },
-    { name: 'ModelBest', logo: '/images/ModelBest.png', url: 'https://modelbest.cn' },
+    { name: 'ModelBest', logo: '/images/ModelBest.svg', url: 'https://modelbest.cn' },
   ],
 };
 

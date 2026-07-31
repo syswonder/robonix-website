@@ -40,12 +40,12 @@ except ImportError:
 SUPPORTED_EXTENSIONS = {'.png', '.webp'}
 
 
-def make_white_transparent(image_path: Path, output_path: Path, threshold: int = 240):
+def make_white_transparent(image_path: Path, output_path: Path, threshold: int = 240, feather: int = 30):
     """
-    Convert white pixels to transparent.
+    Convert white pixels to transparent with feathered edges.
 
-    Pixels with R, G, B all >= threshold become fully transparent.
-    Other pixels are left unchanged.
+    Pixels with whiteness >= threshold become fully transparent.
+    A feather zone below threshold blends smoothly to eliminate white halos.
     """
     img = Image.open(image_path)
 
@@ -58,19 +58,27 @@ def make_white_transparent(image_path: Path, output_path: Path, threshold: int =
         img = img.convert('RGBA')
     elif img.mode == 'LA':
         img = img.convert('RGBA')
-    # RGBA, CMYK, etc. — convert anything else via RGBA too
     elif img.mode != 'RGBA':
         img = img.convert('RGBA')
 
     pixels = img.load()
     width, height = img.size
+    feather_start = threshold - feather
 
     for y in range(height):
         for x in range(width):
             r, g, b, a = pixels[x, y]
-            # If all channels are at or above threshold, make transparent
-            if r >= threshold and g >= threshold and b >= threshold:
+            whiteness = min(r, g, b)  # pixel is "white" only when all channels are high
+
+            if whiteness >= threshold:
+                # Fully white → fully transparent
                 pixels[x, y] = (r, g, b, 0)
+            elif whiteness > feather_start:
+                # Feather zone: fade alpha proportionally
+                factor = (threshold - whiteness) / feather
+                new_alpha = int(a * factor)
+                pixels[x, y] = (r, g, b, new_alpha)
+            # else: whiteness <= feather_start, keep original
 
     # Determine save format from output extension
     ext = output_path.suffix.lower()
@@ -104,7 +112,13 @@ def main():
         '--threshold', '-t',
         type=int,
         default=240,
-        help='Whiteness threshold (0-255). Pixels with R,G,B all >= this value become transparent. Default: 240.',
+        help='Whiteness threshold (0-255). Pixels with min(R,G,B) >= this become fully transparent. Default: 240.',
+    )
+    parser.add_argument(
+        '--feather', '-f',
+        type=int,
+        default=30,
+        help='Feather range below threshold (0-255). Pixels in [threshold-feather, threshold) fade smoothly. Default: 30.',
     )
     args = parser.parse_args()
 
@@ -149,7 +163,7 @@ def main():
         else:
             output = f
 
-        total, transparent = make_white_transparent(f, output, args.threshold)
+        total, transparent = make_white_transparent(f, output, args.threshold, args.feather)
         pct = (transparent / total) * 100
         action = "→" if out_dir else "←"
         print(f"  {f.name} {action} {output.name}  ({transparent}/{total} pixels cleared, {pct:.1f}%)")
