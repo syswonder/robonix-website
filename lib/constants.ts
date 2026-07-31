@@ -10,9 +10,8 @@ export const NAV_LINKS = [
   { label: { en: 'Problems', zh: '问题' }, href: '#why' },
   { label: { en: 'Architecture', zh: '架构' }, href: '#architecture' },
   { label: { en: 'Scenarios', zh: '场景' }, href: '#scenarios' },
-  { label: { en: 'Live Demo', zh: '演示' }, href: '#demo' },
   { label: { en: 'Hardware', zh: '硬件' }, href: '#hardware' },
-  { label: { en: 'Partners', zh: '伙伴' }, href: '#vendors' },
+  { label: { en: 'Ecosystem', zh: '生态' }, href: '#vendors' },
 ];
 
 export const NAV_EXTERNAL_LINKS = [
@@ -72,8 +71,8 @@ export const WHY_ROBONIX = {
     zh: 'Robonix 解决什么问题',
   },
   subtitle: {
-    en: 'Developed by the Syswonder open-source community and released by the CCF Ubiquitous Operating System Open Community, Robonix is an embodied AI operating system that decouples robot bodies, intelligent models, and reusable skills at the system layer.',
-    zh: 'Robonix 由矽望开源社区组织研发、CCF 泛在操作系统开放社区发布，是一个在系统层解耦机器人本体、智能模型与可复用技能的具身智能操作系统。',
+    en: 'Every new robot platform starts from scratch — hardware, AI models, and skills are so tightly coupled that each robot becomes an isolated silo, unable to share capabilities across bodies.',
+    zh: '换一个机器人平台就要推倒重来——硬件、模型、技能三层紧耦合，让每一款新机器人都成了无法互通的孤岛。',
   },
   cards: [
     {
@@ -812,48 +811,20 @@ export const TEAM = {
     zh: '团队与社区',
   },
   subtitle: {
-    en: 'Built by researchers and engineers from leading institutions.',
-    zh: '由来自顶尖机构的研究者和工程师共同构建。',
+    en: 'Developed by the Syswonder open-source community, released by the CCF Ubiquitous Operating System Open Community, and built by researchers and engineers from leading institutions.',
+    zh: '由矽望开源社区组织研发，CCF 泛在操作系统开放社区发布，汇聚来自顶尖机构的研究者与工程师。',
   },
-  institutions: [
-    { name: 'University A', logo: '🏫' },
-    { name: 'Research Lab B', logo: '🔬' },
-    { name: 'Open Source Org C', logo: '🌐' },
-  ],
-  metrics: [
-    { label: { en: 'GitHub Stars', zh: 'GitHub 星标' }, value: 'XXXX+' },
-    { label: { en: 'Contributors', zh: '贡献者' }, value: 'XX+' },
-    { label: { en: 'Supported Targets', zh: '支持目标' }, value: 'XX+' },
-    { label: { en: 'Capability Contracts', zh: '能力合约' }, value: 'XX+' },
-  ],
-  testimonials: [
-    {
-      quote: {
-        en: 'Robonix bridges the critical gap between AI research and real robot deployment. The session-centered runtime is exactly what the embodied AI community needs.',
-        zh: 'Robonix 弥合了 AI 研究与真实机器人部署之间的关键鸿沟。会话中心运行时正是具身智能社区所需要的。',
-      },
-      author: { en: 'Robotics Researcher', zh: '机器人研究者' },
-      affiliation: { en: 'University A', zh: '大学 A' },
-      avatar: 'R1',
-    },
-    {
-      quote: {
-        en: 'The package model is brilliant — we integrated a new sensor in very few lines of YAML and it just worked with every existing skill.',
-        zh: '包模型非常出色——我们用极少量的 YAML 集成了一款新传感器，它就与所有现有技能完美配合。',
-      },
-      author: { en: 'Robot Integration Engineer', zh: '机器人集成工程师' },
-      affiliation: { en: 'Open Source Org C', zh: '开源组织 C' },
-      avatar: 'R2',
-    },
-    {
-      quote: {
-        en: 'Finally, an OS that treats models as programs. The ability to discover capabilities at runtime changes how we think about robot software architecture.',
-        zh: '终于有了一个将模型视为程序的操作系统。在运行时发现能力的功能改变了我们对机器人软件架构的思考方式。',
-      },
-      author: { en: 'Open Source Developer', zh: '开源开发者' },
-      affiliation: { en: 'Community Contributor', zh: '社区贡献者' },
-      avatar: 'R3',
-    },
+  members: [
+    { name: 'Syswonder', logo: '/images/Syswonder.png', url: 'https://syswonder.org' },
+    { name: 'CCF', logo: '/images/CCF.jpg', url: 'https://ccf.org.cn' },
+    { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
+    { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
+    { name: 'Shanghai Jiao Tong University', logo: '/images/SJTU.png', url: 'https://www.sjtu.edu.cn' },
+    { name: 'Zhejiang University', logo: '/images/ZJU.webp', url: 'https://www.zju.edu.cn' },
+    { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
+    { name: 'Northwestern Polytechnical University', logo: '/images/NWPU.png', url: 'https://www.nwpu.edu.cn' },
+    { name: 'Hangzhou Dianzi University', logo: '/images/HZDU.png', url: 'https://www.hdu.edu.cn' },
+    { name: 'ICT, CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
   ],
 };
 
@@ -863,124 +834,24 @@ export const TEAM = {
 
 export const VENDORS = {
   title: {
-    en: 'Partners',
-    zh: '合作伙伴',
+    en: 'Ecosystem',
+    zh: '生态',
   },
   subtitle: {
-    en: 'Robot vendors, models, and chips connected by the Robonix ecosystem.',
-    zh: 'Robonix 生态连接的机器人厂商、模型与芯片合作伙伴。',
+    en: 'Robot vendors, model providers, research institutions, and open-source communities in the Robonix ecosystem.',
+    zh: 'Robonix 生态中的机器人厂商、模型提供商、研究机构与开源社区。',
   },
-  vendors: [
-    {
-      name: 'DEEP Robotics',
-      logo: '/images/DeepRobotics.png',
-      category: 'quadruped',
-      description: {
-        en: 'Leading quadruped robot company. Lite3 integrated with Robonix for legged robot experiments.',
-        zh: '领先四足机器人公司。Lite3 已集成至 Robonix，用于机器狗实验。',
-      },
-      products: ['Lite3', 'X30'],
-      url: 'https://deeprobotics.cn',
-    },
-    {
-      name: 'AGILE·X',
-      logo: '/images/Agile.png',
-      category: 'mobile',
-      description: {
-        en: 'Leading mobile robot platform provider. Ranger Mini v3 deployed with Robonix.',
-        zh: '领先移动机器人平台提供商。Ranger Mini v3 已部署 Robonix',
-      },
-      products: ['Ranger Mini v3', 'AgileX Piper'],
-      url: 'https://agilex.ai',
-    },
-    {
-      name: 'HANTEWIN',
-      logo: '/images/Hantewin.png',
-      category: 'mobile',
-      description: {
-        en: 'Intelligent service robot provider. Service robot platforms integrated with Robonix.',
-        zh: '智能服务机器人提供商。服务机器人平台已集成至 Robonix。',
-      },
-      products: ['Service Robots'],
-      url: 'https://hantewin.com',
-    },
-    {
-      name: 'LINKERBOT',
-      logo: '/images/Linkerbot.jpg',
-      category: 'arm',
-      description: {
-        en: 'Dexterous hand specialist. Robotic hands integrated with Robonix for fine manipulation.',
-        zh: '灵巧手专家。机器人灵巧手已集成至 Robonix，用于精细操作。',
-      },
-      products: ['Dexterous Hand'],
-      url: 'https://linkerbot.com',
-    },
-    {
-      name: 'YOBOTICS',
-      logo: '/images/Yobotics.png',
-      category: 'quadruped',
-      description: {
-        en: 'Quadruped robot innovator. Legged platforms supported by Robonix.',
-        zh: '四足机器人创新者。zheng。',
-      },
-      products: ['Quadruped Robots'],
-      url: 'https://yobotics.cn',
-    },
-    {
-      name: 'INSPIRE-ROBOTS',
-      logo: '/images/Inpire.png',
-      category: 'arm',
-      description: {
-        en: 'Precision actuator and gripper manufacturer. End-effectors integrated with Robonix.',
-        zh: '精密执行器与夹爪制造商。末端执行器已集成至 Robonix。',
-      },
-      products: ['Actuators', 'Grippers'],
-      url: 'https://inspirobots.com',
-    },
-    {
-      name: 'AUBO',
-      logo: '/images/Aubo.png',
-      category: 'arm',
-      description: {
-        en: 'Collaborative robot arm pioneer. Cobot arms supported by Robonix for research and industry.',
-        zh: '协作机械臂先驱。协作机械臂由 Robonix 支持，服务于科研与工业。',
-      },
-      products: ['Collaborative Robots'],
-      url: 'https://aubo.cn',
-    },
-    {
-      name: 'BeingBeyond',
-      logo: '/images/BeingBeyond.png',
-      category: 'humanoid',
-      description: {
-        en: 'Humanoid robot platform developer. Humanoid robots integrated with Robonix.',
-        zh: '人形机器人平台开发者。人形机器人已集成至 Robonix。',
-      },
-      products: ['Humanoid Robots'],
-      url: 'https://beingbeyond.com',
-    },
-    {
-      name: 'JAKA',
-      logo: '/images/Jaka.png',
-      category: 'arm',
-      description: {
-        en: 'Collaborative robot arm manufacturer. JAKA cobots supported by Robonix.',
-        zh: '协作机械臂制造商。节卡协作机器人由 Robonix 支持。',
-      },
-      products: ['Collaborative Robots'],
-      url: 'https://jaka.cn',
-    },
-    {
-      name: 'ModelBest',
-      logo: '/images/ModelBest.jpg',
-      category: 'model',
-      description: {
-        en: 'End-side model platform. VLA and multimodal models powering Robonix cognitive layer.',
-        zh: '端侧模型平台。VLA 与多模态模型为 Robonix 认知层提供动力。',
-      },
-      products: ['VLA Models', 'Multimodal Models'],
-      url: 'https://modelbest.cn',
-    },
+  partners: [
+    { name: 'DEEP Robotics', logo: '/images/DeepRobotics.png', url: 'https://deeprobotics.cn' },
+    { name: 'AGILE·X', logo: '/images/Agile.png', url: 'https://agilex.ai' },
+    { name: 'HANTEWIN', logo: '/images/Hantewin.png', url: 'https://hantewin.com' },
+    { name: 'LINKERBOT', logo: '/images/LinkerBot.png', url: 'https://linkerbot.com' },
+    { name: 'YOBOTICS', logo: '/images/Yobotics.png', url: 'https://yobotics.cn' },
+    { name: 'INSPIRE-ROBOTS', logo: '/images/Inspire.png', url: 'https://inspirobots.com' },
+    { name: 'AUBO', logo: '/images/Aubo.png', url: 'https://aubo.cn' },
+    { name: 'BeingBeyond', logo: '/images/BeingBeyond.png', url: 'https://beingbeyond.com' },
+    { name: 'JAKA', logo: '/images/Jaka.png', url: 'https://jaka.cn' },
+    { name: 'ModelBest', logo: '/images/ModelBest.png', url: 'https://modelbest.cn' },
   ],
 };
 
@@ -1108,7 +979,7 @@ export const FOOTER = {
     { label: { en: 'Why', zh: '问题' }, href: '#why' },
     { label: { en: 'Architecture', zh: '架构' }, href: '#architecture' },
     { label: { en: 'Hardware', zh: '硬件' }, href: '#hardware' },
-    { label: { en: 'Partners', zh: '伙伴' }, href: '#vendors' },
+    { label: { en: 'Ecosystem', zh: '生态' }, href: '#vendors' },
   ],
   resources: [
     { label: { en: 'Documentation', zh: '文档' }, href: 'https://robonix-book.syswonder.org/' },

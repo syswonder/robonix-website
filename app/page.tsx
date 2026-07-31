@@ -7,6 +7,7 @@ import ScenariosSection from '@/components/sections/ScenariosSection';
 import DemoSection from '@/components/sections/DemoSection';
 import HardwareSection from '@/components/sections/HardwareSection';
 import VendorsSection from '@/components/sections/VendorsSection';
+import TeamSection from '@/components/sections/TeamSection';
 import CTASection from '@/components/sections/CTASection';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <DemoSection />
       <HardwareSection />
       <VendorsSection />
+      <TeamSection />
       <CTASection />
       <Footer />
     </main>
