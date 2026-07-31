@@ -1,11 +1,26 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { t } from '@/lib/i18n';
 import { HARDWARE } from '@/lib/constants';
 import SectionTitle from '@/components/ui/SectionTitle';
+
+const TYPE_LABELS: Record<string, { en: string; zh: string }> = {
+  wheeled: { en: 'Wheeled', zh: '轮式' },
+  quadruped: { en: 'Quadruped', zh: '四足' },
+  arm: { en: 'Robotic Arm', zh: '机械臂' },
+  hand: { en: 'Dexterous Hand', zh: '灵巧手' },
+  service: { en: 'Service Robot', zh: '服务机器人' },
+  simulation: { en: 'Simulation', zh: '仿真' },
+};
+
+const STATUS_BADGE: Record<string, { en: string; zh: string; className: string }> = {
+  integrated: { en: 'Integrated System', zh: '集成系统', className: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700/40' },
+  standalone: { en: 'Standalone Device', zh: '单独设备', className: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-700/40' },
+  simulation: { en: 'Simulation', zh: '仿真平台', className: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700/40' },
+};
 
 export default function HardwareSection() {
   const { locale } = useLocale();
@@ -15,18 +30,22 @@ export default function HardwareSection() {
   const [dragDegrees, setDragDegrees] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedRobot, setSelectedRobot] = useState<(typeof HARDWARE.robots)[number] | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const dragStartX = useRef<number | null>(null);
   const suppressClick = useRef(false);
 
   const filteredRobots = activeFilter === 'all'
     ? HARDWARE.robots
-    : HARDWARE.robots.filter((robot) => robot.type === activeFilter);
+    : HARDWARE.robots.filter(
+        (robot) => robot.status === activeFilter || robot.type === activeFilter,
+      );
 
   useEffect(() => {
     setActiveIndex(0);
     setRotationStep(0);
     setDragDegrees(0);
     setSelectedRobot(null);
+    setZoomedImage(null);
   }, [activeFilter]);
 
   const step = filteredRobots.length <= 1
@@ -97,19 +116,28 @@ export default function HardwareSection() {
           ))}
         </div>
 
-        {selectedRobot ? (
+        <AnimatePresence mode="wait">
+          {selectedRobot ? (
           <motion.div
+            key="detail"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="mx-auto grid max-w-5xl gap-8 rounded-2xl border border-sky-200/70 bg-[#fafbfc]/72 p-6 shadow-2xl shadow-sky-500/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/65 lg:grid-cols-[1.1fr_0.9fr] lg:p-8"
+            exit={{ opacity: 0, scale: 0.96 }}
+            className="mx-auto grid max-w-4xl gap-6 rounded-2xl border border-sky-200/70 bg-[#fafbfc]/72 p-6 shadow-2xl shadow-sky-500/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/65 lg:grid-cols-[1fr_0.9fr] lg:p-8"
           >
-            <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden rounded-xl bg-slate-950">
+            <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-slate-950">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(14,165,233,0.28),transparent_34%),linear-gradient(135deg,#0f172a,#020617)]" />
-              <img
-                src={selectedRobot.image}
-                alt={selectedRobot.name}
-                className="relative z-10 max-h-64 max-w-[78%] object-contain drop-shadow-[0_0_34px_rgba(56,189,248,0.38)]"
-              />
+              <button
+                type="button"
+                onClick={() => setZoomedImage(selectedRobot.image)}
+                className="relative z-10 flex h-full w-full cursor-zoom-in items-center justify-center p-4"
+              >
+                <img
+                  src={selectedRobot.image}
+                  alt={selectedRobot.name}
+                  className="max-h-[340px] max-w-[90%] object-contain drop-shadow-[0_0_34px_rgba(56,189,248,0.38)] transition-transform hover:scale-105"
+                />
+              </button>
             </div>
 
             <div className="flex flex-col justify-center">
@@ -121,32 +149,63 @@ export default function HardwareSection() {
                 <span aria-hidden="true">←</span>
                 {locale === 'en' ? 'Back to hardware' : '返回硬件列表'}
               </button>
-              <span className="mb-3 font-mono text-xs font-bold uppercase tracking-widest text-sky-600 dark:text-cyan-300">
-                {selectedRobot.type}
-              </span>
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                {TYPE_LABELS[selectedRobot.type] && (
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-sky-600 dark:text-cyan-300">
+                    {t(TYPE_LABELS[selectedRobot.type], locale)}
+                  </span>
+                )}
+                {selectedRobot.status && STATUS_BADGE[selectedRobot.status] && (
+                  <span className={`inline-block rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${STATUS_BADGE[selectedRobot.status].className}`}>
+                    {t(STATUS_BADGE[selectedRobot.status], locale)}
+                  </span>
+                )}
+                {selectedRobot.task && (
+                  <span className="rounded-md bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
+                    {t(selectedRobot.task, locale)}
+                  </span>
+                )}
+                {!selectedRobot.tested && (
+                  <span className="inline-block rounded-full border border-red-200 bg-red-50 px-2.5 py-0.5 text-[11px] font-bold text-red-600 dark:border-red-700/40 dark:bg-red-900/30 dark:text-red-400">
+                    {locale === 'en' ? 'Not Tested' : '尚未测试'}
+                  </span>
+                )}
+              </div>
               <h3 className="font-mono text-3xl font-black text-slate-950 dark:text-white">
-                {selectedRobot.name}
+                {selectedRobot.url ? (
+                  <a href={selectedRobot.url} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-blue-600 dark:hover:text-sky-300">
+                    {selectedRobot.name} ↗
+                  </a>
+                ) : (
+                  selectedRobot.name
+                )}
               </h3>
               <p className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
                 {selectedRobot.manufacturer}
               </p>
-              <p className="mt-6 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                {t(selectedRobot.description, locale)}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {selectedRobot.sensors.map((sensor) => (
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {selectedRobot.specs.map((spec) => (
                   <span
-                    key={sensor}
+                    key={spec}
                     className="rounded-md border border-sky-200 bg-sky-50 px-2.5 py-1 text-xs text-sky-700 dark:border-cyan-300/20 dark:bg-cyan-300/10 dark:text-cyan-200"
                   >
-                    {sensor}
+                    {spec}
                   </span>
                 ))}
               </div>
+              {selectedRobot.description && (
+                <p className="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {t(selectedRobot.description, locale)}
+                </p>
+              )}
             </div>
           </motion.div>
         ) : (
-          <div
+          <motion.div
+            key="carousel"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="relative mx-auto h-[470px] max-w-6xl cursor-grab active:cursor-grabbing [perspective:1400px]"
             onPointerDown={(event) => handleDragStart(event.clientX)}
             onPointerMove={(event) => handleDragMove(event.clientX)}
@@ -199,7 +258,7 @@ export default function HardwareSection() {
                         <img
                           src={robot.image}
                           alt=""
-                          className="relative z-10 h-full w-full object-contain p-7 drop-shadow-[0_0_28px_rgba(56,189,248,0.32)]"
+                          className="relative z-10 h-full w-full object-contain p-1 drop-shadow-[0_0_28px_rgba(56,189,248,0.32)]"
                         />
                       </div>
                       <div className="border-t border-white/10 bg-slate-950/90 p-4 text-white">
@@ -228,8 +287,9 @@ export default function HardwareSection() {
             >
               →
             </button>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
 
         {/* Hardware matrix table */}
         <div className="mt-16 overflow-x-auto">
@@ -246,27 +306,37 @@ export default function HardwareSection() {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {HARDWARE.robots.map((robot) => (
                 <tr key={robot.name} className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                  <td className="px-4 py-3 font-medium text-slate-700 dark:text-slate-300">{robot.manufacturer}</td>
-                  <td className="px-4 py-3 font-mono text-xs font-bold text-slate-900 dark:text-white">{robot.name}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{robot.manufacturer}</td>
                   <td className="px-4 py-3">
-                    <span className="rounded-full bg-sky-50 px-2.5 py-0.5 text-xs font-medium text-sky-700 dark:bg-sky-900/30 dark:text-sky-300">
-                      {robot.type}
+                    {robot.url ? (
+                      <a href={robot.url} target="_blank" rel="noopener noreferrer" className="font-mono text-xs font-bold text-blue-600 hover:text-blue-500 dark:text-sky-400 dark:hover:text-sky-300">
+                        {robot.name} ↗
+                      </a>
+                    ) : (
+                      <span className="font-mono text-xs font-bold text-slate-900 dark:text-white">{robot.name}</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                      {TYPE_LABELS[robot.type] ? t(TYPE_LABELS[robot.type], locale) : robot.type}
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    {robot.realRobot
-                      ? <span className="text-green-600 dark:text-green-400">✓</span>
-                      : <span className="text-slate-300 dark:text-slate-600">—</span>}
+                    <span className={`inline-block rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${STATUS_BADGE[robot.status].className}`}>
+                      {t(STATUS_BADGE[robot.status], locale)}
+                    </span>
                   </td>
+                  <td className="px-4 py-3 text-xs text-slate-600 dark:text-slate-400">{t(robot.task, locale)}</td>
                   <td className="px-4 py-3">
-                    {robot.simulation
-                      ? <span className="text-green-600 dark:text-green-400">✓</span>
-                      : <span className="text-slate-300 dark:text-slate-600">—</span>}
-                  </td>
-                  <td className="px-4 py-3">
-                    {robot.tested
-                      ? <span className="text-green-600 dark:text-green-400">✓</span>
-                      : <span className="text-slate-300 dark:text-slate-600">—</span>}
+                    {robot.tested ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                        ✓ {locale === 'en' ? 'Tested' : '已测试'}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-600 dark:bg-red-900/30 dark:text-red-400">
+                        — {locale === 'en' ? 'Not Tested' : '尚未测试'}
+                      </span>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -274,6 +344,29 @@ export default function HardwareSection() {
           </table>
         </div>
       </div>
+      {/* Zoom modal */}
+      {zoomedImage && (
+        <div
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setZoomedImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setZoomedImage(null)}
+            className="absolute right-6 top-6 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <img
+            src={zoomedImage}
+            alt=""
+            className="max-h-[90vh] max-w-[90vw] cursor-zoom-out object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }

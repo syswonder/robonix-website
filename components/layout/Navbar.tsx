@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { useTheme } from '@/context/ThemeContext';
 import { t } from '@/lib/i18n';
-import { NAV_LINKS, NAV_EXTERNAL_LINKS } from '@/lib/constants';
+import { NAV_EXTERNAL_LINKS } from '@/lib/constants';
 import Logo from '@/components/ui/Logo';
 
 export default function Navbar() {
@@ -13,7 +13,6 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -38,70 +37,26 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link, i) => (
-            <motion.a
-              key={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              href={link.href}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                scrolled
-                  ? 'text-slate-600 hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400'
-                  : 'text-slate-700 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/80 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
-              }`}
-            >
-              {t(link.label, locale)}
-            </motion.a>
-          ))}
-          {/* Resources dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setResourcesOpen(true)}
-            onMouseLeave={() => setResourcesOpen(false)}
-          >
-            <motion.button
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: NAV_LINKS.length * 0.05 }}
-              onClick={() => setResourcesOpen(!resourcesOpen)}
-              className={`flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                scrolled
-                  ? 'text-slate-500 hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400'
-                  : 'text-slate-600 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/70 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
-              }`}
-            >
-              {locale === 'en' ? 'Resources' : '资源'}
-              <svg className={`h-3 w-3 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </motion.button>
-            <AnimatePresence>
-              {resourcesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -4, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -4, scale: 0.96 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute right-0 mt-1 w-40 rounded-lg border border-slate-200/60 bg-[#fafbfc] py-1 shadow-lg shadow-slate-200/50 dark:border-slate-700/60 dark:bg-slate-900 dark:shadow-slate-950/50"
-                >
-                  {NAV_EXTERNAL_LINKS.map((link) => {
-                    const isExternal = /^https?:\/\//.test(link.href);
-                    return (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                        className="block px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-                      >
-                        {t(link.label, locale)}{isExternal ? ' ↗' : ''}
-                      </a>
-                    );
-                  })}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {NAV_EXTERNAL_LINKS.map((link, i) => {
+            const isExternal = /^https?:\/\//.test(link.href);
+            return (
+              <motion.a
+                key={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                href={link.href}
+                {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  scrolled
+                    ? 'text-slate-600 hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400'
+                    : 'text-slate-700 hover:bg-[#fafbfc]/70 hover:text-sky-700 dark:text-white/80 dark:hover:bg-[#fafbfc]/10 dark:hover:text-white'
+                }`}
+              >
+                {t(link.label, locale)}{isExternal ? ' ↗' : ''}
+              </motion.a>
+            );
+          })}
         </div>
 
         {/* Right actions */}
@@ -208,16 +163,6 @@ export default function Navbar() {
             className="overflow-hidden border-t border-slate-200/60 bg-[#fafbfc]/95 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/95 lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-4 py-3 text-base text-slate-600 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-                >
-                  {t(link.label, locale)}
-                </a>
-              ))}
               {NAV_EXTERNAL_LINKS.map((link) => {
                 const isExternal = /^https?:\/\//.test(link.href);
                 return (

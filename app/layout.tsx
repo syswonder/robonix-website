@@ -25,7 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('robonix-theme');if(t==='light'){document.documentElement.classList.remove('dark')}})()`,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <ThemeProvider>
           <LocaleProvider>
