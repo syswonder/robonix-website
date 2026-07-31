@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { LocaleProvider } from '@/context/LocaleContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import MobileWarning from '@/components/layout/MobileWarning';
 
 export const metadata: Metadata = {
   title: 'Robonix — The Embodied AI Operating System',
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider>
           <LocaleProvider>
+            <MobileWarning />
             {children}
           </LocaleProvider>
         </ThemeProvider>

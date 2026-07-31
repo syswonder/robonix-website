@@ -26,7 +26,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 z-50 transition-all duration-500 max-lg:top-8 top-0 ${
         scrolled
           ? 'glass border-b border-slate-200/60 shadow-lg shadow-slate-200/50 dark:border-slate-700/60 dark:shadow-slate-900/50'
           : 'bg-transparent'
@@ -85,17 +85,19 @@ export default function Navbar() {
                   transition={{ duration: 0.15 }}
                   className="absolute right-0 mt-1 w-40 rounded-lg border border-slate-200/60 bg-[#fafbfc] py-1 shadow-lg shadow-slate-200/50 dark:border-slate-700/60 dark:bg-slate-900 dark:shadow-slate-950/50"
                 >
-                  {NAV_EXTERNAL_LINKS.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-                    >
-                      {t(link.label, locale)} ↗
-                    </a>
-                  ))}
+                  {NAV_EXTERNAL_LINKS.map((link) => {
+                    const isExternal = /^https?:\/\//.test(link.href);
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="block px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                      >
+                        {t(link.label, locale)}{isExternal ? ' ↗' : ''}
+                      </a>
+                    );
+                  })}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -167,9 +169,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            href="https://robonix.syswonder.org/getting-started/quickstart.html"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/coming-soon"
             className="ml-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/40"
           >
             {locale === 'en' ? 'Get Started' : '开始使用'}
@@ -218,18 +218,20 @@ export default function Navbar() {
                   {t(link.label, locale)}
                 </a>
               ))}
-              {NAV_EXTERNAL_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-4 py-3 text-base text-slate-500 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-                >
-                  {t(link.label, locale)} ↗
-                </a>
-              ))}
+              {NAV_EXTERNAL_LINKS.map((link) => {
+                const isExternal = /^https?:\/\//.test(link.href);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    onClick={() => setMobileOpen(false)}
+                    className="rounded-lg px-4 py-3 text-base text-slate-500 transition-colors hover:bg-[#e8ecf3] hover:text-blue-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+                  >
+                    {t(link.label, locale)}{isExternal ? ' ↗' : ''}
+                  </a>
+                );
+              })}
               <hr className="my-2 border-slate-200 dark:border-slate-700" />
               <div className="flex items-center gap-2 px-4 py-2">
                 <button
@@ -246,9 +248,7 @@ export default function Navbar() {
                 </button>
               </div>
               <a
-                href="https://github.com/syswonder/robonix"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/coming-soon"
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-3 text-center font-semibold text-white shadow-md"
               >

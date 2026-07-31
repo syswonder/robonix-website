@@ -17,6 +17,8 @@ export const NAV_LINKS = [
 export const NAV_EXTERNAL_LINKS = [
   { label: { en: 'Docs', zh: '文档' }, href: 'https://robonix-book.syswonder.org/' },
   { label: { en: 'Packages', zh: '包目录' }, href: 'https://robonix-package-catalog.syswonder.org/' },
+  { label: { en: 'Skill Forge', zh: '技能工坊' }, href: '/skill-forge' },
+  { label: { en: 'Papers & Reports', zh: '论文与报告' }, href: '/resources' },
 ];
 
 // ───────────────────────────────────────────

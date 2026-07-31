@@ -91,9 +91,7 @@ export default function HeroSection() {
 
           <div className={`mb-8 flex max-w-full flex-col gap-4 sm:flex-row ${isLight ? 'justify-center' : ''}`}>
             <motion.a
-              href="https://robonix.syswonder.org/getting-started/quickstart.html"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/coming-soon"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="rounded-full bg-gradient-to-r from-blue-600 to-sky-400 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-500/30 transition-shadow hover:shadow-xl hover:shadow-blue-500/50"

@@ -42,7 +42,7 @@ export default function DemoSection() {
                   <>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(14,165,233,0.24),transparent_28%),linear-gradient(135deg,#0f172a_0%,#020617_58%,#111827_100%)]" />
                     <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_43%,rgba(56,189,248,0.18)_43.2%,transparent_43.8%_62%,rgba(59,130,246,0.13)_62.2%,transparent_62.8%)]" />
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                       <motion.div
                         whileHover={{ scale: 1.06 }}
                         whileTap={{ scale: 0.96 }}
@@ -50,6 +50,9 @@ export default function DemoSection() {
                       >
                         <span className="ml-1 text-3xl">▶</span>
                       </motion.div>
+                      <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-sm font-bold text-white backdrop-blur">
+                        {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+                      </span>
                     </div>
                   </>
                 )}
@@ -104,7 +107,7 @@ export default function DemoSection() {
                     <div className="absolute left-3 top-3 rounded-full bg-black/40 px-2 py-0.5 font-mono text-[10px] font-bold text-white backdrop-blur">
                       {v.duration}
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
                       <span className={`flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-all ${
                         active
                           ? 'border-sky-200 bg-sky-400/25 text-white shadow-[0_0_28px_rgba(14,165,233,0.45)]'
@@ -112,6 +115,11 @@ export default function DemoSection() {
                       }`}>
                         ▶
                       </span>
+                      {!('src' in v && v.src) && (
+                        <span className="rounded-full border border-white/15 bg-black/30 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur">
+                          {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="p-4">
