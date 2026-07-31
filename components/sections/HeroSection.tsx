@@ -85,7 +85,7 @@ export default function HeroSection() {
             {t(HERO.subtitle, locale)}
           </p>
 
-          <p className="mb-8 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg">
+          <p className={`mb-8 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg ${isLight ? 'mx-auto' : ''}`}>
             {t(HERO.description, locale)}
           </p>
 
