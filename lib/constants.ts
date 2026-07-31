@@ -867,16 +867,17 @@ export const TEAM = {
     zh: '由矽望开源社区组织研发，CCF 泛在操作系统开放社区发布，汇聚来自顶尖机构的研究者与工程师。',
   },
   members: [
+    { name: 'CCF', logo: '/images/OpenUbiOS-2.png', url: 'https://www.gitlink.org.cn/zone/uos' },
     { name: 'Syswonder', logo: '/images/Syswonder.svg', url: 'https://syswonder.org' },
     { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
-    { name: 'CCF', logo: '/images/OpenUbiOS-2.png', url: 'https://www.gitlink.org.cn/zone/uos' },
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
     { name: 'Shanghai Jiao Tong University', logo: '/images/SJTU.png', url: 'https://www.sjtu.edu.cn' },
     { name: 'Zhejiang University', logo: '/images/ZJU.webp', url: 'https://www.zju.edu.cn' },
-    { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
+    { name: 'ICT, CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
     { name: 'Northwestern Polytechnical University', logo: '/images/NWPU.png', url: 'https://www.nwpu.edu.cn' },
     { name: 'Hangzhou Dianzi University', logo: '/images/HZDU.svg', url: 'https://www.hdu.edu.cn' },
-    { name: 'ICT, CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
+    { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
+    { name: 'Advanced Institute of Information Technology Peking University', logo: '/images/AIIT.png', url: 'https://aiit.org.cn/' },
   ],
 };
 
