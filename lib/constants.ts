@@ -66,12 +66,12 @@ export const HERO = {
 
 export const WHY_ROBONIX = {
   title: {
-    en: 'Problems Robonix Solves',
+    en: 'Problem Robonix Solves',
     zh: 'Robonix 解决什么问题',
   },
   subtitle: {
-    en: 'Every new robot platform starts from scratch — hardware, AI models, and skills are so tightly coupled that each robot becomes an isolated silo, unable to share capabilities across bodies.',
-    zh: '换一个机器人平台就要推倒重来——硬件、模型、技能三层紧耦合，让每一款新机器人都成了无法互通的孤岛。',
+    en: 'Robonix aims to address the tight coupling of robot models and skills with specific embodiments, which results in duplicated development, poor portability and reuse, and difficulties in scaling robotic applications.',
+    zh: 'Robonix 瞄准解决机器人模型和技能与特定本体强耦合、缺乏统一接口，导致重复开发、难以迁移复用和规模化应用的问题。',
   },
   cards: [
     {
