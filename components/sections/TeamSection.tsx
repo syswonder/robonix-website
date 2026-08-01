@@ -26,7 +26,7 @@ export default function TeamSection() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ y: -3 }}
-              className="group flex items-center justify-center rounded-xl p-6 transition-all hover:bg-[#e8ecf3]/50 dark:hover:bg-slate-800/50"
+              className="group flex items-center justify-center rounded-xl p-6 transition-all hover:bg-[#e8ecf3]/50 dark:bg-white/90 dark:hover:bg-white"
               title={member.name}
             >
               <img

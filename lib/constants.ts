@@ -1087,11 +1087,11 @@ export const FOOTER = {
     zh: '使用 React、Three.js 和 GSAP 构建',
   },
   license: {
-    en: 'Open Source License',
-    zh: '开源许可证',
+    en: 'MulanPSL-2.0',
+    zh: '木兰宽松许可证 v2',
   },
   copyright: {
-    en: '© 2026 Robonix. All rights reserved.',
-    zh: '© 2026 Robonix。保留所有权利。',
+    en: '© 2026 Robonix',
+    zh: '© 2026 Robonix',
   },
 };
