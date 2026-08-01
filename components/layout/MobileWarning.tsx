@@ -12,8 +12,8 @@ export default function MobileWarning() {
       </svg>
       <span>
         {locale === 'en'
-          ? 'Mobile adaptation is not yet complete. For the best experience, please visit on a PC.'
-          : '移动端尚未完成适配，请前往 PC 端访问'}
+          ? 'Mobile browsing experience may be suboptimal. For the best experience, please visit on a desktop.'
+          : '移动端可能浏览效果不佳，请尽量前往 PC 端访问'}
       </span>
     </div>
   );
