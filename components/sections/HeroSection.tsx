@@ -82,7 +82,20 @@ export default function HeroSection() {
           </h1>
 
           <p className={`mb-6 max-w-xl text-xl text-slate-900 dark:text-white sm:text-2xl ${isLight ? 'mx-auto' : ''}`}>
-            {t(HERO.subtitle, locale)}
+            {(() => {
+              const lines = t(HERO.subtitle, locale).split('\n');
+              return (
+                <>
+                  {lines[0]}
+                  {lines.length > 1 && (
+                    <>
+                      <br />
+                      <i>{lines[1]}</i>
+                    </>
+                  )}
+                </>
+              );
+            })()}
           </p>
 
           <p className={`mb-8 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg ${isLight ? 'mx-auto' : ''}`}>
@@ -107,20 +120,9 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="rounded-full bg-gradient-to-r from-blue-600 to-sky-400 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-500/30 transition-shadow hover:shadow-xl hover:shadow-blue-500/50"
-            >
-              {t(HERO.ctaGithub, locale)}
-            </motion.a>
-
-            <motion.a
-              href="https://robonix-book.syswonder.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
               className="rounded-full border border-sky-200 bg-white/70 px-8 py-3.5 text-center font-semibold text-slate-800 shadow-sm backdrop-blur transition-colors hover:border-sky-400 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-sky-300 dark:hover:bg-white/15"
             >
-              {t(HERO.cta2, locale)} ↗
+              {t(HERO.ctaGithub, locale)}
             </motion.a>
           </div>
 
