@@ -91,12 +91,25 @@ export default function HeroSection() {
 
           <div className={`mb-8 flex max-w-full flex-col gap-4 sm:flex-row ${isLight ? 'justify-center' : ''}`}>
             <motion.a
-              href="/coming-soon"
+              href="https://robonix-book.syswonder.org/integration-guide/vendor-onboarding"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="rounded-full bg-gradient-to-r from-blue-600 to-sky-400 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-500/30 transition-shadow hover:shadow-xl hover:shadow-blue-500/50"
             >
               {t(HERO.cta, locale)}
+            </motion.a>
+
+            <motion.a
+              href="https://github.com/syswonder/robonix"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full bg-gradient-to-r from-blue-600 to-sky-400 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-blue-500/30 transition-shadow hover:shadow-xl hover:shadow-blue-500/50"
+            >
+              {t(HERO.ctaGithub, locale)}
             </motion.a>
 
             <motion.a
@@ -108,17 +121,6 @@ export default function HeroSection() {
               className="rounded-full border border-sky-200 bg-white/70 px-8 py-3.5 text-center font-semibold text-slate-800 shadow-sm backdrop-blur transition-colors hover:border-sky-400 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-sky-300 dark:hover:bg-white/15"
             >
               {t(HERO.cta2, locale)} ↗
-            </motion.a>
-
-            <motion.a
-              href="https://github.com/syswonder/robonix"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-full border border-sky-200 bg-white/70 px-8 py-3.5 text-center font-semibold text-slate-800 shadow-sm backdrop-blur transition-colors hover:border-sky-400 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-sky-300 dark:hover:bg-white/15"
-            >
-              GitHub ↗
             </motion.a>
           </div>
 

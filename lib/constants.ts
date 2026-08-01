@@ -15,7 +15,7 @@ export const NAV_EXTERNAL_LINKS = [
 ];
 
 export const NAV_RESOURCES = [
-  { label: { en: 'Papers & Reports', zh: '论文与报告' }, href: '/resources' },
+  { label: { en: 'Papers & Reports', zh: '论文与报告' }, href: '/papers' },
 ];
 
 // ───────────────────────────────────────────
@@ -51,6 +51,10 @@ export const HERO = {
   cta4: {
     en: 'Developer Community',
     zh: '开发者社区',
+  },
+  ctaGithub: {
+    en: '⭐ Star on GitHub',
+    zh: '⭐ 点亮 GitHub',
   },
   badges: [
     { label: { en: 'Published Robot Integrations', zh: '已发布机器人集成' }, value: '2' },
@@ -948,6 +952,38 @@ export const DOCS = {
         zh: '包开发指南、能力合约编写、技能工具包和贡献工作流。',
       },
       href: 'https://robonix.syswonder.org/integration-guide/package-catalog.html',
+    },
+  ],
+};
+
+// ───────────────────────────────────────────
+// Papers & Reports
+// ───────────────────────────────────────────
+
+export const PAPERS = {
+  title: {
+    en: 'Papers & Reports',
+    zh: '论文与报告',
+  },
+  subtitle: {
+    en: 'Technical whitepapers, research reports, and publications from the Robonix team.',
+    zh: '来自 Robonix 团队的技术白皮书、研究报告与学术发表。',
+  },
+  papers: [
+    {
+      icon: '📄',
+      category: { en: 'Whitepaper', zh: '白皮书' },
+      title: {
+        en: 'Robonix: Embodied AI Operating System — Technical Whitepaper',
+        zh: '具身智能操作系统技术白皮书',
+      },
+      description: {
+        en: 'Published by the CCF Ubiquitous Operating System Open Community, this white paper starts from the current development status of the embodied intelligence industry. It systematically reviews and analyzes several issues in the development of current embodied intelligence software systems, and proposes a novel operating system design tailored for embodied intelligence. The initiative aims to reconstruct the engineering foundation of embodied intelligence through the operating system paradigm, providing support for building a large-scale and sustainable industrial ecosystem for embodied intelligence.',
+        zh: '本书由CCF泛在操作系统开放社区发布，白皮书从当前具身智能产业的发展现状出发，系统梳理并分析了当前具身智能软件系统开发中的若干问题，提出了一种面向具身智能的新型操作系统设计，旨在以操作系统范式重构具身智能的工程基础，并为构建大规模、可持续的具身智能产业生态提供支撑。',
+      },
+      authors: { en: 'Robonix Team', zh: 'Robonix 团队' },
+      date: '2026',
+      href: 'https://gitlink.org.cn/zone/uos/source/292',
     },
   ],
 };
