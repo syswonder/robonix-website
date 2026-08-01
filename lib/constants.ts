@@ -983,7 +983,7 @@ export const PAPERS = {
       },
       authors: { en: 'Robonix Team', zh: 'Robonix 团队' },
       date: '2026',
-      href: 'https://gitlink.org.cn/zone/uos/source/292',
+      href: 'http://syswonder-cdn.oscommunity.cn/Syswonder_EAIOS_whitepaper-v0.1.pdf',
     },
   ],
 };
