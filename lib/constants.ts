@@ -492,10 +492,10 @@ export const DEMO = {
   videos: [
     {
       id: 'hardware-decoupling',
-      title: { en: 'Hardware Decoupling Test', zh: '硬件解耦测试' },
+      title: { en: 'Cross-Platform Hardware Decoupling Verification', zh: '跨平台硬件解耦验证' },
       description: {
-        en: 'The same Robonix task flow runs across a AgileX Ranger mobile base and a DEEP Robotics Lite3 quadruped, demonstrating hardware-decoupled execution.',
-        zh: '同一套 Robonix 任务流程分别在松灵 Ranger 小车和云深处 Lite3 机器狗上演示，验证硬件解耦执行能力。',
+        en: 'To verify its hardware decoupling execution capabilities, Robonix successfully conducted cross-platform demonstrations of the same task workflow on both the AgileX Ranger rover and the DeepRobotics Lite3 quadruped robot. The tests confirm that Robonix can seamlessly bridge different hardware morphologies, directly mapping natural language navigation commands into the robot\'s actual execution behaviors, while maintaining a real-time feedback mechanism based on environmental perception.',
+        zh: '为验证硬件解耦执行能力，Robonix 在松灵 Ranger 小车和云深处 Lite3 机器狗上完成了同一套任务流程的跨平台演示。测试证实，Robonix 能够跨越不同硬件形态，将自然语言导航指令直接映射为机器的实际运行行为，并具备基于环境感知的实时反馈机制。',
       },
       thumbnail: '/videos/ranger_and_lite3.mp4',
       src: '/videos/ranger_and_lite3.mp4',
@@ -867,7 +867,7 @@ export const TEAM = {
     zh: '由矽望开源社区组织研发，CCF 泛在操作系统开放社区发布，汇聚来自顶尖机构的研究者与工程师。',
   },
   members: [
-    { name: 'CCF', logo: '/images/OpenUbiOS-2.png', url: 'https://www.gitlink.org.cn/zone/uos' },
+    { name: 'CCF', logo: '/images/CCF.png', url: 'https://www.gitlink.org.cn/zone/uos' },
     { name: 'Syswonder', logo: '/images/Syswonder.svg', url: 'https://syswonder.org' },
     { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },

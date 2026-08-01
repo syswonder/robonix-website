@@ -34,7 +34,16 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         {/* Logo */}
-        <Logo size="sm" />
+        <div className="flex items-center gap-3">
+          <Logo size="sm" />
+          <motion.span
+            initial={{ opacity: 0, width: 0 }}
+            animate={scrolled ? { opacity: 1, width: 'auto' } : { opacity: 0, width: 0 }}
+            className="overflow-hidden whitespace-nowrap rounded-full border border-amber-400/50 bg-amber-400/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400"
+          >
+            🚧 Under Heavy Construction
+          </motion.span>
+        </div>
 
         {/* Desktop links + Resources dropdown */}
         <div className="hidden items-center gap-1 lg:flex">
@@ -174,7 +183,9 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            href="/coming-soon"
+            href="https://robonix-book.syswonder.org/integration-guide/vendor-onboarding"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/40"
           >
             {locale === 'en' ? 'Get Started' : '开始使用'}

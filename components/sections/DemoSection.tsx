@@ -56,22 +56,31 @@ export default function DemoSection() {
                     </div>
                   </>
                 )}
-                <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-                  <div>
-                    <h3 className="font-mono text-2xl font-black text-white">
-                      {t(video.title, locale)}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-300">
-                      {t(video.description, locale)}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-white/15 bg-[#fafbfc]/10 px-3 py-1 font-mono text-xs font-bold text-white backdrop-blur">
-                    {video.duration}
-                  </span>
-                </div>
               </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Video info — below the player */}
+          <motion.div
+            key={`info-${video.id}`}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="flex flex-wrap items-end justify-between gap-4"
+          >
+            <div>
+              <h3 className="font-mono text-2xl font-black text-slate-950 dark:text-white">
+                {t(video.title, locale)}
+              </h3>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {t(video.description, locale)}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-full border border-slate-200 bg-[#fafbfc] px-3 py-1 font-mono text-xs font-bold text-slate-700 dark:border-white/15 dark:bg-slate-800 dark:text-white">
+              {video.duration}
+            </span>
+          </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {DEMO.videos.map((v, i) => {
