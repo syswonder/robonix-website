@@ -26,19 +26,12 @@ function HeroBackdrop() {
       <img
         src="/images/creation_of_robot.png"
         alt=""
-        className="hidden h-full w-full object-contain object-center opacity-85 mix-blend-normal dark:block"
+        className="hidden h-full w-full object-contain object-center opacity-90 mix-blend-normal dark:block"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/80 to-white/30 dark:from-slate-950 dark:via-slate-950/55 dark:to-slate-950/15" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/80 to-white/30 dark:from-slate-950/60 dark:via-slate-950/30 dark:to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_20%,rgba(14,165,233,0.18),transparent_28%),radial-gradient(circle_at_74%_62%,rgba(34,197,94,0.10),transparent_24%)] dark:hidden" />
       <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_74%_20%,rgba(236,72,153,0.2),transparent_26%),radial-gradient(circle_at_58%_62%,rgba(6,182,212,0.22),transparent_32%)] dark:block" />
-      <div className="punk-effects" aria-hidden="true">
-        <div className="punk-scan punk-scan-a" />
-        <div className="punk-scan punk-scan-b" />
-        <div className="punk-word punk-word-a">RTDL</div>
-        <div className="punk-word punk-word-b">VLA</div>
-        <div className="punk-word punk-word-c">SOMA</div>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-[340px] bg-gradient-to-b from-transparent via-white/80 to-[#f6f8fa] dark:via-[#07111f]/72 dark:to-[#020617]" />
+      <div className="absolute inset-x-0 bottom-0 h-[340px] bg-gradient-to-b from-transparent via-white/80 to-[#f6f8fa] dark:from-transparent dark:via-[#020617]/50 dark:to-[#020617]" />
     </div>
   );
 }
