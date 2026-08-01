@@ -29,12 +29,12 @@ export const HERO = {
   },
   title: 'Robonix',
   subtitle: {
-    en: 'The Embodied AI Operating System\nOne OS. Intelligence Across Embodiments.',
-    zh: '具身智能操作系统\n一个操作系统，让智能跨越万千本体。',
+    en: 'One OS, Intelligence Across Embodiments.',
+    zh: '一个操作系统，让智能跨越万千本体。',
   },
   description: {
-    en: 'Agentic by design, Robonix transforms models, skills, services, and diverse robot hardware into discoverable, composable capabilities on one open operating platform, connecting reasoning to action. Define capabilities once, then let agents understand, compose, and invoke them across embodiments without vendor lock-in or repeated integration.',
-    zh: 'Robonix 生而面向智能体，将模型、技能、服务与多样化机器人硬件统一抽象为可发现、可组合的标准能力，汇聚于同一个开放操作系统平台，打通从推理到行动的完整链路。能力一次定义，智能体即可跨本体理解、组合与调用，告别厂商锁定与重复集成。',
+    en: 'Robonix is the open, agentic operating system that turns models, skills, services, and hardware into composable capabilities. Define once, deploy anywhere, and without vendor lock-in or repeated integration.',
+    zh: 'Robonix 是开放、智能体原生的具身智能操作系统，将模型、技能、服务与硬件统一为智能体可理解、可组合、可调用的能力。能力一次定义，随处部署，告别厂商锁定与重复集成。',
   },
   cta: {
     en: 'Get Started',

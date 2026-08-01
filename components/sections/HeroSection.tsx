@@ -81,21 +81,8 @@ export default function HeroSection() {
             <span className="text-slate-950 drop-shadow-[0_0_34px_rgba(14,165,233,0.18)] dark:text-white dark:drop-shadow-[0_0_34px_rgba(56,189,248,0.42)]">{HERO.title}</span>
           </h1>
 
-          <p className={`mb-6 max-w-xl text-xl text-slate-900 dark:text-white sm:text-2xl ${isLight ? 'mx-auto' : ''}`}>
-            {(() => {
-              const lines = t(HERO.subtitle, locale).split('\n');
-              return (
-                <>
-                  {lines[0]}
-                  {lines.length > 1 && (
-                    <>
-                      <br />
-                      <i>{lines[1]}</i>
-                    </>
-                  )}
-                </>
-              );
-            })()}
+          <p className={`mb-6 max-w-xl text-xl italic text-slate-900 dark:text-white sm:text-2xl ${isLight ? 'mx-auto' : ''}`}>
+            {t(HERO.subtitle, locale)}
           </p>
 
           <p className={`mb-8 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg ${isLight ? 'mx-auto' : ''}`}>
