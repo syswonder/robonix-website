@@ -148,7 +148,7 @@ export const ARCHITECTURE = {
   },
   subtitle: {
     en: 'From user intent to physical action, Robonix separates interaction, planning, execution, scene state, body state, transport, and capability discovery into clear runtime roles.',
-    zh: '从用户意图到物理行动，Robonix 将交互、规划、执行、场景、本体、通信和能力发现拆成清晰的运行时角色。',
+    zh: '从用户意图到物理行动, Robonix 将交互、规划、执行、场景、本体、通信和能力发现拆成清晰的运行时角色。',
   },
   principles: [
     {
