@@ -57,10 +57,10 @@ export const HERO = {
     zh: '⭐ 点亮 GitHub',
   },
   badges: [
-    { label: { en: 'Published Robot Integrations', zh: '已发布机器人集成' }, value: '2' },
-    { label: { en: 'System Components', zh: '系统组件' }, value: '12' },
-    { label: { en: 'Transports', zh: '通信传输' }, value: 'gRPC / MCP / ROS 2' },
-    { label: { en: 'Platforms', zh: '运行平台' }, value: 'x86_64 / Jetson arm64' },
+    { label: { en: 'Robot Vendors', zh: '本体厂商' }, value: '10+' },
+    { label: { en: 'Robot Form Factors', zh: '本体形态' }, value: '6' },
+    { label: { en: 'Simulation Engines', zh: '仿真引擎' }, value: '3' },
+    { label: { en: 'Fully Open Skill Forge', zh: '完全开放的技能工坊' }, value: '' },
   ],
 };
 
