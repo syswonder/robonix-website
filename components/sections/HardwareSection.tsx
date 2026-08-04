@@ -36,9 +36,12 @@ export default function HardwareSection() {
 
   const filteredRobots = activeFilter === 'all'
     ? HARDWARE.robots
-    : HARDWARE.robots.filter(
-        (robot) => robot.status === activeFilter || robot.type === activeFilter,
-      );
+    : HARDWARE.robots.filter((robot) => {
+        if (robot.status === activeFilter || robot.type === activeFilter) return true;
+        // "Arms & Hands" filter matches both arm and hand types
+        if (activeFilter === 'manipulator' && (robot.type === 'arm' || robot.type === 'hand')) return true;
+        return false;
+      });
 
   useEffect(() => {
     setActiveIndex(0);
