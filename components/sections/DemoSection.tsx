@@ -94,7 +94,7 @@ export default function DemoSection() {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ delay: i * 0.08 }}
                   onClick={() => setActiveVideo(i)}
-                  className={`group overflow-hidden rounded-xl border text-left transition-all ${
+                  className={`group flex h-full flex-col overflow-hidden rounded-xl border text-left transition-all ${
                     active
                       ? 'border-sky-300 bg-[#fafbfc] shadow-xl shadow-sky-500/15 dark:border-cyan-300/40 dark:bg-slate-950/80'
                       : 'border-slate-200 bg-[#fafbfc]/72 shadow-sm backdrop-blur hover:border-sky-300 hover:bg-[#fafbfc] dark:border-white/10 dark:bg-slate-900/58 dark:hover:border-cyan-300/40'
