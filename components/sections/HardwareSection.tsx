@@ -266,7 +266,6 @@ export default function HardwareSection() {
                       </div>
                       <div className="border-t border-white/10 bg-slate-950/90 p-4 text-white">
                         <p className="font-mono text-sm font-black">{robot.name}</p>
-                        <p className="mt-1 text-xs text-slate-400">{robot.manufacturer}</p>
                       </div>
                     </motion.button>
                   </div>

@@ -581,6 +581,25 @@ export const HARDWARE = {
       },
     },
     {
+      name: 'Wheeltec R550 MiniTank',
+      type: 'wheeled',
+      status: 'integrated',
+      task: { en: 'Navigation & Education', zh: '导航、教育' },
+      image: '/images/wheeltec.jpg',
+      manufacturer: 'Wheeltec',
+      specs: [
+        'ROS educational robot',
+        'Lightweight tracked chassis',
+        'Highly expandable platform',
+      ],
+      tested: true,
+      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.wheeltec.r550/',
+      description: {
+        en: 'Wheeltec\'s R550 MiniTank is a lightweight ROS educational robot featuring a rugged tracked chassis. Designed for robotics education, algorithm research, and rapid prototyping, it offers strong expandability with support for a wide range of sensors and accessories.',
+        zh: '轮趣科技推出的 R550 MiniTank 轻量级 ROS 教育机器人，采用履带式底盘，专为机器人教育、算法研究与快速原型开发而设计，具备强大的扩展性，支持多种传感器与配件。',
+      },
+    },
+    {
       name: 'DEEP Robotics Lite3',
       type: 'quadruped',
       status: 'integrated',
