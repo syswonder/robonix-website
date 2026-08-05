@@ -1074,6 +1074,17 @@ export const CTA = {
 };
 
 // ───────────────────────────────────────────
+// Announcement
+// ───────────────────────────────────────────
+
+export const ANNOUNCEMENT = {
+  text: {
+    en: '🏛️ Releasing at CCF China Open Source Conference on August 15th — Stay tuned!',
+    zh: '🏛️ 8月15日将于CCF中国开源大会上发布，敬请期待！',
+  },
+};
+
+// ───────────────────────────────────────────
 // Footer
 // ───────────────────────────────────────────
 
