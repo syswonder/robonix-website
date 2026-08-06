@@ -143,8 +143,8 @@ export const WHY_ROBONIX = {
 
 export const ARCHITECTURE = {
   title: {
-    en: 'Twelve Modules, One Robot Brain',
-    zh: '十二模块组成机器人大脑系统',
+    en: 'Robot Brain System: Agentic Native Architecture',
+    zh: '机器人大脑系统：智能体原生架构',
   },
   subtitle: {
     en: 'From user intent to physical action, Robonix separates interaction, planning, execution, scene state, body state, transport, and capability discovery into clear runtime roles.',
