@@ -183,7 +183,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            href="https://robonix-book.syswonder.org/integration-guide/vendor-onboarding"
+            href="https://book.robonix.ai/integration-guide/vendor-onboarding"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-500/25 transition-all hover:shadow-lg hover:shadow-blue-500/40"

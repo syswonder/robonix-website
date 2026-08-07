@@ -9,8 +9,8 @@
 export const NAV_LINKS: { label: { en: string; zh: string }; href: string }[] = [];
 
 export const NAV_EXTERNAL_LINKS = [
-  { label: { en: 'Docs', zh: '文档' }, href: 'https://robonix-book.syswonder.org/' },
-  { label: { en: 'Packages', zh: '包目录' }, href: 'https://robonix-package-catalog.syswonder.org/' },
+  { label: { en: 'Docs', zh: '文档' }, href: 'https://book.robonix.ai/' },
+  { label: { en: 'Packages', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
   { label: { en: 'Skill Forge', zh: '技能工坊' }, href: '/skill-forge' },
 ];
 
@@ -574,7 +574,7 @@ export const HARDWARE = {
         'Orbbec Dabai DC1 wrist camera',
       ],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.agilex.ranger_mini_v3/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.agilex.ranger_mini_v3/',
       description: {
         en: 'AgileX\'s mobile manipulation platform combines a Ranger Mini v3 wheeled base, NVIDIA Jetson AGX Orin compute, and an AgileX Piper arm into a single integrated system — ready for autonomous navigation, patrol, and mobile grasping tasks.',
         zh: '松灵旗下的移动操作平台，将 Ranger Mini v3 轮式底盘、NVIDIA Jetson AGX Orin 计算单元与 AgileX Piper 机械臂整合为集成系统，可执行自主导航、巡检与移动抓取任务。',
@@ -593,7 +593,7 @@ export const HARDWARE = {
         'Highly expandable platform',
       ],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.wheeltec.r550/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.wheeltec.r550/',
       description: {
         en: 'Wheeltec\'s R550 MiniTank is a lightweight ROS educational robot featuring a rugged tracked chassis. Designed for robotics education, algorithm research, and rapid prototyping, it offers strong expandability with support for a wide range of sensors and accessories.',
         zh: '轮趣科技推出的 R550 MiniTank 轻量级 ROS 教育机器人，采用履带式底盘，专为机器人教育、算法研究与快速原型开发而设计，具备强大的扩展性，支持多种传感器与配件。',
@@ -611,7 +611,7 @@ export const HARDWARE = {
         'Orbbec RGB-D camera',
       ],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.deep_robotics.lite3/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.deep_robotics.lite3/',
       description: {
         en: 'DEEP Robotics\' flagship quadruped robot dog. Lite3 is a lightweight, agile legged platform widely used in research and industry for terrain traversal, inspection, and patrol.',
         zh: '云深处科技的旗舰四足机器狗。Lite3 是一款轻量、敏捷的足式平台，广泛应用于科研与工业场景，用于地形穿越、巡检与巡逻。',
@@ -656,7 +656,7 @@ export const HARDWARE = {
       manufacturer: 'BeingBeyond',
       specs: ['Dexterous hand'],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.beingbeyond.d1/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.beingbeyond.d1/',
       description: {
         en: 'BeingBeyond\'s D1 dexterous hand delivers fine-grained finger control for complex grasping and in-hand manipulation. Designed as a modular end-effector for research and industrial robot arms.',
         zh: 'BeingBeyond 推出的 D1 灵巧手，提供精细的手指控制能力，可完成复杂抓取与手中操作。设计为模块化末端执行器，适配科研与工业机械臂。',
@@ -686,7 +686,7 @@ export const HARDWARE = {
       manufacturer: 'Unitree',
       specs: ['Quadruped platform'],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.unitree.go2/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.unitree.go2/',
       description: {
         en: 'Unitree\'s latest consumer-grade quadruped robot dog. Go2 features enhanced mobility and obstacle avoidance, suitable for patrol, inspection, and education use cases.',
         zh: '宇树科技最新一代消费级四足机器狗。Go2 具备更强的运动能力和避障性能，适用于巡逻、巡检与教育场景。',
@@ -721,7 +721,7 @@ export const HARDWARE = {
         'ROS 2 Jazzy + Fast DDS',
       ],
       tested: true,
-      url: 'https://robonix-package-catalog.syswonder.org/robots/robonix.robot.syswonder.minecraft_bot/',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.syswonder.minecraft_bot/',
       description: {
         en: 'A Minecraft-based simulation sandbox for embodied AI. Robonix agents can navigate, build, and interact in procedurally generated block worlds — a low-cost, high-variation test environment for planning and exploration algorithms.',
         zh: '基于 Minecraft 的具身智能仿真沙盒。Robonix agent 可在程序生成的方块世界中导航、建造与交互——为规划与探索算法提供低成本、高多样性的测试环境。',
@@ -951,7 +951,7 @@ export const DOCS = {
         en: 'Architecture overview, namespace & contract system, API reference, and interface catalog. Understand how Robonix works under the hood.',
         zh: '架构概览、命名空间与合约系统、API 参考和接口目录。深入了解 Robonix 的内部工作原理。',
       },
-      href: 'https://robonix-book.syswonder.org/',
+      href: 'https://book.robonix.ai/',
     },
     {
       icon: '🚀',
@@ -1023,7 +1023,7 @@ export const ECOSYSTEM = {
         en: 'Comprehensive guides, API references, and tutorials to help you get the most out of Robonix.',
         zh: '全面的指南、API 参考和教程，帮助你充分发挥 Robonix 的潜力。',
       },
-      href: 'https://robonix-book.syswonder.org/',
+      href: 'https://book.robonix.ai/',
     },
     {
       icon: '📦',
@@ -1032,7 +1032,7 @@ export const ECOSYSTEM = {
         en: 'Browse and search the registry of Robonix packages — primitives, services, and skills.',
         zh: '浏览和搜索 Robonix 包注册表——原语、服务和技能。',
       },
-      href: 'https://robonix-package-catalog.syswonder.org/',
+      href: 'https://packages.robonix.ai/',
     },
     {
       icon: '🔬',
@@ -1067,7 +1067,7 @@ export const CTA = {
     },
     {
       label: { en: 'Read Documentation', zh: '阅读文档' },
-      href: 'https://robonix-book.syswonder.org/',
+      href: 'https://book.robonix.ai/',
       primary: false,
     },
   ],
@@ -1100,8 +1100,8 @@ export const FOOTER = {
     { label: { en: 'Ecosystem', zh: '生态' }, href: '#vendors' },
   ],
   resources: [
-    { label: { en: 'Documentation', zh: '文档' }, href: 'https://robonix-book.syswonder.org/' },
-    { label: { en: 'Package Catalog', zh: '包目录' }, href: 'https://robonix-package-catalog.syswonder.org/' },
+    { label: { en: 'Documentation', zh: '文档' }, href: 'https://book.robonix.ai/' },
+    { label: { en: 'Package Catalog', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
     { label: { en: 'CI Reports', zh: 'CI 报告' }, href: 'https://robonix-ci-reports.syswonder.org/reports/' },
     { label: { en: 'Template Repository', zh: '模板仓库' }, href: 'https://github.com/syswonder/template-rbnx' },
   ],
