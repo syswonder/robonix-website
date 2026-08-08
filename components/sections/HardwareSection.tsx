@@ -79,9 +79,18 @@ export default function HardwareSection() {
     dragStartX.current = clientX;
   };
 
+  const pendingDegrees = useRef(0);
+  const dragRaf = useRef<number | null>(null);
+
   const handleDragMove = (clientX: number) => {
     if (dragStartX.current === null) return;
-    setDragDegrees((clientX - dragStartX.current) * 0.18);
+    pendingDegrees.current = (clientX - dragStartX.current) * 0.18;
+    if (dragRaf.current === null) {
+      dragRaf.current = requestAnimationFrame(() => {
+        dragRaf.current = null;
+        setDragDegrees(pendingDegrees.current);
+      });
+    }
   };
 
   const handleDragEnd = () => {

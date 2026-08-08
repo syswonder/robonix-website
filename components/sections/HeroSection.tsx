@@ -1,7 +1,8 @@
 'use client';
 
+import { memo } from 'react';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { useTheme } from '@/context/ThemeContext';
 import { t } from '@/lib/i18n';
@@ -20,7 +21,7 @@ const TopologyStarfield = dynamic(() => import('@/components/three/TopologyStarf
   loading: () => null,
 });
 
-function HeroBackdrop() {
+const HeroBackdrop = memo(function HeroBackdrop() {
   return (
     <div className="absolute inset-x-0 bottom-[-220px] top-0 z-0 overflow-hidden bg-[#fafbfc] [-webkit-mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.8)_82%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_0%,black_70%,rgba(0,0,0,0.8)_82%,transparent_100%)] dark:bg-[#020617]">
       <img
@@ -34,13 +35,14 @@ function HeroBackdrop() {
       <div className="absolute inset-x-0 bottom-0 h-[340px] bg-gradient-to-b from-transparent via-white/80 to-[#f6f8fa] dark:from-transparent dark:via-[#020617]/50 dark:to-[#020617]" />
     </div>
   );
-}
+});
 
 export default function HeroSection() {
   const { locale } = useLocale();
   const { theme } = useTheme();
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isLight = theme === 'light';
+  const prefersReduced = useReducedMotion();
 
   return (
     <section
@@ -121,7 +123,7 @@ export default function HeroSection() {
             transition={{ delay: 0.8, duration: 0.7 }}
             className="hidden md:block"
           >
-            <div className="relative ml-auto aspect-square min-h-[360px] w-full max-w-xl cursor-grab select-none active:cursor-grabbing">
+            <div className="relative ml-auto aspect-square min-h-[360px] w-full max-w-xl">
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(14,165,233,0.16),transparent_34%),radial-gradient(circle_at_66%_35%,rgba(236,72,153,0.12),transparent_26%),radial-gradient(circle_at_34%_68%,rgba(34,197,94,0.1),transparent_28%)] blur-2xl dark:bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.24),transparent_34%),radial-gradient(circle_at_68%_32%,rgba(236,72,153,0.18),transparent_28%),radial-gradient(circle_at_30%_72%,rgba(34,197,94,0.12),transparent_30%)]" />
               <WebGLErrorBoundary fallback={null}>
                 <TopologyStarfield />
@@ -131,6 +133,7 @@ export default function HeroSection() {
         )}
       </div>
 
+      {/* Scroll indicator — skips animation if user prefers reduced motion */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -138,7 +141,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={prefersReduced ? {} : { y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
           className="flex flex-col items-center gap-2 text-slate-400"
         >
@@ -148,7 +151,7 @@ export default function HeroSection() {
           <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
             <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1.5" />
             <motion.circle
-              animate={{ cy: [6, 12, 6] }}
+              animate={prefersReduced ? {} : { cy: [6, 12, 6] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               cx="8"
               cy="6"

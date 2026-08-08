@@ -324,7 +324,7 @@ body {
     radial-gradient(ellipse at 82% 86%, rgba(37, 99, 235, 0.05), transparent 33%),
     linear-gradient(180deg, #f2f6fa 0%, #edf0f5 42%, #f2f6fa 70%, #f6f8fa 100%);
   background-size: 1200px 1200px, 980px 980px, 1050px 1050px, 1100px 1100px, 100% 100%;
-  animation: ambient-drift 26s ease-in-out infinite alternate;
+
   opacity: 0;
 }
 
@@ -552,6 +552,65 @@ body {
   z-index: 10;
 }
 
+/* ── GPU-composited CSS animations (replaces Framer Motion repeat:Infinity rAF loops) ── */
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes flow-dash {
+  from { stroke-dashoffset: 12; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes flow-dash-active {
+  0%, 100% { stroke-dashoffset: 12; opacity: 0.7; }
+  50% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes flow-dash-idle {
+  0%, 100% { stroke-dashoffset: 12; opacity: 0.25; }
+  50% { stroke-dashoffset: 0; opacity: 0.6; }
+}
+
+.flow-path-active {
+  animation: flow-dash-active var(--flow-dur, 1.4s) var(--flow-delay, 0s) linear infinite;
+}
+
+.flow-path-idle {
+  animation: flow-dash-idle var(--flow-dur, 2.8s) var(--flow-delay, 0s) linear infinite;
+}
+
+@keyframes pulse-ring-active {
+  0%, 100% { r: 2.8px; opacity: 0.1; }
+  50% { r: 5.6px; opacity: 0.8; }
+}
+
+@keyframes pulse-ring-idle {
+  0%, 100% { r: 1.8px; opacity: 0.04; }
+  50% { r: 3.2px; opacity: 0.22; }
+}
+
+.pulse-ring-active {
+  animation: pulse-ring-active 2.4s ease-in-out infinite;
+}
+
+.pulse-ring-idle {
+  animation: pulse-ring-idle 2.4s ease-in-out infinite;
+}
+
+/* Pause all CSS animations + transitions when container is offscreen */
+.animate-paused *,
+.animate-paused *::before,
+.animate-paused *::after {
+  animation-play-state: paused !important;
+  transition: none !important;
+}
+
 @keyframes ambient-drift {
   0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
   100% { transform: translate3d(1.5%, 1%, 0) scale(1.04); }
@@ -563,7 +622,15 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-cyber-bg::before {
-    animation: none;
+  .site-cyber-bg::before,
+  .site-cyber-bg::after {
+    animation: none !important;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

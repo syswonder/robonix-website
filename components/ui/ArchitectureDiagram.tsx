@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { t } from '@/lib/i18n';
@@ -173,12 +173,30 @@ export default function ArchitectureDiagram() {
   const { locale } = useLocale();
   const nodes = Object.values(ARCH_NODES) as ArchNode[];
   const [selectedNode, setSelectedNode] = useState<ArchNode>(nodes.find((node) => node.id === 'pilot') || nodes[0]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { rootMargin: '200px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const flowGeometries = useMemo(
+    () => flows.map((flow) => ({ ...flow, geometry: flowGeometry(flow.from, flow.to, flow.offset) })),
+    [],
+  );
 
   const activeLayout = nodeLayout[selectedNode.id];
   const selectedGithub = githubLocations[selectedNode.id];
 
   return (
-    <div className="relative mx-auto max-w-6xl">
+    <div ref={containerRef} className={`relative mx-auto max-w-6xl ${visible ? '' : 'animate-paused'}`}>
       <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-[#fafbfc]/80 p-3 shadow-2xl shadow-blue-900/5 backdrop-blur dark:border-white/10 dark:bg-slate-950/70 dark:shadow-blue-500/10">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent" />
 
@@ -201,9 +219,9 @@ export default function ArchitectureDiagram() {
                 <path d="M0,0 L7,3.5 L0,7 Z" fill="rgb(148 163 184)" opacity="0.55" />
               </marker>
             </defs>
-            {flows.map((flow, index) => {
+            {flowGeometries.map((flow, index) => {
               const active = selectedNode.id === flow.from || selectedNode.id === flow.to;
-              const geometry = flowGeometry(flow.from, flow.to, flow.offset);
+              const geometry = flow.geometry;
               return (
                 <g key={`${flow.from}-${flow.to}-${index}`}>
                   <path
@@ -214,15 +232,18 @@ export default function ArchitectureDiagram() {
                     markerEnd={active ? 'url(#flowArrow)' : 'url(#flowArrowMuted)'}
                     className={active ? 'text-sky-400/70' : 'text-slate-400/40 dark:text-slate-500/40'}
                   />
-                  <motion.path
+                  <path
                     d={geometry.path}
                     fill="none"
                     stroke="url(#flowGradient)"
                     strokeWidth={active ? 1.1 : 0.75}
                     strokeLinecap="round"
                     strokeDasharray="3 9"
-                    animate={{ strokeDashoffset: [12, 0], opacity: active ? [0.7, 1, 0.7] : [0.25, 0.6, 0.25] }}
-                    transition={{ duration: active ? 1.4 : 2.8, delay: flow.delay, repeat: Infinity, ease: 'linear' }}
+                    className={active ? 'flow-path-active' : 'flow-path-idle'}
+                    style={{
+                      ['--flow-dur' as string]: active ? '1.4s' : '2.8s',
+                      ['--flow-delay' as string]: `${flow.delay}s`,
+                    }}
                   />
                 </g>
               );
@@ -233,7 +254,7 @@ export default function ArchitectureDiagram() {
               const { x, y } = centerOf(node.id);
               const active = selectedNode.id === node.id;
               return (
-                <motion.circle
+                <circle
                   key={`pulse-${node.id}`}
                   cx={x}
                   cy={y}
@@ -241,11 +262,7 @@ export default function ArchitectureDiagram() {
                   fill="none"
                   stroke={active ? 'rgb(56 189 248)' : 'rgb(148 163 184)'}
                   strokeWidth={active ? 0.45 : 0.25}
-                  animate={{
-                    opacity: active ? [0.1, 0.8, 0.1] : [0.04, 0.22, 0.04],
-                    r: active ? [2.8, 5.6, 2.8] : [1.8, 3.2, 1.8],
-                  }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                  className={active ? 'pulse-ring-active' : 'pulse-ring-idle'}
                 />
               );
             })}
@@ -308,9 +325,9 @@ export default function ArchitectureDiagram() {
             );
           })}
 
-          {flows.map((flow, index) => {
+          {flowGeometries.map((flow, index) => {
             const active = selectedNode.id === flow.from || selectedNode.id === flow.to;
-            const geometry = flowGeometry(flow.from, flow.to, flow.offset);
+            const geometry = flow.geometry;
             return (
               <motion.span
                 key={`label-${flow.from}-${flow.to}-${index}`}

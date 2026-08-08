@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useMemo } from 'react';
 
 export type Locale = 'en' | 'zh';
 
@@ -46,8 +46,10 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     setLocale((prev) => (prev === 'en' ? 'zh' : 'en'));
   }, []);
 
+  const value = useMemo(() => ({ locale, toggleLocale }), [locale, toggleLocale]);
+
   return (
-    <LocaleContext.Provider value={{ locale, toggleLocale }}>
+    <LocaleContext.Provider value={value}>
       {children}
     </LocaleContext.Provider>
   );

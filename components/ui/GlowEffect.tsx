@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 interface GlowEffectProps {
   className?: string;
   color?: 'cyan' | 'purple' | 'mixed';
@@ -26,17 +24,8 @@ export default function GlowEffect({
   size = 'md',
 }: GlowEffectProps) {
   return (
-    <motion.div
-      animate={{
-        scale: [1, 1.1, 1],
-        opacity: [0.4, 0.6, 0.4],
-      }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
-      className={`pointer-events-none absolute rounded-full blur-3xl ${sizeMap[size]} ${colorMap[color]} ${className}`}
+    <div
+      className={`pointer-events-none absolute rounded-full blur-2xl animate-glow-pulse ${sizeMap[size]} ${colorMap[color]} ${className}`}
     />
   );
 }
