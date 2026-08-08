@@ -895,11 +895,19 @@ export const TEAM = {
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
     { name: 'Shanghai Jiao Tong University', logo: '/images/SJTU.png', url: 'https://www.sjtu.edu.cn' },
     { name: 'Zhejiang University', logo: '/images/ZJU.webp', url: 'https://www.zju.edu.cn' },
-    { name: 'ICT, CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
+    { name: 'Beihang University', logo: '/images/BUAA.png', url: 'https://www.buaa.edu.cn/' },
+    { name: 'Harbin Institute of Technology', logo: '/images/HIT.png', url: 'https://www.hit.edu.cn/' },
+    { name: 'Beijing University of PT', logo: '/images/BUPT.png', url: 'https://www.bupt.edu.cn/' },
+    { name: 'University of CAS', logo: '/images/UCAS.png', url: 'https://www.ucas.ac.cn' },
+    { name: 'ICT-CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
     { name: 'Northwestern Polytechnical University', logo: '/images/NWPU.png', url: 'https://www.nwpu.edu.cn' },
+    { name: 'University of ESTC', logo: '/images/UESTC.png', url: 'https://www.uestc.edu.cn' },
+    { name: 'FuZhou University', logo: '/images/FZU.png', url: 'https://www.fzu.edu.cn/' },
+    { name: 'Donghua University', logo: '/images/DHU.png', url: 'https://www.dhu.edu.cn/' },
     { name: 'Hangzhou Dianzi University', logo: '/images/HZDU.svg', url: 'https://www.hdu.edu.cn' },
     { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
     { name: 'Advanced Institute of Information Technology Peking University', logo: '/images/AIIT.png', url: 'https://aiit.org.cn/' },
+    { name: 'TLAIC', logo: '/images/TLAIOS.svg', url: 'https://www.tlaic.ac.cn' },
   ],
 };
 
@@ -913,8 +921,8 @@ export const VENDORS = {
     zh: '生态',
   },
   subtitle: {
-    en: 'Robot vendors, model providers, research institutions, and open-source communities in the Robonix ecosystem.',
-    zh: 'Robonix 生态中的机器人厂商、模型提供商、研究机构与开源社区。',
+    en: 'Robot vendors, model providers, and application developers in the Robonix ecosystem.',
+    zh: 'Robonix 生态中的机器人厂商、模型提供商、应用开发者等。',
   },
   partners: [
     { name: 'DEEP Robotics', logo: '/images/DeepRobotics.png', url: 'https://www.deeprobotics.cn' },

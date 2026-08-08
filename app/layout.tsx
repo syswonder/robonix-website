@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     'Robonix is an operating system for embodied intelligence. Build, deploy, and manage robot applications with a modular, AI-native framework.',
   keywords: ['robotics', 'embodied AI', 'robot OS', 'robotics framework', 'Robonix', 'VLA', 'ROS 2'],
   authors: [{ name: 'Robonix Team' }],
+  icons: {
+    icon: '/images/robonix-mark.svg',
+  },
   openGraph: {
     title: 'Robonix — The Embodied AI Operating System',
     description: 'A system substrate for building embodied intelligence across heterogeneous robots.',
@@ -27,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/images/robonix-mark.svg" type="image/svg+xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('robonix-theme');if(t==='light'){document.documentElement.classList.remove('dark')}})()`,
