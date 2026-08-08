@@ -885,8 +885,8 @@ export const TEAM = {
     zh: '团队与社区',
   },
   subtitle: {
-    en: 'Developed by the Syswonder open-source community, released by the CCF Ubiquitous Operating System Open Community, and built by researchers and engineers from leading institutions.',
-    zh: '由矽望开源社区组织研发，CCF 泛在操作系统开放社区发布，汇聚来自顶尖机构的研究者与工程师。',
+    en: 'Backed by the CCF Ubiquitous Operating System Open Community, developed by the Syswonder open-source community, and powered by researchers and engineers from leading institutions.',
+    zh: '依托CCF泛在操作系统开放社区，矽望开源社区组织研发，汇聚来自顶尖机构的研究者。',
   },
   members: [
     { name: 'CCF', logo: '/images/CCF.png', url: 'https://www.gitlink.org.cn/zone/uos' },
