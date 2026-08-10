@@ -1098,8 +1098,8 @@ export const ANNOUNCEMENT = {
 
 export const FOOTER = {
   description: {
-    en: 'An operating system for embodied intelligence. Build once, deploy on any robot.',
-    zh: '具身智能操作系统。一次构建，部署到任何机器人。',
+    en: 'An operating system for embodied intelligence. Let robots understand you and act for you..',
+    zh: '具身智能操作系统。让机器人懂你所想，行你所愿。',
   },
   product: [
     { label: { en: 'Why', zh: '问题' }, href: '#why' },
@@ -1117,7 +1117,7 @@ export const FOOTER = {
     { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/syswonder/robonix' },
     { label: { en: 'Discussions', zh: '讨论区' }, href: 'https://github.com/syswonder/robonix/discussions' },
     { label: { en: 'Skill Toolkit', zh: '技能工具包' }, href: 'https://github.com/zhengzihaoPKU/Robonix-Skill-Toolkit' },
-    { label: { en: 'syswonder', zh: 'syswonder' }, href: 'https://syswonder.org/' },
+    { label: { en: 'Syswonder Community', zh: '矽望社区' }, href: 'https://syswonder.org/' },
   ],
   techStack: {
     en: 'Built with React, Three.js & GSAP',
