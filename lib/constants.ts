@@ -1098,8 +1098,8 @@ export const ANNOUNCEMENT = {
 
 export const FOOTER = {
   description: {
-    en: 'An operating system for embodied intelligence. Let robots understand you and act for you.',
-    zh: '具身智能操作系统。让机器人懂你所想，行你所愿。',
+    en: 'Let robots understand you and act for you.',
+    zh: '让机器人懂你所想，行你所愿。',
   },
   product: [
     { label: { en: 'Why', zh: '问题' }, href: '#why' },
