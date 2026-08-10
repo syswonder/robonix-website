@@ -1128,7 +1128,7 @@ export const FOOTER = {
     zh: '木兰宽松许可证 v2',
   },
   copyright: {
-    en: '© 2026 Robonix',
-    zh: '© 2026 Robonix',
+    en: '© 2026 Syswonder Community Robonix',
+    zh: '© 2026 矽望社区 Robonix',
   },
 };
