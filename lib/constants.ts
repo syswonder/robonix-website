@@ -1110,7 +1110,7 @@ export const FOOTER = {
   resources: [
     { label: { en: 'Documentation', zh: '文档' }, href: 'https://book.robonix.ai/' },
     { label: { en: 'Package Catalog', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
-    { label: { en: 'CI Reports', zh: 'CI 报告' }, href: 'https://robonix-ci-reports.syswonder.org/reports/' },
+    { label: { en: 'CI Reports', zh: 'CI 报告' }, href: 'https://ci-reports.robonix.ai/' },
     { label: { en: 'Template Repository', zh: '模板仓库' }, href: 'https://github.com/syswonder/template-rbnx' },
   ],
   community: [
