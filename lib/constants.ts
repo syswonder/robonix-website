@@ -1115,8 +1115,8 @@ export const FOOTER = {
   ],
   community: [
     { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/syswonder/robonix' },
+    { label: { en: 'Gitlink', zh: 'Gitlink' }, href: 'https://www.gitlink.org.cn/syswonder/robonix' },
     { label: { en: 'Discussions', zh: '讨论区' }, href: 'https://github.com/syswonder/robonix/discussions' },
-    { label: { en: 'Skill Toolkit', zh: '技能工具包' }, href: 'https://github.com/zhengzihaoPKU/Robonix-Skill-Toolkit' },
     { label: { en: 'Syswonder Community', zh: '矽望社区' }, href: 'https://syswonder.org/' },
   ],
   techStack: {
