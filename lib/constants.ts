@@ -600,6 +600,27 @@ export const HARDWARE = {
       },
     },
     {
+      name: 'Yobotics Y20W',
+      type: 'wheeled',
+      status: 'integrated',
+      task: { en: 'Navigation & Interaction', zh: '导航、交互' },
+      image: '/images/y20w.jpg',
+      manufacturer: 'Yobotics',
+      specs: [
+        'Livox MID-360 LiDAR',
+        'Intel RealSense D435i RGB-D',
+        'ROS 2 navigation & localization',
+        'Speech ASR & wake-word',
+        'VLM scene understanding',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.yobotics.y20w/',
+      description: {
+        en: 'Yobotics\' Y20W wheeled robot platform, integrated with the Robonix runtime to expose chassis motion, Livox LiDAR, RealSense RGB-D, ROS 2 navigation, speech, and vision-based scene understanding as composable primitives, services, and skills — validated for autonomous navigation and natural-language interaction.',
+        zh: 'Yobotics 推出的 Y20W 轮式机器人平台，通过 Robonix 运行时将底盘运动、Livox 激光雷达、RealSense RGB-D 相机、ROS 2 导航、语音交互与视觉场景理解封装为可组合的 primitives、services 与 skills，已完成自主导航与自然语言交互验证。',
+      },
+    },
+    {
       name: 'DEEP Robotics Lite3',
       type: 'quadruped',
       status: 'integrated',
