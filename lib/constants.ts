@@ -647,7 +647,7 @@ export const HARDWARE = {
       image: '/images/piper.png',
       manufacturer: 'AgileX Robotics',
       specs: ['6-DOF collaborative arm'],
-      tested: false,
+      tested: true,
       url: '',
       description: {
         en: 'A 6-DOF collaborative robotic arm by AgileX Robotics, designed for lightweight manipulation tasks. Works standalone or as a modular payload on mobile bases.',
@@ -662,11 +662,31 @@ export const HARDWARE = {
       image: '/images/nero.png',
       manufacturer: 'AgileX Robotics',
       specs: ['Force-controlled robotic arm'],
-      tested: false,
+      tested: true,
       url: '',
       description: {
         en: 'A force-controlled robotic arm by AgileX Robotics with advanced torque sensing, suited for precision assembly and contact-rich manipulation tasks.',
         zh: '松灵机器人推出的力控机械臂，具备关节力矩传感能力，适用于精密装配与接触式操作任务。',
+      },
+    },
+    {
+      name: 'Wowrobo RoboArm',
+      type: 'arm',
+      status: 'standalone',
+      task: { en: 'Grasping', zh: '抓取' },
+      image: '/images/roboarm.webp',
+      manufacturer: 'Wowrobo',
+      specs: [
+        'Wowrobo robotic arm',
+        'Orbbec Gemini 215 camera',
+        'Voice control (ASR)',
+        'Grasping skill',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.wowrobo.roboarm/',
+      description: {
+        en: 'Wowrobo\'s RoboArm standalone robotic arm, packaged as Robonix primitives with an Orbbec Gemini 215 camera and a grasping skill. Voice-controlled grasping is enabled through Robonix\'s built-in ASR speech service.',
+        zh: 'wowrobo 推出的 RoboArm 机械臂，作为独立设备通过 Robonix 原语封装，配备 Orbbec Gemini 215 摄像头与抓取技能，并可结合 Robonix 内置语音服务实现语音控制抓取。',
       },
     },
     {
@@ -692,7 +712,7 @@ export const HARDWARE = {
       image: '/images/Benben.png',
       manufacturer: 'Hantewin',
       specs: ['Service robot', 'Integrating with Robonix'],
-      tested: false,
+      tested: true,
       url: '',
       description: {
         en: 'Hantewin\'s intelligent service robot platform, designed for indoor delivery, reception, and guided tours. Currently being integrated with Robonix for autonomous service workflows.',

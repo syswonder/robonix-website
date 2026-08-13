@@ -59,6 +59,14 @@ export default function HardwareSection() {
       ? 180
       : 360 / filteredRobots.length;
 
+  // Widen the ring as cards are added so adjacent cards never clip through each other,
+  // scaling the perspective with it to keep the focused card a consistent size.
+  const cardWidth = 210;
+  const radius = filteredRobots.length > 2
+    ? Math.max(330, (cardWidth * 1.08) / (2 * Math.sin(Math.PI / filteredRobots.length)))
+    : 330;
+  const perspective = Math.max(1400, radius * 4.2);
+
   const rotate = (direction: number) => {
     if (filteredRobots.length <= 1) return;
     setRotationStep((current) => current + direction);
@@ -220,7 +228,8 @@ export default function HardwareSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="relative mx-auto h-[470px] max-w-6xl cursor-grab active:cursor-grabbing [perspective:1400px]"
+            className="relative mx-auto h-[470px] max-w-6xl cursor-grab active:cursor-grabbing"
+            style={{ perspective: `${perspective}px` }}
             onPointerDown={(event) => handleDragStart(event.clientX)}
             onPointerMove={(event) => handleDragMove(event.clientX)}
             onPointerUp={handleDragEnd}
@@ -248,7 +257,7 @@ export default function HardwareSection() {
                     key={robot.name}
                     className="absolute left-1/2 top-1/2 h-[320px] w-[210px] [backface-visibility:hidden] [transform-style:preserve-3d]"
                     style={{
-                      transform: `translate(-50%, -50%) rotateY(${cardAngle}deg) translateZ(330px)`,
+                      transform: `translate(-50%, -50%) rotateY(${cardAngle}deg) translateZ(${radius}px)`,
                     }}
                   >
                     <motion.button
