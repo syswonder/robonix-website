@@ -1119,8 +1119,8 @@ export const ANNOUNCEMENT = {
 
 export const FOOTER = {
   description: {
-    en: 'An operating system for embodied intelligence. Build once, deploy on any robot.',
-    zh: '具身智能操作系统。一次构建，部署到任何机器人。',
+    en: 'Let robots understand you and act for you.',
+    zh: '让机器人懂你所想，行你所愿。',
   },
   product: [
     { label: { en: 'Why', zh: '问题' }, href: '#why' },
@@ -1131,14 +1131,14 @@ export const FOOTER = {
   resources: [
     { label: { en: 'Documentation', zh: '文档' }, href: 'https://book.robonix.ai/' },
     { label: { en: 'Package Catalog', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
-    { label: { en: 'CI Reports', zh: 'CI 报告' }, href: 'https://robonix-ci-reports.syswonder.org/reports/' },
+    { label: { en: 'CI Reports', zh: 'CI 报告' }, href: 'https://ci-reports.robonix.ai/' },
     { label: { en: 'Template Repository', zh: '模板仓库' }, href: 'https://github.com/syswonder/template-rbnx' },
   ],
   community: [
     { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/syswonder/robonix' },
+    { label: { en: 'Gitlink', zh: 'Gitlink' }, href: 'https://www.gitlink.org.cn/syswonder/robonix' },
     { label: { en: 'Discussions', zh: '讨论区' }, href: 'https://github.com/syswonder/robonix/discussions' },
-    { label: { en: 'Skill Toolkit', zh: '技能工具包' }, href: 'https://github.com/zhengzihaoPKU/Robonix-Skill-Toolkit' },
-    { label: { en: 'syswonder', zh: 'syswonder' }, href: 'https://syswonder.org/' },
+    { label: { en: 'Syswonder Community', zh: '矽望社区' }, href: 'https://syswonder.org/' },
   ],
   techStack: {
     en: 'Built with React, Three.js & GSAP',
@@ -1149,7 +1149,7 @@ export const FOOTER = {
     zh: '木兰宽松许可证 v2',
   },
   copyright: {
-    en: '© 2026 Robonix',
-    zh: '© 2026 Robonix',
+    en: '© 2026 Syswonder Community Robonix',
+    zh: '© 2026 矽望社区 Robonix',
   },
 };
