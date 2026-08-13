@@ -10,6 +10,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 const TYPE_LABELS: Record<string, { en: string; zh: string }> = {
   wheeled: { en: 'Wheeled', zh: '轮式' },
   quadruped: { en: 'Quadruped', zh: '四足' },
+  'wheeled-quadruped': { en: 'Wheeled Quadruped', zh: '轮式四足' },
   arm: { en: 'Robotic Arm', zh: '机械臂' },
   hand: { en: 'Dexterous Hand', zh: '灵巧手' },
   service: { en: 'Service Robot', zh: '服务机器人' },
@@ -40,6 +41,7 @@ export default function HardwareSection() {
         if (robot.status === activeFilter || robot.type === activeFilter) return true;
         // "Arms & Hands" filter matches both arm and hand types
         if (activeFilter === 'manipulator' && (robot.type === 'arm' || robot.type === 'hand')) return true;
+        if (activeFilter === 'quadruped' && robot.type === 'wheeled-quadruped') return true;
         return false;
       });
 
