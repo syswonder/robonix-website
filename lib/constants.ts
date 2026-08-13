@@ -932,7 +932,6 @@ export const TEAM = {
   },
   members: [
     { name: 'Syswonder', logo: '/images/Syswonder.svg', url: 'https://syswonder.org' },
-    { name: 'Sysoul', logo: '/images/sysoul.webp', url: 'http://121.43.228.68:8082/' },
     { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
     { name: 'ICT-CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
@@ -951,6 +950,7 @@ export const TEAM = {
     { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
     { name: 'Advanced Institute of Information Technology Peking University', logo: '/images/AIIT.png', url: 'https://aiit.org.cn/' },
     { name: 'TLAIC', logo: '/images/TLAIOS.svg', url: 'https://www.tlaic.ac.cn' },
+    { name: 'Sysoul', logo: '/images/sysoul.webp', url: 'http://121.43.228.68:8082/' },
   ],
 };
 
