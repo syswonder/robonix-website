@@ -931,8 +931,8 @@ export const TEAM = {
     zh: '依托CCF泛在操作系统开放社区，矽望开源社区组织研发，汇聚来自顶尖机构的研究者。',
   },
   members: [
-    { name: 'CCF', logo: '/images/CCF.png', url: 'https://www.gitlink.org.cn/zone/uos' },
     { name: 'Syswonder', logo: '/images/Syswonder.svg', url: 'https://syswonder.org' },
+    { name: 'Sysoul', logo: '/images/sysoul.webp', url: 'http://121.43.228.68:8082/' },
     { name: 'Peking University', logo: '/images/PKU.png', url: 'https://www.pku.edu.cn' },
     { name: 'Tsinghua University', logo: '/images/THU.png', url: 'https://www.tsinghua.edu.cn' },
     { name: 'ICT-CAS', logo: '/images/ICT-CAS.png', url: 'https://www.ict.ac.cn' },
@@ -942,6 +942,7 @@ export const TEAM = {
     { name: 'Beihang University', logo: '/images/BUAA.png', url: 'https://www.buaa.edu.cn/' },
     { name: 'Harbin Institute of Technology', logo: '/images/HIT.png', url: 'https://www.hit.edu.cn/' },
     { name: 'Beijing University of PT', logo: '/images/BUPT.png', url: 'https://www.bupt.edu.cn/' },
+    { name: 'Northeastern University', logo: '/images/NEU.png', url: 'http://www.neu.edu.cn/' },
     { name: 'University of CAS', logo: '/images/UCAS.png', url: 'https://www.ucas.ac.cn' },
     { name: 'University of ESTC', logo: '/images/UESTC.png', url: 'https://www.uestc.edu.cn' },
     { name: 'FuZhou University', logo: '/images/FZU.png', url: 'https://www.fzu.edu.cn/' },
