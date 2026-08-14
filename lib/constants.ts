@@ -58,7 +58,7 @@ export const HERO = {
   },
   badges: [
     { label: { en: 'Robot Vendors', zh: '本体厂商' }, value: '10+' },
-    { label: { en: 'Robot Form Factors', zh: '本体形态' }, value: '6' },
+    { label: { en: 'Robot Form Factors', zh: '本体形态' }, value: '10+' },
     { label: { en: 'Simulation Engines', zh: '仿真引擎' }, value: '3' },
     { label: { en: 'Fully Open Skill Forge', zh: '完全开放的技能工坊' }, value: '' },
   ],
