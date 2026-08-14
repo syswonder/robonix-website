@@ -538,8 +538,8 @@ export const DEMO = {
       id: 'brain-computer-interface',
       title: { en: 'Brain-Computer Interface Experiment', zh: '脑机实验' },
       description: {
-        en: 'When the user cannot interact through speech or physical movement, this brain-controlled embodied linkage system lets them interact with another person\'s embodied robot using their thoughts — with Robonix serving as the middleware layer for the interaction.',
-        zh: '当用户无法进行语音或肢体交互时，基于脑控-具身联动系统，实现用户意念与他人具身机器人交互，并通过 Robonix 作为交互的中间层。',
+        en: 'When users are unable to communicate through speech or physical movement, the brain-controlled embodied interaction system enables them to control and interact with another person’s embodied robot through their intentions, with Robonix serving as the middleware layer connecting the user and the robot.',
+        zh: '当用户无法通过语音或肢体进行交互时，脑控具身交互系统将用户意念转化为控制指令，使其能够与他人的具身机器人进行交互，并由 Robonix 作为中间层连接用户与机器人。',
       },
       src: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4',
       duration: '1:00',
