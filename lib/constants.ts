@@ -950,7 +950,7 @@ export const TEAM = {
     { name: 'Zhejiang University of Technology', logo: '/images/ZJUT.png', url: 'https://www.zjut.edu.cn' },
     { name: 'Advanced Institute of Information Technology Peking University', logo: '/images/AIIT.png', url: 'https://aiit.org.cn/' },
     { name: 'TLAIC', logo: '/images/TLAIOS.svg', url: 'https://www.tlaic.ac.cn' },
-    { name: 'Sysoul', logo: '/images/sysoul.webp', url: 'http://121.43.228.68:8082/' },
+    { name: 'Sysoul', logo: '/images/sysoul.webp', url: 'https://sysoul.com/' },
   ],
 };
 
