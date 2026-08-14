@@ -534,6 +534,16 @@ export const DEMO = {
       src: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-dynamic-navigation-speed-demo.mp4',
       duration: '1:47',
     },
+    {
+      id: 'brain-computer-interface',
+      title: { en: 'Brain-Computer Interface Experiment', zh: '脑机实验' },
+      description: {
+        en: 'When the user cannot interact through speech or physical movement, this brain-controlled embodied linkage system lets them interact with another person\'s embodied robot using their thoughts — with Robonix serving as the middleware layer for the interaction.',
+        zh: '当用户无法进行语音或肢体交互时，基于脑控-具身联动系统，实现用户意念与他人具身机器人交互，并通过 Robonix 作为交互的中间层。',
+      },
+      src: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4',
+      duration: '1:00',
+    },
   ],
 };
 
@@ -600,6 +610,27 @@ export const HARDWARE = {
       },
     },
     {
+      name: 'Yahboom ROSMASTER X3',
+      type: 'wheeled',
+      status: 'integrated',
+      task: { en: 'Navigation', zh: '导航' },
+      image: '/images/rosmaster_x3jpg.jpg',
+      manufacturer: 'Yahboom',
+      specs: [
+        'Yahboom ROSMASTER X3 mecanum chassis',
+        'NVIDIA Jetson TX2 NX',
+        'RPLidar',
+        'ROS Melodic navigation (move_base)',
+        'Safe-move primitive',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.yahboom.rosmaster_x3/',
+      description: {
+        en: 'Yahboom\'s ROSMASTER X3 mecanum-wheel mobile platform pairs an NVIDIA Jetson TX2 NX, RPLidar, and Astra Pro RGB-D camera with ROS Melodic navigation (AMCL, costmaps, move_base). Robonix connects over rosbridge and exposes the validated safe_move primitive for guarded navigation.',
+        zh: '亚博智能推出的 ROSMASTER X3 麦克纳姆轮移动平台，搭载 NVIDIA Jetson TX2 NX、RPLidar 激光雷达与 Astra Pro RGB-D 相机，运行 ROS Melodic 导航栈（AMCL、costmap、move_base），通过 rosbridge 接入 Robonix，并提供经过验证的 safe_move 安全导航原语。',
+      },
+    },
+    {
       name: 'Yobotics Y20W',
       type: 'wheeled-quadruped',
       status: 'integrated',
@@ -663,7 +694,7 @@ export const HARDWARE = {
       manufacturer: 'AgileX Robotics',
       specs: ['Force-controlled robotic arm'],
       tested: true,
-      url: '',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.hantewin.benben/',
       description: {
         en: 'A force-controlled robotic arm by AgileX Robotics with advanced torque sensing, suited for precision assembly and contact-rich manipulation tasks.',
         zh: '松灵机器人推出的力控机械臂，具备关节力矩传感能力，适用于精密装配与接触式操作任务。',
@@ -705,18 +736,45 @@ export const HARDWARE = {
       },
     },
     {
+      name: 'LinkerHand O6',
+      type: 'hand',
+      status: 'standalone',
+      task: { en: 'Gesture', zh: '手势' },
+      image: '/images/linker_hand_o6.jpg',
+      manufacturer: 'LinkerBot',
+      specs: [
+        'Five-finger dexterous hand',
+        '6 axes, CAN bus',
+        'Finger-dance gesture skill',
+        'Per-axis position / speed / torque',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.linkerbot.linker_hand_o6/',
+      description: {
+        en: 'LinkerBot\'s LinkerHand O6 is a standalone five-finger dexterous hand with six axes over CAN bus — no arm, mobile base, or camera. It performs a finger "dance" on voice or text commands through the Robonix pilot, and exposes per-axis position, speed, and torque contracts.',
+        zh: 'LinkerBot 推出的 LinkerHand O6 五指灵巧手，六轴 CAN 总线独立设备——无机械臂、无移动底盘、无相机。可通过语音或文本指令经 Robonix pilot 让手指「跳舞」，并提供每轴位置/速度/力矩合约。',
+      },
+    },
+    {
       name: 'Hantewin Benben',
       type: 'service',
-      status: 'standalone',
-      task: { en: 'Service', zh: '服务' },
-      image: '/images/Benben.png',
+      status: 'integrated',
+      task: { en: 'Navigation & Grasping', zh: '导航、抓取' },
+      image: '/images/Benben.jpg',
       manufacturer: 'Hantewin',
-      specs: ['Service robot', 'Integrating with Robonix'],
+      specs: [
+        'Differential-drive chassis (TBox SDK)',
+        'Livox MID-360 3D LiDAR',
+        'RichBeam LakiBeam1 2D LiDAR',
+        'Intel RealSense D435i RGB-D',
+        'RTAB-Map SLAM',
+        'AgileX Nero 7-DOF arm',
+      ],
       tested: true,
-      url: '',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.hantewin.benben/',
       description: {
-        en: 'Hantewin\'s intelligent service robot platform, designed for indoor delivery, reception, and guided tours. Currently being integrated with Robonix for autonomous service workflows.',
-        zh: '汉特云推出的智能服务机器人平台，面向室内配送、接待与导览场景。正在与 Robonix 集成，实现自主服务工作流。',
+        en: 'Hantewin\'s BenBen mobile robot integrates differential-drive chassis control (TBox SDK), Livox MID-360 3D LiDAR, RichBeam LakiBeam1 2D LiDAR, Intel RealSense D435i RGB-D, RTAB-Map SLAM, point-to-point navigation, speech interaction, scene understanding, and an AgileX Nero 7-DOF arm into a single Robonix deployment.',
+        zh: '汉特云推出的 BenBen 移动机器人，将差速驱动底盘控制（TBox SDK）、Livox MID-360 三维激光雷达、RichBeam LakiBeam1 二维激光雷达、Intel RealSense D435i RGB-D 相机、RTAB-Map SLAM 建图定位、点到点导航、语音交互、场景理解与 AgileX Nero 七自由度机械臂整合为一个 Robonix 部署。',
       },
     },
     {
@@ -747,6 +805,26 @@ export const HARDWARE = {
       description: {
         en: 'DEEP Robotics\' Lynx is a rugged wheeled-legged hybrid quadruped that combines wheel efficiency with legged terrain adaptability — ideal for outdoor patrol and rough-terrain inspection.',
         zh: '云深处科技推出的山猫轮足混合四足机器人，结合轮式高效与足式越障能力，适用于户外巡逻与复杂地形巡检。',
+      },
+    },
+    {
+      name: 'PAL Robotics TIAGo (Webots)',
+      type: 'simulation',
+      status: 'simulation',
+      task: { en: 'Simulation', zh: '仿真' },
+      image: '/images/tiago.jpg',
+      manufacturer: 'PAL Robotics',
+      specs: [
+        'Webots simulator',
+        'TIAGo Lite / full single-arm',
+        'Nav2 navigation',
+        'chassis / camera / lidar / health primitives',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.pal_robotics.tiago_webots/',
+      description: {
+        en: 'PAL Robotics\' TIAGo simulated in Webots — the deployment the Robonix quickstart walks through. Boot Robonix against the simulator and drive the robot from rbnx chat with requests like "go to room 101", "what can you see?", or "explore the office" before moving to a physical body.',
+        zh: 'PAL Robotics 的 TIAGo 机器人 Webots 虚拟仿真平台，也是 Robonix 快速入门所采用的部署。将 Robonix 启动到仿真器中，即可通过 rbnx 聊天指令驱动机器人，例如「去 101 房间」「你能看到什么？」或「探索办公室」，在上真实机器人之前最快体验系统能力。',
       },
     },
     {

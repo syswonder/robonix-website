@@ -105,14 +105,21 @@ export default function HardwareSection() {
 
   const handleDragEnd = () => {
     if (dragStartX.current === null) return;
-    if (Math.abs(dragDegrees) > 14) {
+    // Cancel any pending RAF so a stale frame can't re-write the drag angle after release.
+    if (dragRaf.current !== null) {
+      cancelAnimationFrame(dragRaf.current);
+      dragRaf.current = null;
+    }
+    const finalDegrees = pendingDegrees.current;
+    if (Math.abs(finalDegrees) > 14) {
       suppressClick.current = true;
-      rotate(dragDegrees < 0 ? 1 : -1);
+      rotate(finalDegrees < 0 ? 1 : -1);
       window.setTimeout(() => {
         suppressClick.current = false;
       }, 0);
     }
     dragStartX.current = null;
+    pendingDegrees.current = 0;
     setDragDegrees(0);
   };
 
