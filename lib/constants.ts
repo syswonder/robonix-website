@@ -648,7 +648,7 @@ export const HARDWARE = {
       manufacturer: 'AgileX Robotics',
       specs: ['6-DOF collaborative arm'],
       tested: true,
-      url: '',
+      url: 'https://packages.robonix.ai/robots/robonix.robot.agilex.dual_piper/',
       description: {
         en: 'A 6-DOF collaborative robotic arm by AgileX Robotics, designed for lightweight manipulation tasks. Works standalone or as a modular payload on mobile bases.',
         zh: '松灵机器人推出的六自由度协作机械臂，面向轻量级操作任务，可独立使用或作为模块化负载挂载于移动底盘上。',
@@ -742,8 +742,8 @@ export const HARDWARE = {
       image: '/images/山猫.png',
       manufacturer: 'DEEP Robotics',
       specs: ['Wheeled-legged quadruped'],
-      tested: false,
-      url: '',
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.deep_robotics.lynx_s10/',
       description: {
         en: 'DEEP Robotics\' Lynx is a rugged wheeled-legged hybrid quadruped that combines wheel efficiency with legged terrain adaptability — ideal for outdoor patrol and rough-terrain inspection.',
         zh: '云深处科技推出的山猫轮足混合四足机器人，结合轮式高效与足式越障能力，适用于户外巡逻与复杂地形巡检。',
