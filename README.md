@@ -2,7 +2,7 @@
 
 Source repository for the official Robonix website:
 
-- Production: <https://robonix.syswonder.org/>
+- Production: <https://robonix.ai/>
 - Documentation: <https://book.robonix.ai/>
 - Package catalog: <https://packages.robonix.ai/>
 - CI reports: <https://robonix-ci-reports.syswonder.org/reports/>
