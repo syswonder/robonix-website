@@ -9,7 +9,6 @@ import HardwareSection from '@/components/sections/HardwareSection';
 import VendorsSection from '@/components/sections/VendorsSection';
 import TeamSection from '@/components/sections/TeamSection';
 import CTASection from '@/components/sections/CTASection';
-import AnnouncementBanner from '@/components/ui/AnnouncementBanner';
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
       <VendorsSection />
       <TeamSection />
       <CTASection />
-      <AnnouncementBanner />
       <Footer />
     </main>
   );
