@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, type PointerEvent } from 'react';
+import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { t } from '@/lib/i18n';
@@ -14,6 +14,7 @@ export default function DemoSection() {
   const video = DEMO.videos[activeVideo];
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
@@ -34,6 +35,24 @@ export default function DemoSection() {
     drag.current.down = false;
   };
 
+  // Auto-play when the player scrolls into view; pause when it leaves.
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [video.src]);
+
   return (
     <section id="demo" className="relative overflow-hidden py-24 sm:py-32">
       <div className="relative mx-auto max-w-7xl px-6">
@@ -53,11 +72,13 @@ export default function DemoSection() {
                 {'src' in video && video.src ? (
                   <video
                     key={video.src}
+                    ref={videoRef}
                     className="h-full w-full bg-black object-contain"
                     src={video.src}
                     controls
-                    preload="metadata"
+                    preload="none"
                     playsInline
+                    muted
                   />
                 ) : (
                   <>

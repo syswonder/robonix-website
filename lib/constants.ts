@@ -498,11 +498,11 @@ export const DEMO = {
       id: 'hardware-decoupling',
       title: { en: 'Cross-Platform Hardware Decoupling Verification', zh: '跨平台硬件解耦验证' },
       description: {
-        en: 'To verify its hardware decoupling execution capabilities, Robonix successfully conducted cross-platform demonstrations of the same task workflow on both the AgileX Ranger rover and the DeepRobotics Lite3 quadruped robot. The tests confirm that Robonix can seamlessly bridge different hardware morphologies, directly mapping natural language navigation commands into the robot\'s actual execution behaviors, while maintaining a real-time feedback mechanism based on environmental perception.',
-        zh: '为验证硬件解耦执行能力，Robonix 在松灵 Ranger 小车和云深处 Lite3 机器狗上完成了同一套任务流程的跨平台演示。测试证实，Robonix 能够跨越不同硬件形态，将自然语言导航指令直接映射为机器的实际运行行为，并具备基于环境感知的实时反馈机制。',
+        en: 'To verify hardware decoupling, Robonix demonstrated two cross-platform decoupling scenarios — robotic arm to robotic arm, and wheeled chassis to robot dog — running the same task workflow seamlessly across different arms and different mobile bases. The tests confirm that Robonix bridges different hardware morphologies, mapping natural-language commands into actual execution with real-time environmental perception feedback.',
+        zh: '为验证硬件解耦执行能力，Robonix 演示了机械臂与机械臂、机械底盘与机器狗两组跨平台解耦——同一套任务流程在不同机械臂之间、不同移动底盘之间无缝迁移。测试证实，Robonix 能够跨越不同硬件形态，将自然语言指令直接映射为机器的实际运行行为，并具备基于环境感知的实时反馈机制。',
       },
-      src: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-cross-embodiment-demo.mp4',
-      duration: '2:36',
+      src: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/multi_hareware.mp4',
+      duration: '9:02',
     },
     {
       id: 'autonomous-pick-delivery',
