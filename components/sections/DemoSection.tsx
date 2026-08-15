@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState, type PointerEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from '@/context/LocaleContext';
 import { t } from '@/lib/i18n';
@@ -12,6 +12,27 @@ export default function DemoSection() {
   const [activeVideo, setActiveVideo] = useState(0);
 
   const video = DEMO.videos[activeVideo];
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
+
+  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    drag.current = { down: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
+  };
+
+  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el || !drag.current.down) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 4) drag.current.moved = true;
+    el.scrollLeft = drag.current.startScroll - dx;
+  };
+
+  const endDrag = () => {
+    drag.current.down = false;
+  };
 
   return (
     <section id="demo" className="relative overflow-hidden py-24 sm:py-32">
@@ -82,19 +103,28 @@ export default function DemoSection() {
             </span>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            ref={scrollRef}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endDrag}
+            onPointerLeave={endDrag}
+            className="flex cursor-grab gap-4 overflow-x-auto pb-2 select-none active:cursor-grabbing"
+          >
             {DEMO.videos.map((v, i) => {
               const active = activeVideo === i;
 
               return (
                 <motion.button
                   key={v.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: i * 0.08 }}
-                  onClick={() => setActiveVideo(i)}
-                  className={`group flex h-full flex-col overflow-hidden rounded-xl border text-left transition-all ${
+                  onClick={() => {
+                    if (drag.current.moved) {
+                      drag.current.moved = false;
+                      return;
+                    }
+                    setActiveVideo(i);
+                  }}
+                  className={`group flex w-72 shrink-0 snap-start flex-col overflow-hidden rounded-xl border text-left transition-all ${
                     active
                       ? 'border-sky-300 bg-[#fafbfc] shadow-xl shadow-sky-500/15 dark:border-cyan-300/40 dark:bg-slate-950/80'
                       : 'border-slate-200 bg-[#fafbfc]/72 shadow-sm backdrop-blur hover:border-sky-300 hover:bg-[#fafbfc] dark:border-white/10 dark:bg-slate-900/58 dark:hover:border-cyan-300/40'
