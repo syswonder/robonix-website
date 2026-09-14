@@ -321,10 +321,10 @@ export default function HardwareSection() {
         </AnimatePresence>
 
         {/* Hardware matrix table */}
-        <div className="mt-16 overflow-x-auto">
+        <div className="mt-16 max-h-[420px] overflow-auto rounded-xl border border-slate-200 dark:border-slate-800">
           <table className="w-full min-w-[640px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-700">
+            <thead className="sticky top-0 z-10">
+              <tr className="border-b border-slate-200 bg-[#f6f8fa] dark:border-slate-700 dark:bg-[#0a0a1a]">
                 {HARDWARE.matrixColumns.map((col) => (
                   <th key={col.key} className="px-4 py-3 font-mono text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     {t(col.label, locale)}

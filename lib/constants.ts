@@ -793,7 +793,28 @@ export const HARDWARE = {
       },
     },
     {
-      name: 'DEEP Robotics Lynx',
+      name: 'Unitree Go2 (MuJoCo)',
+      type: 'simulation',
+      status: 'simulation',
+      task: { en: 'Simulation', zh: '仿真' },
+      image: '/images/go2_mujoco.webp',
+      manufacturer: 'Unitree',
+      specs: [
+        'Native MuJoCo runtime (CPU)',
+        'Pinned rl_sar Go2 walking policy',
+        'ROS 2 bridge (CycloneDDS)',
+        'chassis / camera / lidar / imu primitives',
+        'Rendered RGB-D + planar LiDAR',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.unitree.go2_mujoco/',
+      description: {
+        en: 'A standalone, simulation-only Unitree Go2 body in MuJoCo. It runs the official MJCF and a pinned rl_sar walking policy in a native process, exposing chassis, RGB-D camera, planar LiDAR, and IMU as Robonix primitives over a ROS 2 bridge — no physical robot or Unitree sport daemon required.',
+        zh: '基于 MuJoCo 的 Unitree Go2 纯仿真机体。原生进程运行官方 MJCF 与固定版本的 rl_sar 步态策略，通过 ROS 2 桥接将底盘、RGB-D 相机、平面激光雷达与 IMU 暴露为 Robonix 原语，无需实体机器人或 Unitree 运动守护进程。',
+      },
+    },
+    {
+      name: 'DEEP Robotics Lynx S10',
       type: 'wheeled-quadruped',
       status: 'standalone',
       task: { en: 'Navigation & Patrol', zh: '导航、巡检' },
@@ -805,6 +826,26 @@ export const HARDWARE = {
       description: {
         en: 'DEEP Robotics\' Lynx is a rugged wheeled-legged hybrid quadruped that combines wheel efficiency with legged terrain adaptability — ideal for outdoor patrol and rough-terrain inspection.',
         zh: '云深处科技推出的山猫轮足混合四足机器人，结合轮式高效与足式越障能力，适用于户外巡逻与复杂地形巡检。',
+      },
+    },
+    {
+      name: 'MirrorMe BPX',
+      type: 'quadruped',
+      status: 'standalone',
+      task: { en: 'Posture & Odometry', zh: '姿态与里程计' },
+      image: '/images/mirrorme_bpx-720.webp',
+      manufacturer: 'MirrorMe Robotics',
+      specs: [
+        '12-joint quadruped (18-link model)',
+        'Odom + joint-state telemetry',
+        'Stand / sit posture RPC',
+        'Safety-first, fail-closed activation',
+      ],
+      tested: true,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.mirrorme.bpx/',
+      description: {
+        en: 'MirrorMe\'s BPX is a safety-first quadruped robot connected through its vendor SDK. The Robonix deployment exposes live odometry and 12-joint state telemetry, plus explicit stand and sit posture RPCs — with no autonomous navigation, mapping, or localization. A pre-release integration (v0.1.0-dev.2) with fail-closed activation.',
+        zh: 'MirrorMe 推出的 BPX 四足机器人，通过厂商 SDK 接入 Robonix。部署暴露实时里程计与 12 关节状态遥测，并提供显式的站立/蹲下姿态 RPC——不包含自主导航、建图或定位。当前为预发布集成（v0.1.0-dev.2），激活采用 fail-closed 安全策略。',
       },
     },
     {
