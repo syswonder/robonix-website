@@ -501,7 +501,7 @@ export const DEMO = {
         en: 'To verify hardware decoupling, Robonix demonstrated two cross-platform decoupling scenarios — robotic arm to robotic arm, and wheeled chassis to robot dog — running the same task workflow seamlessly across different arms and different mobile bases. The tests confirm that Robonix bridges different hardware morphologies, mapping natural-language commands into actual execution with real-time environmental perception feedback.',
         zh: '为验证硬件解耦执行能力，Robonix 演示了机械臂与机械臂、机械底盘与机器狗两组跨平台解耦——同一套任务流程在不同机械臂之间、不同移动底盘之间无缝迁移。测试证实，Robonix 能够跨越不同硬件形态，将自然语言指令直接映射为机器的实际运行行为，并具备基于环境感知的实时反馈机制。',
       },
-      src: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/multi_hareware.mp4',
+      src: { en: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260920/robonix-full-demo-en.mp4', zh: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/multi_hareware.mp4' },
       duration: '9:02',
     },
     {
@@ -511,7 +511,8 @@ export const DEMO = {
         en: 'Demonstrating a complete autonomous pick-and-delivery workflow: the robot navigates to a target location, picks up an object, transports it to the destination, and returns without human intervention.',
         zh: '展示完整的自主取送闭环工作流：机器人自主导航至目标位置、拾取物品、运送至目的地并返回，全程无需人工干预。',
       },
-      src: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-autonomous-pick-and-delivery-demo.mp4',
+      // English URL TBD — default to the Chinese version for now.
+      src: { en: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-autonomous-pick-and-delivery-demo.mp4', zh: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-autonomous-pick-and-delivery-demo.mp4' },
       duration: '3:29',
     },
     {
@@ -521,7 +522,8 @@ export const DEMO = {
         en: 'Showcasing Robonix\'s ability to handle multiple concurrent tasks and respond to real-time interruptions. When a higher-priority command arrives mid-execution, the robot gracefully suspends the current task, switches context, and resumes seamlessly.',
         zh: '展示 Robonix 处理多个并发任务并响应实时中断的能力。当高优先级指令在任务执行中途到达时，机器人能够优雅地挂起当前任务、切换上下文并无缝恢复。',
       },
-      src: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-interruptible-multitask-execution-demo.mp4',
+      // English URL TBD — default to the Chinese version for now.
+      src: { en: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-interruptible-multitask-execution-demo.mp4', zh: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-interruptible-multitask-execution-demo.mp4' },
       duration: '6:24',
     },
     {
@@ -531,7 +533,8 @@ export const DEMO = {
         en: 'Showcasing Robonix\'s dynamic navigation: real-time speed adjustment while the robot is in motion.',
         zh: '展示 Robonix 的动态导航能力：支持用户在导航任务执行期间，实时调节机器人的行进速度。',
       },
-      src: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-dynamic-navigation-speed-demo.mp4',
+      // English URL TBD — default to the Chinese version for now.
+      src: { en: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-dynamic-navigation-speed-demo.mp4', zh: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20260804/robonix-dynamic-navigation-speed-demo.mp4' },
       duration: '1:47',
     },
     {
@@ -541,7 +544,8 @@ export const DEMO = {
         en: 'A brain-computer interface experiment by Prof. Xu Chenren\'s research group at Peking University — users interact with another person\'s embodied robot through thought, with Robonix as the middleware.',
         zh: '北京大学许辰人教授课题组进行的脑机接口实验：用户通过意念与他人的具身机器人交互，Robonix 作为中间层。',
       },
-      src: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4',
+      // English URL TBD — default to the Chinese version for now.
+      src: { en: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4', zh: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4' },
       duration: '1:00',
     },
   ],

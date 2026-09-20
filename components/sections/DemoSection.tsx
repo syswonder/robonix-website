@@ -12,6 +12,7 @@ export default function DemoSection() {
   const [activeVideo, setActiveVideo] = useState(0);
 
   const video = DEMO.videos[activeVideo];
+  const videoSrc = t(video.src, locale);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -51,7 +52,7 @@ export default function DemoSection() {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [video.src]);
+  }, [videoSrc]);
 
   return (
     <section id="demo" className="relative overflow-hidden py-24 sm:py-32">
@@ -69,12 +70,12 @@ export default function DemoSection() {
               className="overflow-hidden rounded-xl border border-slate-200 bg-slate-950 shadow-2xl shadow-sky-900/10 dark:border-white/10"
             >
               <div className="relative aspect-video">
-                {'src' in video && video.src ? (
+                {videoSrc ? (
                   <video
-                    key={video.src}
+                    key={videoSrc}
                     ref={videoRef}
                     className="h-full w-full bg-black object-contain"
-                    src={video.src}
+                    src={videoSrc}
                     controls
                     preload="none"
                     playsInline
@@ -152,10 +153,10 @@ export default function DemoSection() {
                   }`}
                 >
                   <div className="relative aspect-video bg-slate-950">
-                    {'src' in v && v.src ? (
+                    {t(v.src, locale) ? (
                       <video
                         className="h-full w-full object-cover opacity-80"
-                        src={`${v.src}#t=0.1`}
+                        src={`${t(v.src, locale)}#t=0.1`}
                         muted
                         preload="auto"
                         playsInline
@@ -175,7 +176,7 @@ export default function DemoSection() {
                       }`}>
                         ▶
                       </span>
-                      {!('src' in v && v.src) && (
+                      {!t(v.src, locale) && (
                         <span className="rounded-full border border-white/15 bg-black/30 px-2.5 py-0.5 text-[10px] font-bold text-white backdrop-blur">
                           {locale === 'en' ? 'Coming Soon' : '敬请期待'}
                         </span>
