@@ -11,6 +11,7 @@ export const NAV_LINKS: { label: { en: string; zh: string }; href: string }[] = 
 export const NAV_EXTERNAL_LINKS = [
   { label: { en: 'Docs', zh: '文档' }, href: 'https://book.robonix.ai/' },
   { label: { en: 'Packages', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
+  { label: { en: 'Robonix Hub', zh: 'Robonix Hub' }, href: 'https://hub.robonix.ai/' },
   { label: { en: 'Skill Forge', zh: '技能工坊' }, href: '/skill-forge' },
 ];
 
