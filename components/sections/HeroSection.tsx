@@ -86,7 +86,7 @@ export default function HeroSection() {
 
           <div className={`mb-8 flex max-w-full flex-col gap-4 sm:flex-row ${isLight ? 'justify-center' : ''}`}>
             <motion.a
-              href="https://book.robonix.ai/integration-guide/vendor-onboarding"
+              href="https://hub.robonix.ai/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}

@@ -10,9 +10,8 @@ export const NAV_LINKS: { label: { en: string; zh: string }; href: string }[] = 
 
 export const NAV_EXTERNAL_LINKS = [
   { label: { en: 'Docs', zh: '文档' }, href: 'https://book.robonix.ai/' },
-  { label: { en: 'Packages', zh: '包目录' }, href: 'https://packages.robonix.ai/' },
-  { label: { en: 'Robonix Hub', zh: 'Robonix Hub' }, href: 'https://hub.robonix.ai/' },
-  { label: { en: 'Skill Forge', zh: '技能工坊' }, href: '/skill-forge' },
+  { label: { en: 'Packages', zh: '软件包目录' }, href: 'https://packages.robonix.ai/' },
+  { label: { en: 'Robonix Hub', zh: '具身智能共创平台' }, href: 'https://hub.robonix.ai/' },
 ];
 
 export const NAV_RESOURCES = [
@@ -61,7 +60,7 @@ export const HERO = {
     { label: { en: 'Robot Vendors', zh: '本体厂商' }, value: '10+' },
     { label: { en: 'Robot Form Factors', zh: '本体形态' }, value: '10+' },
     { label: { en: 'Simulation Engines', zh: '仿真引擎' }, value: '3' },
-    { label: { en: 'Fully Open Skill Forge', zh: '完全开放的技能工坊' }, value: '' },
+    { label: { en: 'Robonix Hub', zh: '具身智能共创平台' }, value: '' },
   ],
 };
 
@@ -1260,6 +1259,15 @@ export const ECOSYSTEM = {
       },
       href: 'https://robonix-ci-reports.syswonder.org/reports/',
     },
+    {
+      icon: '🤝',
+      title: { en: 'Robonix Hub', zh: '具身智能共创平台' },
+      description: {
+        en: 'Robonix Hub is built for embodied AI developers — aggregating robot body adaptation, models, skills, data, and application outcomes, and enabling resource publishing, discovery, sharing, and collaboration, so a single innovation becomes a capability more robots can reuse.',
+        zh: 'Robonix Hub 面向具身智能开发者，汇聚机器人本体适配、模型、技能、数据与应用成果，支持资源发布、发现、共享和协作，让一次创新成为更多机器人可以复用的能力。',
+      },
+      href: 'https://hub.robonix.ai/',
+    },
   ],
 };
 
@@ -1285,6 +1293,11 @@ export const CTA = {
     {
       label: { en: 'Read Documentation', zh: '阅读文档' },
       href: 'https://book.robonix.ai/',
+      primary: false,
+    },
+    {
+      label: { en: 'Robonix Hub', zh: '具身智能共创平台' },
+      href: 'https://hub.robonix.ai/',
       primary: false,
     },
   ],
