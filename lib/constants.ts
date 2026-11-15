@@ -548,6 +548,17 @@ export const DEMO = {
       src: { en: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4', zh: 'https://s-ysoul.oss-cn-hangzhou.aliyuncs.com/video/embody/%E8%84%91%E6%9C%BA.mp4' },
       duration: '1:00',
     },
+    {
+      id: 'nova5-visual-grasp',
+      title: { en: 'Nova5 Visual Grasping & Skill Scheduling Demo', zh: 'Nova5 机械臂视觉抓取与自主技能调度演示' },
+      description: {
+        en: 'A vision-guided pick-and-place demo on the Nova5 robotic arm powered by Robonix. The arm visually observes the scene, grasps the target, places it at the destination, and returns to its home position — with Robonix autonomously scheduling the perception and manipulation skills to close the loop end-to-end without human intervention.',
+        zh: '在 Nova5 机械臂上基于 Robonix 实现的视觉抓取与自主技能调度演示：机械臂进行视觉观察、抓取目标、放置到位并回到初始位置，由 Robonix 自主调度感知与操作技能，端到端闭环、全程无需人工干预。',
+      },
+      // Single video serves both locales.
+      src: { en: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20261115/robonix-nova5-visual-grasp-demo.mp4', zh: 'https://wheatfox.oss-cn-beijing.aliyuncs.com/robonix/videos/20261115/robonix-nova5-visual-grasp-demo.mp4' },
+      duration: '1:00',
+    },
   ],
 };
 
