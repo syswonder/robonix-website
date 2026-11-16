@@ -1196,7 +1196,7 @@ export const VENDORS = {
     { name: 'BeingBeyond', logo: '/images/BeingBeyond.svg', url: 'https://beingbeyond.com' },
     { name: 'JAKA', logo: '/images/Jaka.png', url: 'https://www.jaka.com/zh' },
     { name: 'ModelBest', logo: '/images/ModelBest.svg', url: 'https://modelbest.cn' },
-    { name: 'Dobot', logo: '/images/dobot.png', url: 'https://www.dobot.cn/' },
+    { name: 'Dobot', logo: '/images/dobot.svg', url: 'https://www.dobot.cn/' },
   ],
 };
 
