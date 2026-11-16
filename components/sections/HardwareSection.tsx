@@ -23,6 +23,22 @@ const STATUS_BADGE: Record<string, { en: string; zh: string; className: string }
   simulation: { en: 'Simulation', zh: '仿真平台', className: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700/40' },
 };
 
+function NoImagePlaceholder({ label }: { label: string }) {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-slate-400">
+      <svg className="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="8" width="16" height="10" rx="2" />
+        <path d="M12 8V5.5" />
+        <circle cx="12" cy="4" r="1.5" />
+        <circle cx="9" cy="13" r="1" fill="currentColor" stroke="none" />
+        <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none" />
+        <path d="M7 18h10" />
+      </svg>
+      <span className="font-mono text-[11px] font-bold uppercase tracking-wider">{label}</span>
+    </div>
+  );
+}
+
 export default function HardwareSection() {
   const { locale } = useLocale();
   const [activeFilter, setActiveFilter] = useState('all');
@@ -156,17 +172,23 @@ export default function HardwareSection() {
           >
             <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-slate-950">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(14,165,233,0.28),transparent_34%),linear-gradient(135deg,#0f172a,#020617)]" />
-              <button
-                type="button"
-                onClick={() => setZoomedImage(selectedRobot.image)}
-                className="relative z-10 flex h-full w-full cursor-zoom-in items-center justify-center p-4"
-              >
-                <img
-                  src={selectedRobot.image}
-                  alt={selectedRobot.name}
-                  className="max-h-[340px] max-w-[90%] object-contain drop-shadow-[0_0_34px_rgba(56,189,248,0.38)] transition-transform hover:scale-105"
-                />
-              </button>
+              {selectedRobot.image ? (
+                <button
+                  type="button"
+                  onClick={() => setZoomedImage(selectedRobot.image)}
+                  className="relative z-10 flex h-full w-full cursor-zoom-in items-center justify-center p-4"
+                >
+                  <img
+                    src={selectedRobot.image}
+                    alt={selectedRobot.name}
+                    className="max-h-[340px] max-w-[90%] object-contain drop-shadow-[0_0_34px_rgba(56,189,248,0.38)] transition-transform hover:scale-105"
+                  />
+                </button>
+              ) : (
+                <div className="relative z-10 flex h-full w-full items-center justify-center p-4">
+                  <NoImagePlaceholder label={locale === 'en' ? 'No image yet' : '暂无图片'} />
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col justify-center">
@@ -285,11 +307,17 @@ export default function HardwareSection() {
                     >
                       <div className="relative h-[245px] overflow-hidden bg-[radial-gradient(circle_at_50%_38%,rgba(14,165,233,0.28),transparent_36%),linear-gradient(145deg,#1e293b,#020617)]">
                         <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0_44%,rgba(56,189,248,0.18)_44.2%,transparent_44.8%_68%,rgba(59,130,246,0.12)_68.2%,transparent_68.8%)]" />
-                        <img
-                          src={robot.image}
-                          alt=""
-                          className="relative z-10 h-full w-full object-contain p-1 drop-shadow-[0_0_28px_rgba(56,189,248,0.32)]"
-                        />
+                        {robot.image ? (
+                          <img
+                            src={robot.image}
+                            alt=""
+                            className="relative z-10 h-full w-full object-contain p-1 drop-shadow-[0_0_28px_rgba(56,189,248,0.32)]"
+                          />
+                        ) : (
+                          <div className="relative z-10 h-full w-full p-1">
+                            <NoImagePlaceholder label={locale === 'en' ? 'No image' : '暂无图片'} />
+                          </div>
+                        )}
                       </div>
                       <div className="border-t border-white/10 bg-slate-950/90 p-4 text-white">
                         <p className="font-mono text-sm font-black">{robot.name}</p>
