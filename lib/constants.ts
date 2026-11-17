@@ -782,7 +782,7 @@ export const HARDWARE = {
       type: 'arm',
       status: 'standalone',
       task: { en: 'Pick & Place', zh: '抓取放置' },
-      image: '',
+      image: '/images/nova5.webp',
       manufacturer: 'Dobot',
       specs: [
         '6-axis Nova5 arm (Tool0 MovL)',
