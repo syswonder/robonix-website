@@ -877,6 +877,28 @@ export const HARDWARE = {
       },
     },
     {
+      name: 'CyanRoot Nianzhu-1Y',
+      type: 'service',
+      status: 'integrated',
+      task: { en: 'Care & Check-ins', zh: '护理与查访' },
+      image: '/images/nianzhu.webp',
+      manufacturer: 'CyanRoot',
+      specs: [
+        'CR-1Y body + SLAMTEC Athena 2.0 base',
+        'RK3588 + Jetson Orin Nano Super (8 GB)',
+        'RPLIDAR S2 LiDAR + Orbbec Gemini 335 RGB-D',
+        'XMOS XVF3800 microphone array',
+        'Automatic charging dock',
+        'Speech, memory & web search',
+      ],
+      tested: false,
+      url: 'https://packages.robonix.ai/robots/robonix.robot.cyanroot.nianzhu_1y/',
+      description: {
+        en: 'CyanRoot\'s Nianzhu-1Y is a mobile AI care robot for senior living and long-term care communities. Built on Robonix, it combines the CR-M1 body with a SLAMTEC Athena 2.0 mobile base and supports scheduled indoor rounds, spoken reminders, resident check-ins and staff follow-up through speech, memory and web search capabilities.',
+        zh: 'CyanRoot 推出的 Nianzhu-1Y 是面向养老社区与长期照护场景的移动 AI 陪护机器人。基于 Robonix 构建，融合 CR-M1 机身与 SLAMTEC Athena 2.0 移动底盘，通过语音、记忆与联网搜索能力支持定时室内巡护、语音提醒、长者查访与照护人员跟进。',
+      },
+    },
+    {
       name: 'Unitree Go2',
       type: 'quadruped',
       status: 'standalone',
